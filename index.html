@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
-    <title>CHANGE THIS TITLE IN INDEX.HTML!</title>
+    <title>Galerie Galerie | Manifesto-Garden ✿ Jardin-Manifeste </title>
 
     <!-- CSS stylesheet(s) -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -25,7 +25,46 @@
 
   <body>
     <div id="mapBox">
+
+      <div id="buttons-container">
+        <input id="about-button" type="button" value="About">
+        <input id="axis-button" type="button" value="Axis">
+        <input id="theme-button" type="button" value="Theme">
+        <input id="language-button" type="button" value="Eng/Fr">
+              </div>
+
+      <div id="data-container">
+        theme : <span id="bg-theme">default</span> 
+      </div>
+
       <div id="map" class="mapObject"></div>
+
+      <!-- ADDITONAL DIVS -->
+      <div id="about-sidebar">
+         <div id="sidebar-titlebox">
+         <article id="sidebar-content-title">MANIFESTO-GARDEN</article>   
+         <div id="sidebar-content-subtitle">
+
+          <select name="cars" id="drpMenu-axe">
+            <option value="volvo">Choose an axis</option>
+            <option value="saab">Axe #</option>
+            <option value="opel">Axe #</option>
+            <option value="audi">Axe #</option>
+          </select>
+         </div>
+
+       </div>
+       <div id="sidebar-content">
+
+         <article id="sidebar-content-text">
+           <article>Avec des engagements clairs et des politiques endossées par son conseil d’administration, la compagnie espère contribuer à réduire les inégalités et à faire avancer le milieu artistique vers des pratiques plus saines.</article>
+         <article>L’égalité de genre et de sexe, la décolonisation et la diversification des programmations artistiques sont des priorités pour MH. Au sein de ses différents projets à titre de diffuseur et lieu de résidence (RIRH, Salon58, FURIES), la présence d’artistes autochtones, de personnes racisées, de membres de communautés queer et/ou minorisées est envisagée comme une norme, et non comme une exception. Ces personnes présentent leurs œuvres et s’adressent au public lors de spectacles, rencontres, panels et discussions. MH met également ses valeurs en action avec des commissariats partagés, la promotion de ses projets dans une optique décoloniale, ainsi que des démarches d’auto-éducation et de partage de connaissances avec le milieu culturel. L’organisme s’engage à soutenir les luttes contre la domination coloniale, le sexisme, le racisme et la discrimination avec des gestes concrets : actions de bénévolat ciblées; diffusion des discours liés à ces luttes; mise sur pied de projets structurants pour stimuler la rencontre entre artistes autochtones et allochtones; attention portée à la mise en valeur des langues et traditions autochtones, reconnaissance du territoire. Des perspectives féministes intersectionnelles guident par ailleurs les choix de la compagnie dans toutes ses initiatives. MH adopte un langage épicène dans ses communications internes et externes, en favorisant la neutralité et, lorsque nécessaire, en utilisant les doublets et doublets abrégés. Les différentes programmations artistiques de Mandoline Hybride (RIRH, Salon58, FURIES) sont portées par une volonté ferme de mettre en avant le travail des femmes et personnes non-binaires.</article>
+         </article>
+       </div>
+       <div id="sidebar-footerbox">
+        <div id="sidebarFooter-content"> ꧁ ✿ ꧂</div>
+       </div>
+         </div>
 
     <!-- My script(s) -->
     <script src="js/script.js"></script>
