@@ -103,6 +103,21 @@ html, body{
         width: 45%;
       }
 
+      /* about draggable box settings */
+
+      #about-container{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        padding: 1%;
+        background-color: chartreuse;
+        width: 60%;
+        height: 45%;
+        display: none;
+        z-index: 5;
+        overflow: scroll;
+      }
+
         /* Media Queries */
   @media (max-width: 768px) {
 

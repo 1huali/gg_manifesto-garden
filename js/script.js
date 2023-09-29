@@ -38,6 +38,7 @@ let map = L.map("map", {
 
      //ALL FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
      let axisSidebar = document.getElementById("axis-sidebar");
+     let aboutContainer = document.getElementById("about-container");
     //click on axisSidebar window to close it
     axisSidebar.addEventListener("click", function(){
         axisSidebar.style.display = "none"
@@ -54,8 +55,11 @@ let map = L.map("map", {
     });
 
     document.getElementById("about-button").addEventListener("click", function() {
-        console.log("clicked on about button")
-                
+        if (aboutContainer.style.display === "block" || aboutContainer.style.display === "") {
+            aboutContainer.style.display = "none";
+        } else {
+            aboutContainer.style.display = "block";
+        }                        
     });
 
     document.getElementById("language-button").addEventListener("click", function() {
