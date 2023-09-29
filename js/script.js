@@ -37,19 +37,19 @@ let map = L.map("map", {
 
 
      //ALL FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-     let aboutSidebar = document.getElementById("about-sidebar");
-    //click on aboutSidebar window to close it
-     aboutSidebar.addEventListener("click", function(){
-        aboutSidebar.style.display = "none"
+     let axisSidebar = document.getElementById("axis-sidebar");
+    //click on axisSidebar window to close it
+    axisSidebar.addEventListener("click", function(){
+        axisSidebar.style.display = "none"
      });
-     
+
      //BUTTON FUNCTION :
 
      document.getElementById("axis-button").addEventListener("click", function() {
-        if (aboutSidebar.style.display === "block" || aboutSidebar.style.display === "") {
-            aboutSidebar.style.display = "none";
+        if (axisSidebar.style.display === "block" || axisSidebar.style.display === "") {
+            axisSidebar.style.display = "none";
         } else {
-            aboutSidebar.style.display = "block";
+            axisSidebar.style.display = "block";
         }        
     });
 

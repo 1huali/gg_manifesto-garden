@@ -33,7 +33,7 @@ html, body{
 
   /* sidebar setup (desktop) */
 
-    #about-sidebar {
+    #axis-sidebar {
         position: absolute;
         display: none;
         top: 0;
@@ -106,8 +106,8 @@ html, body{
         /* Media Queries */
   @media (max-width: 768px) {
 
-    /* mobile : about-sidebar settings */
-        #about-sidebar {
+    /* mobile : axis-sidebar settings */
+        #axis-sidebar {
         position: absolute;
         display: none;
         top: 7vh;
