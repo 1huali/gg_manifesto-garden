@@ -36,12 +36,16 @@ let map = L.map("map", {
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
 
-     //FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-
+     //ALL FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+     let aboutSidebar = document.getElementById("about-sidebar");
+    //click on aboutSidebar window to close it
+     aboutSidebar.addEventListener("click", function(){
+        aboutSidebar.style.display = "none"
+     });
+     
      //BUTTON FUNCTION :
 
      document.getElementById("axis-button").addEventListener("click", function() {
-        let aboutSidebar = document.getElementById("about-sidebar");
         if (aboutSidebar.style.display === "block" || aboutSidebar.style.display === "") {
             aboutSidebar.style.display = "none";
         } else {
