@@ -1,0 +1,32 @@
+{
+    "axes": [
+      {
+        "name": "Axis 1",
+        "description": "This is the description for Axis 1.",
+        "links": [
+          "https://example.com/link1",
+          "https://example.com/link2",
+          "https://example.com/link3"
+        ]
+      },
+      {
+        "name": "Axis 2",
+        "description": "This is the description for Axis 2.",
+        "links": [
+          "https://example.com/link4",
+          "https://example.com/link5"
+        ]
+      },
+      {
+        "name": "Axis 3",
+        "description": "This is the description for Axis 3.",
+        "links": [
+          "https://example.com/link6",
+          "https://example.com/link7",
+          "https://example.com/link8",
+          "https://example.com/link9"
+        ]
+      }
+    ]
+  }
+  

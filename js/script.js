@@ -44,9 +44,10 @@ let map = L.map("map", {
      aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
     //  let aboutContainer = document.getElementById("about-container");
     //click on axisSidebar window to close it
-    axisSidebar.addEventListener("click", function(){
-        axisSidebar.style.display = "none"
-     });
+    //??PUT CLOSE BUTTON
+    // axisSidebar.addEventListener("click", function(){
+    //     axisSidebar.style.display = "none"
+    //  });
 
      
 
@@ -76,21 +77,36 @@ let map = L.map("map", {
         console.log("clicked on theme button")
                 
     });
-    let currentAxis = "";
+    //settings for dropdown menu:
+    let currentAxis = "axis0";
     let axisArray = [];
-    axisArray.push(` Axe1 `);
-    axisArray.push(` Axe2 `);
-    axisArray.push(` Axe3 `);
+    axisArray.push(`axis1`);
+    axisArray.push(`axis2`);
+    axisArray.push(`axis3`);
     // asciiArray.push(` ♡ `);
     // asciiArray.push(` ♫ `);
 
+//object creation:
+    let axisObjArray=[];
+    let desc1="hello";
+    let name1="name1";
+    let link1="link1";
+
+      // Create the Axis object:
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",1500,2800,desc1,name1,link1, "this the first axis test grl");
+
+      axisArray.push(axisObj);
+      console.log(axisObj);
+
+      axisObj.reprint();
 
 let axisMenu= document.getElementById("drpMenu-axe");
     axisMenu.addEventListener('change', function(event){
 
         let userSelection = axisMenu.value;
 
-        currentAxis = axisMenu[userSelection]
+        //menu associated to the array:
+        currentAxis = axisArray[userSelection]
         console.log(currentAxis);
         console.log(userSelection);
 

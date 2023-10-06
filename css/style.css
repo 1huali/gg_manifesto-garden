@@ -178,3 +178,24 @@ html, body{
         width: 300px;
         height: 180px;
       }
+
+      .flowerEl{
+        top:0px;
+        font-size: 50px;
+        left: 0px;
+        color: #ac05ffba;
+        width: max-content;
+        height: 50px;
+        position:absolute;
+        z-index: 100;
+        text-align: center;
+        /* background: rgb(255, 84, 218); */
+      }
+
+         /* MARKER */
+    .my-leaflet-tool-tip-class{
+      background:rgb(189, 25, 52);
+      position: absolute;
+      width:max-content;
+      font-size: 1rem;
+    }
