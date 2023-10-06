@@ -17,8 +17,11 @@
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
     <!--  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
-    <script src="js/libraries/jquery-ui.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/libraries/jquery-ui.js"></script>
+    <script src="js/DraggableBox.js"></script>
+    <script src="js/script.js"></script>
+    
 
     <!-- Library script(s) go here -->
   </head>
@@ -48,10 +51,10 @@
          <div id="sidebar-content-subtitle">
 
           <select name="cars" id="drpMenu-axe">
-            <option value="volvo">Choose an axis</option>
-            <option value="saab">Axe #</option>
-            <option value="opel">Axe #</option>
-            <option value="audi">Axe #</option>
+            <option value="axis0">Choose an axis</option>
+            <option value="axis1">Axe #</option>
+            <option value="axis2">Axe #</option>
+            <option value="axis3">Axe #</option>
           </select>
          </div>
 
@@ -69,10 +72,10 @@
          </div>
 
       <!-- about draggable box -->
-      <div id="about-container">
-
-        <div id="about-titlebox">
-          <marquee id="about-msgBox" direction="left">MSG BOX</marquee>
+      <!-- <div id="about-container" ref-class="mydivabout" class="mydiv"> -->
+        <div id="about-container" class="mydiv mydivabout">
+        <div id="about-titlebox" class="aboutheader">
+          <marquee id="about-msgBox" direction="left">Welcome 2the manifesto-garden u lil flower</marquee>
         </div>
         <div id="about-content">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -84,7 +87,7 @@
       </div>
 
     <!-- My script(s) -->
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
   </body>
 
 </html>
