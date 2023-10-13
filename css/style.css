@@ -193,7 +193,8 @@ html, body{
       }
       .linkEl{
         position: absolute;
-        background: rgb(255, 84, 218);
+        font-size: 30px;
+        /* background: rgb(255, 84, 218); */
         width: 50px;
         height: 50px;
         z-index: 50;
@@ -202,7 +203,7 @@ html, body{
       .flowerEl:hover + .divHoverEl {
         background-color: chocolate;
         width: 100px;
-        height: 100px;
+        height: 50px;
         display: block;
         box-shadow: 10px 10px 5px 12px rgb(178, 182, 183);
         text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
@@ -213,8 +214,8 @@ html, body{
       .divHoverEl{
         background-color: #f1f1f1;
         display: none;
-        width: max-content;
-        height: max-content;
-        font-size: 40px;
+        width: 400px;
+        height: 50px;
+        font-size: 20px;
         z-index: 50;
       }

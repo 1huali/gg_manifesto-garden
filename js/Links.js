@@ -34,6 +34,9 @@ class Links extends Axis {
   this.element.style.top=this.yPos+"px";
 this.element.style.left=this.xPos+"px"
 
+// this.element.style.fontSize="20px" //trasferred to the css sheet
+this.element.style.color="white";
+this.element.innerHTML=text;
 
     }
 }
