@@ -25,6 +25,7 @@ const southWest = L.latLng(-90, -180); // Bottom-left corner of the world
 const northEast = L.latLng(90, 180);   // Top-right corner of the world
 const bounds = L.latLngBounds(southWest, northEast);
 
+
     // Initialize the map with minZoom and maxZoom options
 let map = L.map("map", {
     minZoom: minZoomLevel,
@@ -36,6 +37,33 @@ let map = L.map("map", {
     
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
+  // Define the tile layer with the appropriate URL template and options
+  let tileImgArray = [];
+  for (let i = 1; i <= 35; i++) {
+    let tileImg = new Image();
+    tileImg.src = `assets/images/black-tiles/black-tile${i}.png`;
+    tileImgArray.push(tileImg);
+  }
+
+//code for a randomized tile : 
+  L.TileLayer.Custom = L.TileLayer.extend({
+    getTileUrl: function (coords) {
+      let i = Math.floor(Math.random() * tileImgArray.length);
+      return tileImgArray[i].src;
+    },
+    options: {
+      tileSize: 150, // Adjust the tile size according to your images
+      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
+    },
+  });
+
+  L.tileLayer.custom = function () {
+    return new L.TileLayer.Custom();
+  };
+
+
+  // Define the tile layer with the appropriate URL template and options
+  L.tileLayer.custom().addTo(map);
 
      //ALL FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
      //BOXES:
@@ -85,20 +113,24 @@ let map = L.map("map", {
     axisArray.push(`axis3`);
     // asciiArray.push(` ♡ `);
     // asciiArray.push(` ♫ `);
+    let subAxisArray=[];
+    console.log(subAxisArray);
 
 //object creation:
     let axisObjArray=[];
     let desc1="hello";
     let name1="name1";
-    let link1="link1";
+    let linkList= ["link1","link2","link3"];
 
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",1500,2800,desc1,name1,link1, "this the first axis test grl");
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList, "this the first axis test grl");
 
       axisArray.push(axisObj);
-      console.log(axisObj);
-
+      // console.log(axisObj);
       axisObj.reprint();
+
+      axisObj.generateSeeds(3);
+
 
 let axisMenu= document.getElementById("drpMenu-axe");
     axisMenu.addEventListener('change', function(event){

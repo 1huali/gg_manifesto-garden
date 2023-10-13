@@ -8,7 +8,7 @@ class DraggableBox {
  dragElement(elmnt) {
   let locked =false;
   let pos1 =0 ; let pos2 = 0; let pos3 = 0 ; let pos4 = 0;
-  console.log(elmnt);
+  // console.log(elmnt);
 
       // if a mydivehader is present, make it the handle :
   // if (document.getElementsByClassName(elmnt.getAttribute("ref-class") + "header")) {
