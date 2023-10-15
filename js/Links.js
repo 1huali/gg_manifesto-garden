@@ -3,7 +3,7 @@ class Links extends Axis {
         super(map, 0, text, 0, 0, "", "", [], ""); // Pass dummy values for axisNumber, xPos, yPos, info, title, linkArray, and resourceInfo
         this.link = link;
         this.coord = coord;
-        this.text=text;
+        this.text=text; // visual
         // this.flowerPosition = flowerPosition; // Add the flower position variable
         this.linkId=id;
         this.element;
@@ -22,9 +22,6 @@ class Links extends Axis {
     this.xPos = coord.xpos_pixel;
     this.yPos = coord.ypos_pixel;
 
-
-//// NEW STUFFFF =========================================================
-
   // Create the link element if it doesn't exist
   if (!this.element) {
     this.element = L.DomUtil.create("div", "linkEl", this.map._layers[this.mapLayerArray[0]]._container);
@@ -34,9 +31,26 @@ class Links extends Axis {
   this.element.style.top=this.yPos+"px";
 this.element.style.left=this.xPos+"px"
 
-// this.element.style.fontSize="20px" //trasferred to the css sheet
 this.element.style.color="white";
 this.element.innerHTML=text;
 
-    }
+//CREATE HOVER FUNCTION (TO-DO) : 
+
+  //        //creates the hover div element: 
+  //          this.hoverDiv= document.createElement("div");
+  //          // div.id=`favoriteButton${this.element.id}`;
+  //          this.hoverDiv.classList.add("linkDivHoverEl");
+  //          this.hoverDiv.innerHTML="[link div box here]";
+  //          this.element.appendChild(this.hoverDiv);
+    
+  //         //  console.log(this.element);
+  // this.element.addEventListener("mouseover", function(){
+  //   // let self=this;
+  //   this.hoverDiv.style.display= "block"
+  //   setTimeout(() => {
+  //     this.hoverDiv.style.display= "none";
+  //   }, "5000");
+  // });
+
+    } //end constructor
 }

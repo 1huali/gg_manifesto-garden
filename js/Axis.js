@@ -1,5 +1,5 @@
 class Axis {
-    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray, resourceInfo) {
+    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray) {
       this.map = map;
       this.img = img;
       this.xPos = xPos;
@@ -10,7 +10,8 @@ class Axis {
       this.linkArray = linkArray;
       this.subAxisArray = [];
       this.axisNumber= axisNumber;
-      this.resourceInfo= resourceInfo;
+      // this.resourceInfo= resourceInfo;
+      // // console.log(this.name);
   
       this.currentText="NULLLLLL";
       this.fontSize = 10; // Initial font size
@@ -30,14 +31,6 @@ class Axis {
         popupAnchor: [-3, -76]
       });
 
-      let marker = new L.marker([pointlatlng.lat, pointlatlng.lng], { opacity: 1.00 },{icon: myIcon}); //opacity may be set to zero
-      marker.bindTooltip(this.title, {permanent: true, className: "my-leaflet-tool-tip-class", offset: [15, 70] });
-      marker.addTo(map);
-
-      marker.on('click', () => {
-        console.log("clicked on marker");
-      });
-
 }
 
 reprint() {
@@ -55,7 +48,7 @@ reprint() {
   this.element.style.top = `${this.yPos}px`;
 
   // Set any other properties or update the element's content as needed
-  this.element.innerHTML = "꧁ ✿ ꧂"; // Set the content to the flower symbol
+  this.element.innerHTML = "꧁✿ "; // Set the content to the flower symbol
 this.hoverBox();
 }
 
@@ -65,13 +58,27 @@ hoverBox(){
            this.hoverDiv= document.createElement("div");
            // div.id=`favoriteButton${this.element.id}`;
            this.hoverDiv.classList.add("divHoverEl");
-           this.hoverDiv.innerHTML="[☆]";
+           this.hoverDiv.innerHTML=this.name+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
     
-           console.log(this.element);
-
+          //  console.log(this.element);
   this.element.addEventListener("mouseover", function(){
     self.hoverDiv.style.display= "block"
+    setTimeout(() => {
+      self.hoverDiv.style.display= "none";
+    }, "5000");
+  });
+}
+
+axisFunction(desc){
+  //??description doesnt get it
+  this.element.addEventListener("click", function(){
+    let self=this;
+    document.getElementById("axis-sidebar").style.display= "block";
+    // document.getElementById("sidebar-content-text").innerHTML= self.resourceInfo;
+    document.getElementById("sidebar-content-text").innerHTML= desc;
+
+console.log(self.resourceInfo)
   });
 }
 
@@ -92,11 +99,8 @@ generateSeeds(seedCount) {
   for (let i = 0; i < seedCount; i++) {
     let position = this.calculatePosition(i, seedCount);
     console.log(position);
-    // let pointXY = L.point(position.xpos_pixel, position.ypos_pixel);
-    // let pointlatlngSeed = this.map.unproject(pointXY);
 
     //Create the single link object:
-      // let link = new Links(this.map,"✿", pointlatlngSeed, this.linkArray[i],this.axisNumber+"_"+i);
       let link = new Links(this.map,"✿", position, this.linkArray[i],this.axisNumber+"_"+i);
       this.subAxisArray.push(link);
 

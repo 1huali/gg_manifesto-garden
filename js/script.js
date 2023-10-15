@@ -70,7 +70,6 @@ let map = L.map("map", {
      let axisSidebar = document.getElementById("axis-sidebar");
      let aboutContainer = new DraggableBox(document.getElementById("about-container"));
      aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
-    //  let aboutContainer = document.getElementById("about-container");
     //click on axisSidebar window to close it
     //??PUT CLOSE BUTTON
     // axisSidebar.addEventListener("click", function(){
@@ -118,25 +117,35 @@ let map = L.map("map", {
 
 //object creation:
     let axisObjArray=[];
-    let desc1="hello";
+    let desc1="hello this is first axis";
+    let desc2="hi this is snd axis"
     let name1="name1";
+    let name2="name2"
     let linkList= ["link1","link2","link3"];
 
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList, "this the first axis test grl");
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0]);
+      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1]);
 
       axisArray.push(axisObj);
+      axisArray.push(axisObj2);
+
       // console.log(axisObj);
       axisObj.reprint();
+      axisObj2.reprint();
 
       axisObj.generateSeeds(3);
+      axisObj2.generateSeeds(6);
+
+      axisObj.axisFunction(desc1);
+      axisObj2.axisFunction(desc2);
+
 
 
 let axisMenu= document.getElementById("drpMenu-axe");
     axisMenu.addEventListener('change', function(event){
 
         let userSelection = axisMenu.value;
-
         //menu associated to the array:
         currentAxis = axisArray[userSelection]
         console.log(currentAxis);

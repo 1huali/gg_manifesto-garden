@@ -189,7 +189,7 @@ html, body{
         position:absolute;
         z-index: 100;
         text-align: center;
-        background: rgb(255, 84, 218);
+        /* background: rgb(255, 84, 218); */
       }
       .linkEl{
         position: absolute;
@@ -206,15 +206,35 @@ html, body{
         height: 50px;
         display: block;
         box-shadow: 10px 10px 5px 12px rgb(178, 182, 183);
-        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
         padding: 0.2px;
         z-index: 50;
       }
 
-      .divHoverEl{
-        background-color: #f1f1f1;
+      .linkEl:hover+ linkDivHoverEl{
+        background-color: chocolate;
+        width: 100px;
+        height: 50px;
+        display: block;
+        box-shadow: 10px 10px 5px 12px rgb(178, 182, 183);
+        /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
+        padding: 0.2px;
+        z-index: 50;
+      }
+
+      .linkDivHoverEl{
+        /* background-color: #f1f1f1; */
         display: none;
-        width: 400px;
+        width: max-content;
+        height: 50px;
+        font-size: 20px;
+        z-index: 50;
+      }
+
+      .divHoverEl{
+        /* background-color: #f1f1f1; */
+        display: none;
+        width: max-content;
         height: 50px;
         font-size: 20px;
         z-index: 50;
