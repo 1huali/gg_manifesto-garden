@@ -1,5 +1,5 @@
 class Axis {
-    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray,sound) {
+    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray,sound,drpdownRef) {
       this.map = map;
       this.img = img;
       this.xPos = xPos;
@@ -11,13 +11,14 @@ class Axis {
       this.subAxisArray = [];
       this.axisNumber= axisNumber;
       this.sound=sound;
+      this.drpdownRef=drpdownRef;
       this.selected = false;
 
     
       this.currentText="NULLLLLL";
       this.fontSize = 10; // Initial font size
       let pointXY = L.point(this.xPos, this.yPos);
-      let pointlatlng = map.unproject(pointXY);
+      this.pointlatlng = map.unproject(pointXY);
 
     //   this.minBound = [pointlatlng.lat, pointlatlng.lng];
     //   this.maxBound = [pointlatlng.lat + 30, pointlatlng.lng + 70];
@@ -32,6 +33,7 @@ class Axis {
         popupAnchor: [-3, -76]
       });
 
+
 }
 
 reprint() {
@@ -41,8 +43,16 @@ reprint() {
     this.element = L.DomUtil.create("div", "flowerEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.element.setAttribute("id", "flower" + this.axisNumber);
     // this.adjustFontSize();
-  }
 
+    //this changes the description displaying in sidebar menu:
+    this.element.addEventListener("click", function(){
+      self.axisFunction();
+
+      //triggering the change event in the dropdown list from a element click:
+       document.getElementById("drpMenu-axe").value = self.drpdownRef;
+       document.getElementById("drpMenu-axe").dispatchEvent(new Event("change"));
+  });
+  }
 
   // Update the position of the thought element
   this.element.style.left = `${this.xPos}px`;
@@ -72,16 +82,11 @@ hoverBox(){
   });
 }
 
-axisFunction(desc){
-  let self=this;
+axisFunction(){
 
   //From the dropdown menu of the Axis menu, the description matching the user selection will print :
     document.getElementById("axis-sidebar").style.display= "block";
-    document.getElementById("sidebar-content-text").innerHTML= desc;
-
-     // this.element.addEventListener("click", function(){
-
- // });
+    document.getElementById("sidebar-content-text").innerHTML= this.description;
 }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point

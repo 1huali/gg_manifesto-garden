@@ -85,6 +85,10 @@ let map = L.map("map", {
             axisSidebar.style.display = "none";
         } else {
             axisSidebar.style.display = "block";
+            document.getElementById("drpMenu-axe").value = "axis0";
+            document.getElementById("drpMenu-axe").dispatchEvent(new Event("change"));
+            //!! cahnge description too
+
         }        
     });
 
@@ -125,9 +129,11 @@ let map = L.map("map", {
     let linkList= ["link1","link2","link3"];
     let sound = document.getElementById("chimeSound");
 
+    let axisIndex=null;
+
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound);
-      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound);
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound, "axis1");
+      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound, "axis2");
 
       axisArray.push(axisObj);
       axisArray.push(axisObj2);
@@ -137,9 +143,6 @@ let map = L.map("map", {
 
       axisObj.generateSeeds(3);
       axisObj2.generateSeeds(6);
-
-    //  axisObj.axisFunction(desc1);
-    //  axisObj2.axisFunction(desc2);
 
 
     //Select menu for axis sidebar menu:
@@ -154,18 +157,22 @@ for (let i=0;i>axisArray.length;i++ ){
     //Sets and traverses thru JS the list selection in the HTML:
     axisMenuSelect.addEventListener("change", function(){
       //pan user view to the selection:
-   //   panViewToCurrentFlower(axisMenuSelect.value);
+     axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length))-1;
+
+     if (axisIndex >=0){
+    panViewToCurrentFlower(axisIndex);
+  }
+
    selectedAxis = axisMenuSelect.value;
 
    console.log( selectedAxis);
 
         if (axisMenuSelect.value === "axis1"){
-          console.log(axisArray[1].selected)
           selectedAxis = axisMenuSelect.value;
-          axisObj.axisFunction(desc1);
+          axisObj.axisFunction();
         } else if (axisMenuSelect.value === "axis2"){
           selectedAxis = axisMenuSelect.value;
-          axisObj2.axisFunction(desc2);
+          axisObj2.axisFunction();
 
         } else if (axisMenuSelect.value === "axis3"){
           selectedAxis = axisMenuSelect.value;
@@ -176,17 +183,13 @@ for (let i=0;i>axisArray.length;i++ ){
 
   });
 
-//???
-//  function panViewToCurrentFlower(selection){
-//    map.panTo(axisArray[selection].n_latLng);
-//}
-//????Assigns the clicked axis with the correspondant axis value:
-let selectedF= document.getElementsByClassName("flowerEl");
 
-//for (let i=0;i<axisArray.length;i++){
-//  selectedF[i].addEventListener("click", function(){
-//  });
-//}
+//???
+ function panViewToCurrentFlower(selection){
+  console.log(selection)
+   map.panTo(axisArray[selection].pointlatlng);
+}
+
 
 
 //The zoomObj function increases the font size of elements with the class "thoughtEl" based on the current zoom level of a map. 
