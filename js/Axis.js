@@ -1,5 +1,5 @@
 class Axis {
-    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray) {
+    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray,sound) {
       this.map = map;
       this.img = img;
       this.xPos = xPos;
@@ -10,9 +10,10 @@ class Axis {
       this.linkArray = linkArray;
       this.subAxisArray = [];
       this.axisNumber= axisNumber;
-      // this.resourceInfo= resourceInfo;
-      // // console.log(this.name);
-  
+      this.sound=sound;
+      this.selected = false;
+
+    
       this.currentText="NULLLLLL";
       this.fontSize = 10; // Initial font size
       let pointXY = L.point(this.xPos, this.yPos);
@@ -61,9 +62,10 @@ hoverBox(){
            this.hoverDiv.innerHTML=this.name+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
     
-          //  console.log(this.element);
   this.element.addEventListener("mouseover", function(){
     self.hoverDiv.style.display= "block"
+    self.sound.play();
+
     setTimeout(() => {
       self.hoverDiv.style.display= "none";
     }, "5000");
@@ -71,15 +73,15 @@ hoverBox(){
 }
 
 axisFunction(desc){
-  //??description doesnt get it
-  this.element.addEventListener("click", function(){
-    let self=this;
+  let self=this;
+
+  //From the dropdown menu of the Axis menu, the description matching the user selection will print :
     document.getElementById("axis-sidebar").style.display= "block";
-    // document.getElementById("sidebar-content-text").innerHTML= self.resourceInfo;
     document.getElementById("sidebar-content-text").innerHTML= desc;
 
-console.log(self.resourceInfo)
-  });
+     // this.element.addEventListener("click", function(){
+
+ // });
 }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
@@ -101,7 +103,8 @@ generateSeeds(seedCount) {
     console.log(position);
 
     //Create the single link object:
-      let link = new Links(this.map,"✿", position, this.linkArray[i],this.axisNumber+"_"+i);
+    // console.log(this.linkArray);
+      let link = new Links(this.map,"✿", position, this.linkArray,this.axisNumber+"_"+i);
       this.subAxisArray.push(link);
 
   }

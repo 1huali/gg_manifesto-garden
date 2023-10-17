@@ -65,6 +65,7 @@ let map = L.map("map", {
   // Define the tile layer with the appropriate URL template and options
   L.tileLayer.custom().addTo(map);
 
+
      //ALL FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
      //BOXES:
      let axisSidebar = document.getElementById("axis-sidebar");
@@ -122,35 +123,91 @@ let map = L.map("map", {
     let name1="name1";
     let name2="name2"
     let linkList= ["link1","link2","link3"];
+    let sound = document.getElementById("chimeSound");
 
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0]);
-      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1]);
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound);
+      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound);
 
       axisArray.push(axisObj);
       axisArray.push(axisObj2);
 
-      // console.log(axisObj);
       axisObj.reprint();
       axisObj2.reprint();
 
       axisObj.generateSeeds(3);
       axisObj2.generateSeeds(6);
 
-      axisObj.axisFunction(desc1);
-      axisObj2.axisFunction(desc2);
+    //  axisObj.axisFunction(desc1);
+    //  axisObj2.axisFunction(desc2);
 
 
+    //Select menu for axis sidebar menu:
+    let axisMenuSelect = document.getElementById("drpMenu-axe")
+    let selectedAxis= null;
+//TO-DO: SET AND RESET INITIAL AXIS TO ARRAY 0 ALWAYS AT CLOSE
 
-let axisMenu= document.getElementById("drpMenu-axe");
-    axisMenu.addEventListener('change', function(event){
+for (let i=0;i>axisArray.length;i++ ){
+  console.log(axisArray[i].selected)
+  axisArray[i].selected===false;
+ }
+    //Sets and traverses thru JS the list selection in the HTML:
+    axisMenuSelect.addEventListener("change", function(){
+      //pan user view to the selection:
+   //   panViewToCurrentFlower(axisMenuSelect.value);
+   selectedAxis = axisMenuSelect.value;
 
-        let userSelection = axisMenu.value;
-        //menu associated to the array:
-        currentAxis = axisArray[userSelection]
-        console.log(currentAxis);
-        console.log(userSelection);
+   console.log( selectedAxis);
 
-    });
+        if (axisMenuSelect.value === "axis1"){
+          console.log(axisArray[1].selected)
+          selectedAxis = axisMenuSelect.value;
+          axisObj.axisFunction(desc1);
+        } else if (axisMenuSelect.value === "axis2"){
+          selectedAxis = axisMenuSelect.value;
+          axisObj2.axisFunction(desc2);
+
+        } else if (axisMenuSelect.value === "axis3"){
+          selectedAxis = axisMenuSelect.value;
+
+        } else if (axisMenuSelect.value === "axis0"){
+          selectedAxis = axisMenuSelect.value;
+        }
+
+  });
+
+//???
+//  function panViewToCurrentFlower(selection){
+//    map.panTo(axisArray[selection].n_latLng);
+//}
+//????Assigns the clicked axis with the correspondant axis value:
+let selectedF= document.getElementsByClassName("flowerEl");
+
+//for (let i=0;i<axisArray.length;i++){
+//  selectedF[i].addEventListener("click", function(){
+//  });
+//}
+
+
+//The zoomObj function increases the font size of elements with the class "thoughtEl" based on the current zoom level of a map. 
+//The savedListButton event listener triggers the appendToSaveList function when the button is clicked, which appends saved thoughts to the modal.
+function zoomObj(){
+  let fontSize= 30;
+  let zoomSize= map.getZoom();
+  let zoomOp = fontSize + (zoomSize*5);
+   let x= document.getElementsByClassName("flowerEl");
+   for (let i=0; i<x.length; i++){
+      x[i].style.fontSize = zoomOp+"px";
+   }
+  }
+
+  map.on('moveend', function() {
+
+   // for (let i=0;i< axisArray.length; i++){
+        //reprint at every zoom : 
+        //axisArray[i].reprint();
+   // }
+        zoomObj();
+});
 
     }; //end windown on load
