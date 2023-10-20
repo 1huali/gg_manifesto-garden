@@ -39,9 +39,11 @@ let map = L.map("map", {
 
   // Define the tile layer with the appropriate URL template and options
   let tileImgArray = [];
-  for (let i = 1; i <= 35; i++) {
+  for (let i = 1; i <= 63; i++) {
     let tileImg = new Image();
-    tileImg.src = `assets/images/black-tiles/black-tile${i}.png`;
+    // tileImg.src = `assets/images/black-tiles/black-tile${i}.png`;
+        tileImg.src = `assets/images/neurenoir-tiles/neuronoire-tile${i}.png`;
+
     tileImgArray.push(tileImg);
   }
 
@@ -105,10 +107,26 @@ let map = L.map("map", {
                 
     });
 
-    document.getElementById("theme-button").addEventListener("click", function() {
-        console.log("clicked on theme button")
-                
-    });
+let backgrounds=["theme1","theme2"];
+let currentBg=0;
+// backgrounds[0]=`assets/images/black-tiles/black-tile${i}.png`;
+// backgrounds[1]=`assets/images/neurenoir-tiles/neuronoire-tile${i}.png`;
+console.log(backgrounds);
+
+  document.getElementById("theme-button").addEventListener("click", changeBgPicture);
+  function changeBgPicture() {
+      console.log(currentBg);
+
+if (currentBg >= backgrounds.length-1) {
+  currentBg=0;
+//   room.src = rooms[currentRoom]
+}
+else {
+  currentBg= currentBg+1;
+//     room.src = rooms[currentRoom]
+  }
+}
+
     //settings for dropdown menu:
     let currentAxis = "axis0";
     let axisArray = [];
