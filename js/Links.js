@@ -1,5 +1,5 @@
 class Links extends Axis {
-    constructor(map, text, coord, link,id) {
+    constructor(map, text, coord, link,id,description) {
         super(map, 0, text, 0, 0, "", "", [], ""); // Pass dummy values for axisNumber, xPos, yPos, info, title, linkArray, and resourceInfo
         this.link = link;
         // console.log(link);
@@ -7,9 +7,10 @@ class Links extends Axis {
         this.text=text; // visual
         // this.flowerPosition = flowerPosition; // Add the flower position variable
         this.linkId=id;
-        let clicked=false;
+        this.clicked=false;
         // console.log(link)
         this.element;
+        this.description=description;
         //need hover, sound, dropshadow
         // let pointXY = L.point(coord.xpos_pixel, coord.ypos_pixel);
         let pointXY = L.point(coord.xpos_pixel, coord.ypos_pixel);
@@ -44,7 +45,7 @@ let self=this;
          //creates the hover div element: 
            this.hoverDiv= document.createElement("div");
            this.hoverDiv.classList.add("linkDivHoverEl");
-           this.hoverDiv.innerHTML="[link div box here]";
+           this.hoverDiv.innerHTML=link+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
 
             //creates the seed div element: 
@@ -64,21 +65,21 @@ let self=this;
   });
 //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){
+    if (self.clicked===false){
+      console.log("not lcickd")
 this.classList.remove("linkUnderline");
+}
   });
 //at element click, the element opens the link associated with the element in another window and an underline stays:
   this.element.addEventListener("click", function(){
     // element stays underlined at click:
     //?? doesnt stay clicked
-    console.log(clicked);
 
-    clicked = true;
-    console.log(clicked);
-    if (clicked===true){
+    self.clicked = true;
+    if (self.clicked===true){
       this.classList.add("linkUnderline");
-      console.log(this)
     }
-      window.open(self.link, '_blank');
+      // window.open(self.link, '_blank');
     });
 
     } //end constructor

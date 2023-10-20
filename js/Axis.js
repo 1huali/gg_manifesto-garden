@@ -1,5 +1,5 @@
 class Axis {
-    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray,sound,drpdownRef) {
+    constructor(map, axisNumber, img,titleIcon, xPos, yPos, description, name,linkArray,sound,drpdownRef,linkDescription) {
       this.map = map;
       this.img = img;
       this.xPos = xPos;
@@ -13,6 +13,7 @@ class Axis {
       this.sound=sound;
       this.drpdownRef=drpdownRef;
       this.selected = false;
+      this.linkDescription=linkDescription;
 
     
       this.currentText="NULLLLLL";
@@ -33,13 +34,16 @@ class Axis {
         popupAnchor: [-3, -76]
       });
 
+      // console.log(this.linkArray["lien"+0]);
+
 
 }
 
 reprint() {
   let self=this;
+  this.mapLayerArray = Object.keys(this.map._layers);
   // Create the flower element if it doesn't exist
-  if (!this.element) {
+  //if (!this.element) {
     this.element = L.DomUtil.create("div", "flowerEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.element.setAttribute("id", "flower" + this.axisNumber);
     // this.adjustFontSize();
@@ -52,7 +56,7 @@ reprint() {
        document.getElementById("drpMenu-axe").value = self.drpdownRef;
        document.getElementById("drpMenu-axe").dispatchEvent(new Event("change"));
   });
-  }
+  //}
 
   // Update the position of the thought element
   this.element.style.left = `${this.xPos}px`;
@@ -75,10 +79,10 @@ hoverBox(){
   this.element.addEventListener("mouseover", function(){
     self.hoverDiv.style.display= "block"
     self.sound.play();
-//Hover underline disappeara after 4 seconds:
+//Hover underline disappeara after timeout seconds:
     setTimeout(() => {
       self.hoverDiv.style.display= "none";
-    }, "4000");
+    }, "1000");
   });
 }
 
@@ -93,6 +97,7 @@ axisFunction(){
 calculatePosition(seedIndex, seedCount) {
         let elementWidth=this.element.getBoundingClientRect().width; //to make the center of the DIV from the center
         let elementHeight=this.element.getBoundingClientRect().height; //to make the center of the DIV from the center
+        // let offsetRange=getRandomInt(3);
         let offset = (2 * Math.PI) / seedCount;
         console.log(this.xPos,this.yPos)
         let angle = seedIndex * offset;
@@ -102,14 +107,17 @@ calculatePosition(seedIndex, seedCount) {
         return { xpos_pixel, ypos_pixel };
       }
 
+      getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
 generateSeeds(seedCount) {
   for (let i = 0; i < seedCount; i++) {
+    console.log(this.linkArray["lien"+i])
     let position = this.calculatePosition(i, seedCount);
-    console.log(position);
-
     //Create the single link object:
-    // console.log(this.linkArray);
-      let link = new Links(this.map,"✿", position, this.linkArray,this.axisNumber+"_"+i);
+   // console.log("lien"+seedCount);
+      let link = new Links(this.map,"✿", position, this.linkArray["lien"+i],this.axisNumber+"_"+i,this.linkDescription["descr"+i]);
       this.subAxisArray.push(link);
 
   }

@@ -24,7 +24,15 @@ window.onload = (event) => {
 const southWest = L.latLng(-90, -180); // Bottom-left corner of the world
 const northEast = L.latLng(90, 180);   // Top-right corner of the world
 const bounds = L.latLngBounds(southWest, northEast);
+let currentTileLayer=null;
 
+let backgrounds=[
+  {"src": "assets/images/neurenoir-tiles/neuronoire-tile", "num":"63"},
+  {"src": "assets/images/black-tiles/black-tile", "num":"35"}
+];
+let currentBg=0;
+
+  document.getElementById("theme-button").addEventListener("click", changeBgPicture);
 
     // Initialize the map with minZoom and maxZoom options
 let map = L.map("map", {
@@ -39,15 +47,14 @@ let map = L.map("map", {
 
   // Define the tile layer with the appropriate URL template and options
   let tileImgArray = [];
-  for (let i = 1; i <= 63; i++) {
+  for (let i = 1; i <= backgrounds[currentBg].num; i++) {
     let tileImg = new Image();
-    // tileImg.src = `assets/images/black-tiles/black-tile${i}.png`;
-        tileImg.src = `assets/images/neurenoir-tiles/neuronoire-tile${i}.png`;
+      tileImg.src = backgrounds[currentBg].src+i+".png";
 
     tileImgArray.push(tileImg);
   }
 
-//code for a randomized tile : 
+// code for a randomized tile : 
   L.TileLayer.Custom = L.TileLayer.extend({
     getTileUrl: function (coords) {
       let i = Math.floor(Math.random() * tileImgArray.length);
@@ -63,9 +70,9 @@ let map = L.map("map", {
     return new L.TileLayer.Custom();
   };
 
-
+  currentTileLayer= L.tileLayer.custom();
   // Define the tile layer with the appropriate URL template and options
-  L.tileLayer.custom().addTo(map);
+  currentTileLayer.addTo(map);
 
 
      //ALL FUNCTIONS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
@@ -106,25 +113,57 @@ let map = L.map("map", {
         console.log("clicked on eng/fr button")
                 
     });
-
-let backgrounds=["theme1","theme2"];
-let currentBg=0;
-// backgrounds[0]=`assets/images/black-tiles/black-tile${i}.png`;
-// backgrounds[1]=`assets/images/neurenoir-tiles/neuronoire-tile${i}.png`;
-console.log(backgrounds);
-
-  document.getElementById("theme-button").addEventListener("click", changeBgPicture);
+// CHANGE BG THEME FUNCTION : 
   function changeBgPicture() {
+      console.log(backgrounds);
       console.log(currentBg);
 
 if (currentBg >= backgrounds.length-1) {
   currentBg=0;
-//   room.src = rooms[currentRoom]
 }
 else {
   currentBg= currentBg+1;
-//     room.src = rooms[currentRoom]
   }
+
+  //tile function:
+  // Define the tile layer with the appropriate URL template and options
+  map.removeLayer(currentTileLayer);
+
+  let tileImgArray = [];
+  for (let i =1; i <= backgrounds[currentBg].num; i++) {
+    let tileImg = new Image();
+      tileImg.src = backgrounds[currentBg].src+i+".png";
+
+    tileImgArray.push(tileImg);
+  }
+
+// code for a randomized tile : 
+  L.TileLayer.Custom = L.TileLayer.extend({
+    getTileUrl: function (coords) {
+      let i = Math.floor(Math.random() * tileImgArray.length);
+      return tileImgArray[i].src;
+    },
+    options: {
+      tileSize: 150, // Adjust the tile size according to your images
+      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
+    },
+  });
+
+  L.tileLayer.custom = function () {
+    return new L.TileLayer.Custom();
+  };
+
+
+  // Define the tile layer with the appropriate URL template and options
+    currentTileLayer = L.tileLayer.custom();
+  currentTileLayer.addTo(map);
+  axisObj.reprint();
+  axisObj2.reprint();
+
+  axisObj.generateSeeds(3);
+  axisObj2.generateSeeds(6);
+
+
 }
 
     //settings for dropdown menu:
@@ -136,22 +175,43 @@ else {
     // asciiArray.push(` ♡ `);
     // asciiArray.push(` ♫ `);
     let subAxisArray=[];
-    console.log(subAxisArray);
 
 //object creation:
     let axisObjArray=[];
     let desc1="hello this is first axis";
     let desc2="hi this is snd axis"
-    let name1="name1";
-    let name2="name2"
-    let linkList= ["link1","link2","link3"];
+    let name1="DÉCOLONISATION";
+    let name2="ÉCORESPONSABILITÉ"
+    let linkList= [
+      {lien0:"www.lien1.com",
+      lien1:"www.lien2.com",
+      lien2:"www.lien3.com"},
+      {lien0:"www.lienA.com",
+      lien1:"www.lienB.com",
+      lien2:"www.lienC.com",
+      lien3:"www.lienX.com",
+      lien4:"www.lienY.com",
+      lien5:"www.lienZ.com"}]; //create object w links
+    let linkDescription=[
+      {descr0:"description lien",
+      descr1:"description lien",
+      descr2:"description lienm"},
+      {descr0:"description lien",
+      descr1:"description lien",
+      descr2:"description lien",
+      descr3:"description lien",
+      descr4:"description lien",
+      descr5:"description lien"} //create object w descri
+    ]
+
+
     let sound = document.getElementById("chimeSound");
 
     let axisIndex=null;
 
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound, "axis1");
-      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound, "axis2");
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
+      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
 
       axisArray.push(axisObj);
       axisArray.push(axisObj2);
