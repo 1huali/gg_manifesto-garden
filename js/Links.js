@@ -7,6 +7,7 @@ class Links extends Axis {
         this.text=text; // visual
         // this.flowerPosition = flowerPosition; // Add the flower position variable
         this.linkId=id;
+        let clicked=false;
         // console.log(link)
         this.element;
         //need hover, sound, dropshadow
@@ -37,28 +38,48 @@ this.element.style.color="white";
 this.element.innerHTML=text;
 
 //LINK OPEN :
-//???WHY THE LINK IS UNDEFINED
 let self=this;
-this.element.addEventListener("click", function(){
-  // window.open(this.link, '_blank');
-  console.log(self.link);
-});
 
 //CREATE HOVER FUNCTION : 
          //creates the hover div element: 
            this.hoverDiv= document.createElement("div");
-           // div.id=`favoriteButton${this.element.id}`;
            this.hoverDiv.classList.add("linkDivHoverEl");
            this.hoverDiv.innerHTML="[link div box here]";
            this.element.appendChild(this.hoverDiv);
-    
-          //  console.log(this.element);
+
+            //creates the seed div element: 
+            // this.linkDiv= document.createElement("div");
+            // this.linkDiv.classList.add("linkDivEl");
+            // // this.classList.add("linkUnderline");
+            // this.element.appendChild(this.linkDiv);
+            // console.log(this.linkDiv);
+
+//Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
+    this.classList.add("linkUnderline");
     self.hoverDiv.style.display= "block"
     setTimeout(() => {
       self.hoverDiv.style.display= "none";
     }, "5000");
   });
+//post-hover, the element is not underlined anymore : 
+  this.element.addEventListener("mouseleave", function(){
+this.classList.remove("linkUnderline");
+  });
+//at element click, the element opens the link associated with the element in another window and an underline stays:
+  this.element.addEventListener("click", function(){
+    // element stays underlined at click:
+    //?? doesnt stay clicked
+    console.log(clicked);
+
+    clicked = true;
+    console.log(clicked);
+    if (clicked===true){
+      this.classList.add("linkUnderline");
+      console.log(this)
+    }
+      window.open(self.link, '_blank');
+    });
 
     } //end constructor
 }

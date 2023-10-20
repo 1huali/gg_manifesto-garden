@@ -75,10 +75,10 @@ hoverBox(){
   this.element.addEventListener("mouseover", function(){
     self.hoverDiv.style.display= "block"
     self.sound.play();
-
+//Hover underline disappeara after 4 seconds:
     setTimeout(() => {
       self.hoverDiv.style.display= "none";
-    }, "5000");
+    }, "4000");
   });
 }
 

@@ -239,3 +239,7 @@ html, body{
         font-size: 20px;
         z-index: 50;
       }
+
+      .linkUnderline{
+        text-decoration-line: underline;
+      }
