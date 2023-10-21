@@ -14,7 +14,6 @@ class Links extends Axis {
         //need hover, sound, dropshadow
         // let pointXY = L.point(coord.xpos_pixel, coord.ypos_pixel);
         let pointXY = L.point(coord.xpos_pixel, coord.ypos_pixel);
-        console.log(pointXY);
         // Calculate the pixel coordinates based on the latitude and longitude
     // const pointLatLng = L.latLng(coord.lat, coord.lng);
     // const pointXY = map.project(pointLatLng);
@@ -31,7 +30,6 @@ class Links extends Axis {
     this.element = L.DomUtil.create("div", "linkEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.element.setAttribute("id", "seed" + this.linkId);
   }
-  console.log(this.element);
   this.element.style.top=this.yPos+"px";
 this.element.style.left=this.xPos+"px"
 
@@ -66,7 +64,7 @@ let self=this;
 //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){
     if (self.clicked===false){
-      console.log("not lcickd")
+      // console.log("not lcickd")
 this.classList.remove("linkUnderline");
 }
   });
@@ -79,7 +77,7 @@ this.classList.remove("linkUnderline");
     if (self.clicked===true){
       this.classList.add("linkUnderline");
     }
-      // window.open(self.link, '_blank');
+      window.open(self.link, '_blank');
     });
 
     } //end constructor

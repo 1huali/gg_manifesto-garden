@@ -1,4 +1,5 @@
 html, body{
+  color: greenyellow;
     margin: 0;
     padding: 0;
 }
@@ -25,6 +26,7 @@ html, body{
   }
 
   #data-container{
+    /* color: white; */
     position: absolute;
     z-index: 5;
     bottom: 5%;
@@ -48,7 +50,7 @@ html, body{
       }
 
       #sidebar-content {
-        color: rgb(252, 252, 252);
+        /* color: rgb(252, 252, 252); */
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         margin-top: 12vh;
@@ -62,7 +64,7 @@ html, body{
         height: 10vh;
         padding-top: 2vh;
         background-color:  rgb(0, 0, 0);
-        color: white;
+        /* color: white; */
       }
       #sidebar-content-title{
         font-family: Arial, Helvetica, sans-serif;
@@ -96,7 +98,7 @@ html, body{
 
       #sidebarFooter-content{
         text-align:center;
-        color: rgb(255, 255, 255);
+        /* color: rgb(255, 255, 255); */
       }
 
       #drpMenu-axe{
@@ -110,7 +112,7 @@ html, body{
         top: 10%;
         left: 10%;
         padding: 1%;
-        background-color: chartreuse;
+        background-color: rgb(193, 193, 193);
         width: 60%;
         height: 45%;
         display: none;
@@ -146,7 +148,7 @@ html, body{
         height: 10vh;
         padding-top: 2vh;
         background-color:  rgb(0, 0, 0);
-        color: white;
+        /* color: white; */
       }
 
       #sidebar-footerbox{
@@ -183,13 +185,14 @@ html, body{
         top:0px;
         font-size: 30px;
         left: 0px;
-        color: #ac05ffba;
-        width: max-content;
+        /* color: #ac05ffba; */
+        width: 200px;
         height: 50px;
         position:absolute;
         z-index: 100;
         text-align: center;
         /* background: rgb(255, 84, 218); */
+        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
       }
       .linkEl{
         position: absolute;
@@ -201,12 +204,11 @@ html, body{
       }
 
       .flowerEl:hover + .divHoverEl {
-        background-color: chocolate;
         width: 100px;
         height: 40px;
         display: block;
         box-shadow: 10px 10px 5px 12px rgb(178, 182, 183);
-        /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
+        text-shadow: 1px 1px 2px fuchsia, 0 0 1em blue, 0 0 0.2em blue;
         padding: 0.2px;
         z-index: 50;
       }
@@ -233,7 +235,7 @@ html, body{
 
       .divHoverEl{
         /* background-color: #f1f1f1; */
-        display: none;
+        display: block;
         width: max-content;
         height: 50px;
         font-size: 20px;

@@ -31,7 +31,7 @@
     <!-- Library script(s) go here -->
   </head>
 
-  <body>
+  <body id="body">
     <div id="mapBox">
 
       <div id="buttons-container">
@@ -52,14 +52,15 @@
       <!-- axis sidebar -->
       <div id="axis-sidebar">
          <div id="sidebar-titlebox">
+          <input type="button" id="close-button-axis" value="Close">
          <article id="sidebar-content-title">MANIFESTO-GARDEN</article>   
          <div id="sidebar-content-subtitle">
 
           <select name="cars" id="drpMenu-axe">
             <option value="axis0">Choose an axis</option>
-            <option value="axis1">Axe 1</option>
-            <option value="axis2">Axe 2</option>
-            <option value="axis3">Axe 3</option>
+            <option value="axis1">Décolonialisation</option>
+            <option value="axis2">Écoresponsabilité</option>
+            <option value="axis3">Open Source</option>
           </select>
          </div>
 
@@ -79,6 +80,7 @@
       <!-- about draggable box -->
         <div id="about-container" class="mydiv mydivabout">
         <div id="about-titlebox" class="aboutheader">
+          <input type="button" id="close-button" value="Close">
           <marquee id="about-msgBox" direction="left">Welcome 2the manifesto-garden u lil flower</marquee>
         </div>
         <div id="about-content">

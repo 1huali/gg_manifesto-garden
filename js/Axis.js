@@ -20,6 +20,7 @@ class Axis {
       this.fontSize = 10; // Initial font size
       let pointXY = L.point(this.xPos, this.yPos);
       this.pointlatlng = map.unproject(pointXY);
+      // console.log(this.pointlatlng)
 
     //   this.minBound = [pointlatlng.lat, pointlatlng.lng];
     //   this.maxBound = [pointlatlng.lat + 30, pointlatlng.lng + 70];
@@ -71,7 +72,6 @@ hoverBox(){
   let self=this;
          //creates the hover div element: 
            this.hoverDiv= document.createElement("div");
-           // div.id=`favoriteButton${this.element.id}`;
            this.hoverDiv.classList.add("divHoverEl");
            this.hoverDiv.innerHTML=this.name+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
@@ -99,7 +99,7 @@ calculatePosition(seedIndex, seedCount) {
         let elementHeight=this.element.getBoundingClientRect().height; //to make the center of the DIV from the center
         // let offsetRange=getRandomInt(3);
         let offset = (2 * Math.PI) / seedCount;
-        console.log(this.xPos,this.yPos)
+        // console.log(this.xPos,this.yPos)
         let angle = seedIndex * offset;
         let radius = 100;
         let xpos_pixel = (this.xPos+elementWidth/2)  + radius * Math.cos(angle);
@@ -113,7 +113,7 @@ calculatePosition(seedIndex, seedCount) {
 
 generateSeeds(seedCount) {
   for (let i = 0; i < seedCount; i++) {
-    console.log(this.linkArray["lien"+i])
+    // console.log(this.linkArray["lien"+i])
     let position = this.calculatePosition(i, seedCount);
     //Create the single link object:
    // console.log("lien"+seedCount);
