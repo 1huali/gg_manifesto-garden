@@ -47,12 +47,10 @@ reprint() {
   //if (!this.element) {
     this.element = L.DomUtil.create("div", "flowerEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.element.setAttribute("id", "flower" + this.axisNumber);
-    // this.adjustFontSize();
 
     //this changes the description displaying in sidebar menu:
     this.element.addEventListener("click", function(){
       self.axisFunction();
-
       //triggering the change event in the dropdown list from a element click:
        document.getElementById("drpMenu-axe").value = self.drpdownRef;
        document.getElementById("drpMenu-axe").dispatchEvent(new Event("change"));

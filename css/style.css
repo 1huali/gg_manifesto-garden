@@ -1,5 +1,5 @@
 html, body{
-  /* color: greenyellow; */
+  color:chartreuse;
     margin: 0;
     padding: 0;
 }
@@ -18,7 +18,7 @@ html, body{
   #buttons-container {
     position: absolute;
     z-index: 5;
-    width: 20rem;
+    width: 40vw;
     height: 7rem;
     top: 1%;
     left: 3%;
@@ -113,9 +113,9 @@ html, body{
         left: 10%;
         padding: 1%;
         background-color: rgb(193, 193, 193);
-        width: 60%;
+        width: 50%;
         height: 45%;
-        display: none;
+        display: block;
         z-index: 5;
         overflow: scroll;
       }
@@ -182,8 +182,9 @@ html, body{
   }
 
   .seedBoxEl:hover  {
-    /* box-shadow: #FF0000; */
     color: #FF0000;
+    text-shadow: 0 0 1px #FF0000, 0 0 1px #0000FF;
+
   }
 
       /* DIV DIALOG BOXES : */
@@ -199,20 +200,20 @@ html, body{
 /* axis element and hover */
       .flowerEl{
         top:0px;
-        font-size: 30px;
+        font-size: 62px;
         left: 0px;
-        color: #fffeffba;
+        color: #ffffff;
         width: 200px;
         height: 50px;
         position:absolute;
         z-index: 100;
         text-align: center;
         /* background: rgb(255, 84, 218); */
-        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        text-shadow: 1px 1px 5px #FF0000, 0 0 5px #0000FF;
       }
       .linkEl{
         position: absolute;
-        font-size: 20px;
+        font-size: 35px;
         /* background: rgb(255, 84, 218); */
         width: 50px;
         height: 50px;
@@ -224,7 +225,7 @@ html, body{
         height: 40px;
         display: block;
         box-shadow: 10px 10px 5px 12px rgb(178, 182, 183);
-        text-shadow: 1px 1px 2px fuchsia, 0 0 1em blue, 0 0 0.2em blue;
+        text-shadow: 1px 1px 2px fuchsia, 0 0 1em blue, 0 0 2px blue;
         padding: 0.2px;
         z-index: 50;
       }
@@ -254,7 +255,7 @@ html, body{
         display: block;
         width: max-content;
         height: 50px;
-        font-size: 20px;
+        font-size: 15px;
         z-index: 50;
       }
 

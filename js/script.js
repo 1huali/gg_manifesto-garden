@@ -8,8 +8,10 @@ author, and this description to match your project!
 
 "use strict";
 let boxIsDragging = false;
-
 window.onload = (event) => {
+  //set dropdown menu at 0 at opening:
+  document.getElementById("drpMenu-axe").value = "axis0";
+  document.getElementById("drpMenu-axe").dispatchEvent(new Event("change")); //not sure what this does
 
    //MAP SETTING ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 // Set the maximum and minimum zoom levels
@@ -85,16 +87,16 @@ let map = L.map("map", {
      
 
      //BUTTON FUNCTION :
-     document.getElementById("axis-button").addEventListener("click", function() {
+    //  document.getElementById("axis-button").addEventListener("click", function() {
         if (axisSidebar.style.display === "block" || axisSidebar.style.display === "") {
             axisSidebar.style.display = "none";
         } else {
             axisSidebar.style.display = "block";
+            //sets back axis dropDown menu at default 0
             document.getElementById("drpMenu-axe").value = "axis0";
             document.getElementById("drpMenu-axe").dispatchEvent(new Event("change"));
-            //!! cahnge description too
         }        
-    });
+    // });
 
     document.getElementById("close-button-axis").addEventListener("click", function(){
       axisSidebar.style.display = "none";
@@ -228,7 +230,7 @@ else {
 
       // Create the Axis object:
       let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
-      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
+      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",1000,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
       let axisObj3 = new Axis(map,3,"assets/images/beam.png","✿$",100,800,desc3,name3,linkList[2],sound, "axis3",linkDescription[2]);
 
       axisArrayObj.push(axisObj);
@@ -280,33 +282,41 @@ for (let i=0;i<axisArrayObj.length;i++ ){
   });
 
 
-//??? to fix
+//??? to fix, positions defficients
  function panViewToCurrentFlower(selection){
   // console.log(selection)
   let x = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length)-1);
   console.log(x)
-   map.panTo([axisArrayObj[x].pointlatlng.lat,axisArrayObj[x].pointlatlng.lng]);
+
+
 }
 
 
-//??? to fix
-//The zoomObj function increases the font size of elements with the class "thoughtEl" based on the current zoom level of a map. 
-//The savedListButton event listener triggers the appendToSaveList function when the button is clicked, which appends saved thoughts to the modal.
+//The zoomObj function increases the font size of elements with the classes" based on the current zoom level of a map. 
 function zoomObj(){
-  let fontSize= 30;
+  //make sure the initial font size on flowerEl css sheet matches the number at the proper zoom level.
+  //in this case, axisObj fontSize is 54 for linkObj 27, the initial at window open is 5 out of 6 increment). 
+  //in case  of changeuse the log to play with zoom values
+  // console.log(zoomOp, zoomOpSeeds);
+  let fontSize= 30; 
+  let fontSizeSeeds=3;
   let zoomSize= map.getZoom();
-  let zoomOp = fontSize + (zoomSize*5);
+  let zoomOp = fontSize + (zoomSize*8);
+  let zoomOpSeeds = fontSizeSeeds + (zoomSize*8);
    let x= document.getElementsByClassName("flowerEl");
+   let y= document.getElementsByClassName("linkEl");
    for (let i=0; i<x.length; i++){
       x[i].style.fontSize = zoomOp+"px";
+      // y[i].style.fontSize = zoomOpSeeds+"px"; //activate when reprint linkEl created 
+      //?? DIV HOVER EL TO WORK ON TOO
    }
   }
-
+//function that links the zoom control to the function:
   map.on('moveend', function() {
-
    for (let i=0;i< axisArrayObj.length; i++){
         // reprint at every zoom : 
         axisArrayObj[i].reprint();
+        // axisArrayObj[i].reprint(); //??CHECK TO REPRINT LINK OBJECTS
    }
         zoomObj();
 });
