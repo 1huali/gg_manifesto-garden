@@ -1,5 +1,5 @@
 class Links extends Axis {
-    constructor(map, text, coord, link,id,description) {
+    constructor(map, text, coord, link,id,description,xPosAxis,yPosAxis) {
         super(map, 0, text, 0, 0, "", "", [], ""); // Pass dummy values for axisNumber, xPos, yPos, info, title, linkArray, and resourceInfo
         this.link = link;
         // console.log(link);
@@ -13,6 +13,8 @@ class Links extends Axis {
         this.description=description;
         //need hover, sound, dropshadow
         // let pointXY = L.point(coord.xpos_pixel, coord.ypos_pixel);
+        this.xPosAxis=xPosAxis;
+        this.yPosAxis=yPosAxis;
         let pointXY = L.point(coord.xpos_pixel, coord.ypos_pixel);
         // Calculate the pixel coordinates based on the latitude and longitude
     // const pointLatLng = L.latLng(coord.lat, coord.lng);
@@ -50,7 +52,7 @@ let self=this;
 //Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
     this.classList.add("linkUnderline");
-    //at hover, little description 
+    //at hover, little description NO NEED
     // self.hoverDiv.style.display= "block"
     // setTimeout(() => {
     //   self.hoverDiv.style.display= "none";
@@ -59,7 +61,6 @@ let self=this;
 //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){
     if (self.clicked===false){
-      // console.log("not lcickd")
 this.classList.remove("linkUnderline");
 }
   });
@@ -68,9 +69,15 @@ this.classList.remove("linkUnderline");
   //box child to the map tile layer:
       this.seedBox = L.DomUtil.create("div", "seedBoxEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.seedBox.setAttribute("id", "seedBoxEl" + id);
+    // console.log("id:"+this.linkId,"xAxis:"+this.xPosAxis,"yAxis:"+this.yPosAxis,"x:"+coord.xpos_pixel,"y:"+coord.ypos_pixel);
+//seed box position of the x axis depends on its offset position from the axis position:
+    if (coord.xpos_pixel>this.xPosAxis+100){
     document.getElementById("seedBoxEl"+id).style.top=coord.ypos_pixel+40+"px";
     document.getElementById("seedBoxEl"+id).style.left=coord.xpos_pixel+40+"px";
-
+  } else {
+    document.getElementById("seedBoxEl"+id).style.top=coord.ypos_pixel+40+"px";
+    document.getElementById("seedBoxEl"+id).style.left=coord.xpos_pixel-200+"px";
+  }
 //coord.xpos_pixel, coord.ypos_pixel);
     let seedContainer = new DraggableBox(document.getElementById("seedBoxEl"+id));
     let parent = document.getElementById("seedBoxEl"+id);
@@ -84,6 +91,7 @@ this.classList.remove("linkUnderline");
     header.innerHTML="seed: "+this.link;
     descDiv.innerHTML = this.description;
     closeDiv.innerHTML = "<CLICK TO OPEN>";
+
 
 //at element click, the element opens the link associated with the element in another window and an underline stays:
   this.element.addEventListener("click", function(){

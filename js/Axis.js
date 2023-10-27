@@ -117,7 +117,7 @@ generateSeeds(seedCount) {
     let position = this.calculatePosition(i, seedCount);
     //Create the single link object:
    // console.log("lien"+seedCount);
-      let link = new Links(this.map,"✿", position, this.linkArray["lien"+i],this.axisNumber+"_"+i,this.linkDescription["descr"+i]);
+      let link = new Links(this.map,"✿", position, this.linkArray["lien"+i],this.axisNumber+"_"+i,this.linkDescription["descr"+i],this.xPos,this.yPos);
       this.subAxisArray.push(link);
 
   }
