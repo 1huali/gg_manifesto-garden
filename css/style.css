@@ -173,12 +173,17 @@ html, body{
   .seedBoxEl{
     display: none;
     width: 200px;
-    height: 150px;
+    height: 50px;
     position: absolute;
     z-index: 20;
     background-color: #f1f1f1;
     border: 1px solid #d3d3d3;
     padding: 5px;
+  }
+
+  .seedBoxEl:hover  {
+    /* box-shadow: #FF0000; */
+    color: #FF0000;
   }
 
       /* DIV DIALOG BOXES : */

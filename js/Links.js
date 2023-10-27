@@ -41,19 +41,20 @@ let self=this;
 
 //CREATE HOVER FUNCTION : 
          //creates the hover div element: 
-           this.hoverDiv= document.createElement("div");
-           this.hoverDiv.classList.add("linkDivHoverEl");
-           this.hoverDiv.innerHTML=link+"<article>"+this.description;
-           this.element.appendChild(this.hoverDiv);
+          //  this.hoverDiv= document.createElement("div");
+          //  this.hoverDiv.classList.add("linkDivHoverEl");
+          //  this.hoverDiv.innerHTML=link+"<article>"+this.description;
+          //  this.element.appendChild(this.hoverDiv);
 
 
 //Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
     this.classList.add("linkUnderline");
-    self.hoverDiv.style.display= "block"
-    setTimeout(() => {
-      self.hoverDiv.style.display= "none";
-    }, "5000");
+    //at hover, little description 
+    // self.hoverDiv.style.display= "block"
+    // setTimeout(() => {
+    //   self.hoverDiv.style.display= "none";
+    // }, "5000");
   });
 //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){
@@ -67,7 +68,10 @@ this.classList.remove("linkUnderline");
   //box child to the map tile layer:
       this.seedBox = L.DomUtil.create("div", "seedBoxEl", this.map._layers[this.mapLayerArray[0]]._container);
     this.seedBox.setAttribute("id", "seedBoxEl" + id);
+    document.getElementById("seedBoxEl"+id).style.top=coord.ypos_pixel+40+"px";
+    document.getElementById("seedBoxEl"+id).style.left=coord.xpos_pixel+40+"px";
 
+//coord.xpos_pixel, coord.ypos_pixel);
     let seedContainer = new DraggableBox(document.getElementById("seedBoxEl"+id));
     let parent = document.getElementById("seedBoxEl"+id);
     let header = document.createElement("div");
@@ -94,8 +98,8 @@ this.classList.remove("linkUnderline");
     });
 
     document.getElementById("seedBoxEl"+this.linkId).addEventListener("click", function(){
-      console.log("clicekd link");
       window.open(self.link, '_blank');
+      document.getElementById("seedBoxEl"+self.linkId).style.display="none";
     });
 
     } //end constructor
