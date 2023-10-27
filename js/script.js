@@ -62,7 +62,7 @@ let map = L.map("map", {
     },
     options: {
       tileSize: 150, // Adjust the tile size according to your images
-      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
+      attribution: "for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
     },
   });
 
@@ -80,11 +80,7 @@ let map = L.map("map", {
      let axisSidebar = document.getElementById("axis-sidebar");
      let aboutContainer = new DraggableBox(document.getElementById("about-container"));
      aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
-    //click on axisSidebar window to close it
-    //??PUT CLOSE BUTTON
-    // axisSidebar.addEventListener("click", function(){
-    //     axisSidebar.style.display = "none"
-    //  });
+
 
      
 
@@ -150,7 +146,7 @@ else {
     },
     options: {
       tileSize: 150, // Adjust the tile size according to your images
-      attribution: "Wawa Li for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
+      attribution: "for Galerie Galerie © OpenStreetMap contributors and internet ppl - THANK U",
     },
   });
   L.tileLayer.custom = function () {
@@ -183,7 +179,7 @@ else {
     let subAxisArray=[];
 
 //object creation:
-    let axisObjArray=[];
+    let axisArrayObj=[];
     let desc1="hello this is first axis";
     let desc2="hi this is 2nd axis";
     let desc3="this is the description for the third axis";
@@ -235,11 +231,10 @@ else {
       let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",600,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
       let axisObj3 = new Axis(map,3,"assets/images/beam.png","✿$",100,800,desc3,name3,linkList[2],sound, "axis3",linkDescription[2]);
 
-      axisArray.push(axisObj);
-      axisArray.push(axisObj2);
-      axisArray.push(axisObj3);
-
-
+      axisArrayObj.push(axisObj);
+      axisArrayObj.push(axisObj2);
+      axisArrayObj.push(axisObj3);
+//!! should change sxisArray to axisArrayDropdownMenu
       axisObj.reprint();
       axisObj2.reprint();
       axisObj3.reprint();
@@ -253,18 +248,18 @@ else {
     let axisMenuSelect = document.getElementById("drpMenu-axe")
     let selectedAxis= null;
 //TO-DO: SET AND RESET INITIAL AXIS TO ARRAY 0 ALWAYS AT CLOSE
-
-for (let i=0;i>axisArray.length;i++ ){
-  console.log(axisArray[i].selected)
-  axisArray[i].selected===false;
+//??not sure axisArrayObj
+for (let i=0;i<axisArrayObj.length;i++ ){
+  console.log(axisArrayObj[i].selected)
+  axisArrayObj[i].selected===false;
  }
     //Sets and traverses thru JS the list selection in the HTML:
     axisMenuSelect.addEventListener("change", function(){
       //pan user view to the selection:
     //  axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length))-1;
     axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length));
-     if (axisIndex >=0){
-    // panViewToCurrentFlower(axisIndex);
+     if (axisIndex >=1){
+    panViewToCurrentFlower(axisIndex);
   }
    selectedAxis = axisMenuSelect.value;
 
@@ -279,7 +274,7 @@ for (let i=0;i>axisArray.length;i++ ){
           axisObj3.axisFunction();
 
         } else if (axisMenuSelect.value === "axis0"){
-          document.getElementById("sidebar-content-text").innerHTML="Bienvenu dans le namifeste GG!! choisis une axe à explorer woohoo"
+          document.getElementById("sidebar-content-text").innerHTML="Bienvenu dans le manifeste GG!! choisis une axe à explorer woohoo"
         }
 
   });
@@ -289,7 +284,8 @@ for (let i=0;i>axisArray.length;i++ ){
  function panViewToCurrentFlower(selection){
   // console.log(selection)
   let x = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length)-1);
-   map.panTo([axisArray[x].pointlatlng.lat,axisArray[x].pointlatlng.lng]);
+  console.log(x)
+   map.panTo([axisArrayObj[x].pointlatlng.lat,axisArrayObj[x].pointlatlng.lng]);
 }
 
 
@@ -306,14 +302,13 @@ function zoomObj(){
    }
   }
 
-  // map.on('moveend', function() {
+  map.on('moveend', function() {
 
-   // for (let i=0;i< axisArray.length; i++){
-        //reprint at every zoom : 
-        //axisArray[i].reprint();
-   // }
-   //??ZOOM WEIRD
-        // zoomObj();
-// });
+   for (let i=0;i< axisArrayObj.length; i++){
+        // reprint at every zoom : 
+        axisArrayObj[i].reprint();
+   }
+        zoomObj();
+});
 
     }; //end windown on load

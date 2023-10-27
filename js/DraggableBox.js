@@ -1,12 +1,14 @@
 class DraggableBox {
     constructor (divContainer){
       // Activates the parent function:
-      this.dragElement(divContainer);
+      // this.dragElement(divContainer);
+
     } //end construtor
 
 
  dragElement(elmnt) {
   let locked =false;
+  let boxIsDragging=false;
   let pos1 =0 ; let pos2 = 0; let pos3 = 0 ; let pos4 = 0;
   // console.log(elmnt);
 
@@ -54,20 +56,22 @@ class DraggableBox {
     pos2 = pos4 - event.clientY;
     pos3 = event.clientX;
      pos4 = event.clientY;
+     console.log(elmnt.offsetTop);
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.top = event.clientY-150 + "px";
+    elmnt.style.left = event.clientX-200 + "px";
     }
   }
 
    function closeDragElement() {
+    console.log("up")
     if(locked ===true){
       locked =false;
       boxIsDragging= false;
     }
     // stop moving when mouse button is released:
-   // document.onmouseup = null;
-    //document.onmousemove = null;
+   document.onmouseup = null;
+    document.onmousemove = null;
 
   }
   }//end dragElement();

@@ -1,5 +1,5 @@
 html, body{
-  color: greenyellow;
+  /* color: greenyellow; */
     margin: 0;
     padding: 0;
 }
@@ -170,6 +170,17 @@ html, body{
       }
   }
 
+  .seedBoxEl{
+    display: none;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    z-index: 20;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    padding: 5px;
+  }
+
       /* DIV DIALOG BOXES : */
       .mydiv {
         position: absolute;
@@ -185,7 +196,7 @@ html, body{
         top:0px;
         font-size: 30px;
         left: 0px;
-        /* color: #ac05ffba; */
+        color: #fffeffba;
         width: 200px;
         height: 50px;
         position:absolute;

@@ -46,12 +46,6 @@ let self=this;
            this.hoverDiv.innerHTML=link+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
 
-            //creates the seed div element: 
-            // this.linkDiv= document.createElement("div");
-            // this.linkDiv.classList.add("linkDivEl");
-            // // this.classList.add("linkUnderline");
-            // this.element.appendChild(this.linkDiv);
-            // console.log(this.linkDiv);
 
 //Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
@@ -68,6 +62,25 @@ let self=this;
 this.classList.remove("linkUnderline");
 }
   });
+
+  //create seedBox:
+  //box child to the map tile layer:
+      this.seedBox = L.DomUtil.create("div", "seedBoxEl", this.map._layers[this.mapLayerArray[0]]._container);
+    this.seedBox.setAttribute("id", "seedBoxEl" + id);
+
+    let seedContainer = new DraggableBox(document.getElementById("seedBoxEl"+id));
+    let parent = document.getElementById("seedBoxEl"+id);
+    let header = document.createElement("div");
+    let descDiv = document.createElement("div");
+    let closeDiv = document.createElement("div");
+
+    parent.appendChild(header);
+    parent.appendChild(descDiv);
+    parent.appendChild(closeDiv);
+    header.innerHTML="seed: "+this.link;
+    descDiv.innerHTML = this.description;
+    closeDiv.innerHTML = "<CLICK TO OPEN>";
+
 //at element click, the element opens the link associated with the element in another window and an underline stays:
   this.element.addEventListener("click", function(){
     // element stays underlined at click:
@@ -77,6 +90,11 @@ this.classList.remove("linkUnderline");
     if (self.clicked===true){
       this.classList.add("linkUnderline");
     }
+    document.getElementById("seedBoxEl"+self.linkId).style.display="block";
+    });
+
+    document.getElementById("seedBoxEl"+this.linkId).addEventListener("click", function(){
+      console.log("clicekd link");
       window.open(self.link, '_blank');
     });
 
