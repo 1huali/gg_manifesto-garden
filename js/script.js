@@ -7,7 +7,7 @@ author, and this description to match your project!
 */
 
 "use strict";
-let boxIsDragging = false;
+// let boxIsDragging = false;
 window.onload = (event) => {
   //set dropdown menu at 0 at opening:
   document.getElementById("drpMenu-axe").value = "axis0";
@@ -81,7 +81,8 @@ let map = L.map("map", {
      //BOXES:
      let axisSidebar = document.getElementById("axis-sidebar");
      let aboutContainer = new DraggableBox(document.getElementById("about-container"));
-     aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
+     //NO need
+     //aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
 
 
      
@@ -103,7 +104,10 @@ let map = L.map("map", {
     });
 
     document.getElementById("about-button").addEventListener("click", function() {
-        if (document.getElementById("about-container").style.display === "block" || document.getElementById("about-container").style.display === "") {
+
+     // console.log(document.getElementById("about-container"));
+        if (document.getElementById("about-container").style.display === "block" 
+        || document.getElementById("about-container").style.display === "") {
             document.getElementById("about-container").style.display = "none";
         } else {
             document.getElementById("about-container").style.display = "block";
@@ -111,6 +115,7 @@ let map = L.map("map", {
     });
 
     document.getElementById("close-button").addEventListener("click", function(){
+      console.log("clicked-close");
       document.getElementById("about-container").style.display = "none";
     });
 

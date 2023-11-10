@@ -1,78 +1,48 @@
 class DraggableBox {
-    constructor (divContainer){
-      // Activates the parent function:
-      // this.dragElement(divContainer);
-
-    } //end construtor
-
-
- dragElement(elmnt) {
-  let locked =false;
-  let boxIsDragging=false;
-  let pos1 =0 ; let pos2 = 0; let pos3 = 0 ; let pos4 = 0;
-  // console.log(elmnt);
-
-      // if a mydivehader is present, make it the handle :
-  // if (document.getElementsByClassName(elmnt.getAttribute("ref-class") + "header")) {
-    // document.getElementsByClassName(elmnt.getAttribute("ref-class") + "header")[0].addEventListener("mousedown",dragMouseDown)
-
-  // } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.addEventListener("mousedown",dragMouseDown);
-   
-  // }
- 
-  elmnt.addEventListener("mouseup",closeDragElement);
-
-
-
-  //  function dragMouseDown() {
-  //   if (boxIsDragging===false){
-  //     console.log("here")
-  //     boxIsDragging=true;
-  function dragMouseDown(event) { // Add event as a parameter
-  if (boxIsDragging === false) {
-    console.log("here");
-    boxIsDragging = true;
-    //mouse is down = true: 
-    locked = true;
-    document.addEventListener("mousemove",elementDrag);
-    // protective meaure that unsets the default setting of an event ; customizing an event's behaviour : 
-    event.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = event.clientX;
-     pos4 = event.clientY;
-    //document.onmouseup = closeDragElement();
-    // call a function whenever the cursor moves:
-   // document.onmousemove = elementDrag();
+  constructor(divContainer) {
+    console.log("this");
+    this.boxIsDragging =false;
+    // Activates the parent function:
+    this.setAsDraggableElement(divContainer);
   }
-}
+  
 
-   function elementDrag() {
-    if(locked ===true){
-    event.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - event.clientX;
-    pos2 = pos4 - event.clientY;
-    pos3 = event.clientX;
-     pos4 = event.clientY;
-     console.log(elmnt.offsetTop);
-    // set the element's new position:
-    elmnt.style.top = event.clientY-150 + "px";
-    elmnt.style.left = event.clientX-200 + "px";
+ setAsDraggableElement(elmnt) {
+    let self = this;
+//     let boxIsDragging = false;
+    elmnt.addEventListener("mousedown", dragMouseDown);
+  elmnt.addEventListener("mouseup", closeDragElement);
+  document.addEventListener("mousemove", elementDrag);
+
+    function dragMouseDown(event) {
+      // Add event as a parameter
+      console.log(event);
+      event.preventDefault();
+      if (self.boxIsDragging === false) {
+        console.log("here");
+        self.boxIsDragging = true;
+       
+      }
     }
-  }
 
-   function closeDragElement() {
-    console.log("up")
-    if(locked ===true){
-      locked =false;
-      boxIsDragging= false;
+    function elementDrag(event) {
+      if (self.boxIsDragging === true) {
+        event.preventDefault();
+        // calculate the new cursor position:
+    ;
+        // set the element's new position:
+        elmnt.style.top = event.clientY - elmnt.getBoundingClientRect().height/2+ "px";
+        elmnt.style.left = event.clientX - elmnt.getBoundingClientRect().width/2 + "px";
+      }
     }
-    // stop moving when mouse button is released:
-   document.onmouseup = null;
-    document.onmousemove = null;
 
-  }
-  }//end dragElement();
-}//end of class
+
+    function closeDragElement() {
+    
+      if (self.boxIsDragging === true) {
+        console.log("up");
+        self.boxIsDragging = false;
+      }
+    }
+  } //end dragElement();
+} //end of class
