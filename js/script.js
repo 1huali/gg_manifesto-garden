@@ -181,6 +181,10 @@ else {
     axisArray.push(`axis1`);
     axisArray.push(`axis2`);
     axisArray.push(`axis3`);
+    axisArray.push(`axis4`);
+    axisArray.push(`axis5`);
+    axisArray.push(`axis6`);
+
     // asciiArray.push(` ♡ `);
     // asciiArray.push(` ♫ `);
     let subAxisArray=[];
@@ -191,14 +195,8 @@ else {
     let desc2="La gravité des changements climatiques est une réalité indéniable. L’internet est à la fois un outil de partage de connaissance cruciale [tutoriel écologique, solidarité, observation] et un problème [entreposage, pollution, chaleur, dépense énergétique]. Face à cette contradiction Galerie Galerie souhaite s’inscrire dans une approche éco responsable visant à réduire son empreinte écologique de manière globale et à encourager ses pairs du milieu culturel à en faire autant. Contrer un manque d'information généraliser concernant les bonnes pratiques et reflexe dans notre utilisation quoditienne des technologie et du web ainsi qu’un manque d’accès à des solution simple et efficace de dépense énergétique. Soutenir les actions gouvernemental et entrepreneurial écoresponsable contre désuetude technologique, low-tech et high-tech ainsi que les innovations en entreposage de données et rechauffement climatique.";
     let desc3="Soutenir et contribuer à la mise en commun et la distribution accessible du savoir et des outils technologique dans une vision de bien commun. Favoriser et encourager l'apprentissage par les pairs en tant que stratégie et méthode d'apprentissage tout au long de la vie. Logiciel, contenu éducatif et technique, l’internet facilite l’échange rapide de connaissance et Galerie Galerie croit que la mise en commun du savoir et le partage entre pair et une des clés pour un avenirs plus juste et équitable. Favoriser l’intelligence individuelle et collective au dépend du gain capitale pour une meilleur qualité de vie. ";
     let desc4="Devant l'évolution incontrôlable de la technologie web, la complexité croissante de la nature des documents produits et la perte irréversible de certains contenus (Harries 1999, LeFugy 2001, Day 2003, Phillips 2003, Barry 2004, Pennock et Kelly 2006), plusieurs initiatives d'archivage du web sont en cours tant à l'échelle régionale et nationale qu'à l'échelle internationale. Elles sont essentiellement menées par des institutions de mémoire ou résultent d'alliances entre diverses institutions. Adoptant de plus en plus des approches distinctes, ces projets se multiplient et se diversifient, indiquant ainsi d'une part l'urgence de telles interventions et, d'autre part, la difficulté d'établir un cadre de référence unique et commun.";
-    let descr5="Tout est fait pour être obsolete (durer 10 ans max)” - où on se situe là-dessus";
-    let descr6="Genre droit à la déconnexion, Contre cyber bullying ";
-    let name1="DÉCOLONISATION";
-    let name2="ÉCORESPONSABILITÉ"
-    let name3="OPEN SOURCE"
-    let name4="ARCHIVAGE";
-    let name5="VALEUR";
-    let name6="HEALTH SECURITY";
+    let desc5="Tout est fait pour être obsolete (durer 10 ans max)” - où on se situe là-dessus";
+    let desc6="Genre droit à la déconnexion, Contre cyber bullying ";
     let linkList= [
       {lien0:"www.lien1.com",
       lien1:"www.lien2.com",
@@ -265,32 +263,45 @@ else {
       descr0:"no seed rn",
     } //create object w descri
     ]
-
+    let name1="DÉCOLONISATION";
+    let name2="ÉCORESPONSABILITÉ"
+    let name3="OPEN SOURCE"
+    let name4="ARCHIVAGE";
+    let name5="VALEUR";
+    let name6="HEALTH SECURITY";
 
     let sound = document.getElementById("chimeSound");
-
     let axisIndex=null;
 
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,450,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
       let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",1000,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
-      let axisObj3 = new Axis(map,3,"assets/images/beam.png","✿$",100,800,desc3,name3,linkList[2],sound, "axis3",linkDescription[2]);
-      let axisObj4 = new Axis(map,4,"assets/images/beam.png","✿$",500,800,desc4,name4,linkList[4],sound, "axis3",linkDescription[4]);
+      let axisObj3 = new Axis(map,3,"assets/images/beam.png","✿$",10,100,desc3,name3,linkList[2],sound, "axis3",linkDescription[2]);
+      let axisObj4 = new Axis(map,4,"assets/images/beam.png","✿$",500,1500,desc4,name4,linkList[3],sound, "axis3",linkDescription[3]);
+      let axisObj5 = new Axis(map,5,"assets/images/beam.png","✿$",200,750,desc5,name5,linkList[4],sound, "axis3",linkDescription[4]);
+      let axisObj6 = new Axis(map,6,"assets/images/beam.png","✿$",1100,1400,desc6,name6,linkList[5],sound, "axis3",linkDescription[5]);
+
 
       axisArrayObj.push(axisObj);
       axisArrayObj.push(axisObj2);
       axisArrayObj.push(axisObj3);
       axisArrayObj.push(axisObj4);
+      axisArrayObj.push(axisObj5);
+      axisArrayObj.push(axisObj6);
 //!! should change sxisArray to axisArrayDropdownMenu
       axisObj.reprint();
       axisObj2.reprint();
       axisObj3.reprint();
       axisObj4.reprint();
+      axisObj5.reprint();
+      axisObj6.reprint();
 
       axisObj.generateSeeds(3);
       axisObj2.generateSeeds(6);
       axisObj3.generateSeeds(5);
       axisObj4.generateSeeds(8);
+      axisObj5.generateSeeds(1);
+      axisObj6.generateSeeds(1);
 
 
     //Select menu for axis sidebar menu:
@@ -299,7 +310,7 @@ else {
 //TO-DO: SET AND RESET INITIAL AXIS TO ARRAY 0 ALWAYS AT CLOSE
 //??not sure axisArrayObj
 for (let i=0;i<axisArrayObj.length;i++ ){
-  console.log(axisArrayObj[i].selected)
+  // console.log(axisArrayObj[i].selected)
   axisArrayObj[i].selected===false;
  }
     //Sets and traverses thru JS the list selection in the HTML:
@@ -324,6 +335,13 @@ for (let i=0;i<axisArrayObj.length;i++ ){
 
         } else if (axisMenuSelect.value === "axis4"){
           axisObj4.axisFunction();
+
+        }
+        else if (axisMenuSelect.value === "axis5"){
+          axisObj5.axisFunction();
+
+        } else if (axisMenuSelect.value === "axis6"){
+          axisObj6.axisFunction();
 
         } else if (axisMenuSelect.value === "axis0"){
           document.getElementById("sidebar-content-text").innerHTML="Bienvenu dans le manifeste GG!! choisis une axe à explorer woohoo"

@@ -71,7 +71,6 @@ hoverBox(){
          //creates the hover div element: 
            this.hoverDiv= document.createElement("div");
            this.hoverDiv.classList.add("divHoverEl");
-           console.log(this.name)
            this.hoverDiv.innerHTML=this.name;
           //  this.hoverDiv.innerHTML=this.name+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
