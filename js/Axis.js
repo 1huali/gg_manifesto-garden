@@ -71,7 +71,9 @@ hoverBox(){
          //creates the hover div element: 
            this.hoverDiv= document.createElement("div");
            this.hoverDiv.classList.add("divHoverEl");
-           this.hoverDiv.innerHTML=this.name+"<article>"+this.description;
+           console.log(this.name)
+           this.hoverDiv.innerHTML=this.name;
+          //  this.hoverDiv.innerHTML=this.name+"<article>"+this.description;
            this.element.appendChild(this.hoverDiv);
     
   this.element.addEventListener("mouseover", function(){
@@ -88,6 +90,7 @@ axisFunction(){
 
   //From the dropdown menu of the Axis menu, the description matching the user selection will print :
     document.getElementById("axis-sidebar").style.display= "block";
+    document.getElementById("sidebar-content-title").innerHTML=this.name;
     document.getElementById("sidebar-content-text").innerHTML= this.description;
 }
 

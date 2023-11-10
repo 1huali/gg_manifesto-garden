@@ -92,6 +92,8 @@ html, body{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 2rem;
         text-align: center;
+        width: 30vw;
+        
       }
     
       #sidebar-content-subtitle{
@@ -274,9 +276,9 @@ html, body{
       }
 
       .divHoverEl{
-        /* background-color: #f1f1f1; */
+        /* background-color: #ff2323; */
         display: block;
-        width: max-content;
+        width: 200px;
         height: 50px;
         font-size: 15px;
         z-index: 50;

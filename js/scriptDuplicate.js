@@ -1,13 +1,10 @@
-/**
-Title of Project
-Author Name
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+    /**
+VERSION OU LE PAN FONCTIONNAIT (JE PENSE)
 */
 
 "use strict";
-// let boxIsDragging = false;
+let boxIsDragging = false;
 window.onload = (event) => {
   //set dropdown menu at 0 at opening:
   document.getElementById("drpMenu-axe").value = "axis0";
@@ -81,8 +78,7 @@ let map = L.map("map", {
      //BOXES:
      let axisSidebar = document.getElementById("axis-sidebar");
      let aboutContainer = new DraggableBox(document.getElementById("about-container"));
-     //NO need
-     //aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
+     aboutContainer.dragElement(document.getElementById("about-container")); // You need to call the dragElement method
 
 
      
@@ -104,10 +100,7 @@ let map = L.map("map", {
     });
 
     document.getElementById("about-button").addEventListener("click", function() {
-
-     // console.log(document.getElementById("about-container"));
-        if (document.getElementById("about-container").style.display === "block" 
-        || document.getElementById("about-container").style.display === "") {
+        if (document.getElementById("about-container").style.display === "block" || document.getElementById("about-container").style.display === "") {
             document.getElementById("about-container").style.display = "none";
         } else {
             document.getElementById("about-container").style.display = "block";
@@ -115,7 +108,6 @@ let map = L.map("map", {
     });
 
     document.getElementById("close-button").addEventListener("click", function(){
-      console.log("clicked-close");
       document.getElementById("about-container").style.display = "none";
     });
 
@@ -188,17 +180,11 @@ else {
 //object creation:
     let axisArrayObj=[];
     let desc1="En tant qu'organismes et espaces de dialogue, de création, de diffusion d'idées et de culture vitales, nous avons la responsabilité, en tant qu'organismes artistiques montréalais, de nous lancer dans la lutte. Cette lutte pour une société plus juste où la vie des Noir-e-s et des Autochtones serait florissante et où leurs voix seraient portées et entendues ici ainsi que sur la scène internationale. Il est impératif d’aller au-delà des simples déclarations de solidarité et d’entreprendre des changements organisationnels activement auto-critiques et durablesde se réinvestir, dans un véritable travail structurel pour devenir des organisations antiracistes.  L’organisme s’engage à soutenir les luttes contre la domination coloniale, le sexisme, le racisme et la discrimination avec des gestes concrets : partages de ressources; diffusion des discours liés à ces luttes; mise sur pied de projets structurants pour stimuler la rencontre entre artistes autochtones et allochtones; attention portée à la mise en valeur des langues et traditions autochtones, reconnaissance du territoire. Soutien à la diversité des créateur·trice·s web et à leur agentivité en ligne.";
-    let desc2="La gravité des changements climatiques est une réalité indéniable. L’internet est à la fois un outil de partage de connaissance cruciale [tutoriel écologique, solidarité, observation] et un problème [entreposage, pollution, chaleur, dépense énergétique]. Face à cette contradiction Galerie Galerie souhaite s’inscrire dans une approche éco responsable visant à réduire son empreinte écologique de manière globale et à encourager ses pairs du milieu culturel à en faire autant. Contrer un manque d'information généraliser concernant les bonnes pratiques et reflexe dans notre utilisation quoditienne des technologie et du web ainsi qu’un manque d’accès à des solution simple et efficace de dépense énergétique. Soutenir les actions gouvernemental et entrepreneurial écoresponsable contre désuetude technologique, low-tech et high-tech ainsi que les innovations en entreposage de données et rechauffement climatique.";
-    let desc3="Soutenir et contribuer à la mise en commun et la distribution accessible du savoir et des outils technologique dans une vision de bien commun. Favoriser et encourager l'apprentissage par les pairs en tant que stratégie et méthode d'apprentissage tout au long de la vie. Logiciel, contenu éducatif et technique, l’internet facilite l’échange rapide de connaissance et Galerie Galerie croit que la mise en commun du savoir et le partage entre pair et une des clés pour un avenirs plus juste et équitable. Favoriser l’intelligence individuelle et collective au dépend du gain capitale pour une meilleur qualité de vie. ";
-    let desc4="Devant l'évolution incontrôlable de la technologie web, la complexité croissante de la nature des documents produits et la perte irréversible de certains contenus (Harries 1999, LeFugy 2001, Day 2003, Phillips 2003, Barry 2004, Pennock et Kelly 2006), plusieurs initiatives d'archivage du web sont en cours tant à l'échelle régionale et nationale qu'à l'échelle internationale. Elles sont essentiellement menées par des institutions de mémoire ou résultent d'alliances entre diverses institutions. Adoptant de plus en plus des approches distinctes, ces projets se multiplient et se diversifient, indiquant ainsi d'une part l'urgence de telles interventions et, d'autre part, la difficulté d'établir un cadre de référence unique et commun.";
-    let descr5="Tout est fait pour être obsolete (durer 10 ans max)” - où on se situe là-dessus";
-    let descr6="Genre droit à la déconnexion, Contre cyber bullying ";
+    let desc2="hi this is 2nd axis";
+    let desc3="this is the description for the third axis";
     let name1="DÉCOLONISATION";
     let name2="ÉCORESPONSABILITÉ"
     let name3="OPEN SOURCE"
-    let name4="ARCHIVAGE";
-    let name5="VALEUR";
-    let name6="HEALTH SECURITY";
     let linkList= [
       {lien0:"www.lien1.com",
       lien1:"www.lien2.com",
@@ -214,22 +200,6 @@ else {
     lien2:"lien5.3",
     lien3:"lien5.4",
     line4:"lien5.1"
-    },
-    {
-      n0:"seed4name",
-      n1:"seed4name",
-      n2:"seed4name",
-      n3:"seed4name",
-      n4:"seed4name",
-      n5:"seed4name",
-      n6:"seed4name",
-      n7:"seed4name"
-    },
-    {
-      n0:"no seed rn",
-    },
-    {
-      name0:"no seed rn",
     }]; //create object w links
     let linkDescription=[
       {descr0:"description lien",
@@ -247,22 +217,6 @@ else {
       descr3:"allo voici descri 5.3",
       descr4:"allo voici descri 5.4",
       descr1:"allo voici descri 5.5"
-    },
-    {
-      d0:"allo voici descri 5.1",
-      d1:"allo voici descri 5.2",
-      d2:"allo voici descri 5.3",
-      d3:"allo voici descri 5.4",
-      d4:"allo voici descri 5.5",
-      d5:"allo voici descri 5.2",
-      d6:"allo voici descri 5.3",
-      d7:"allo voici descri 5.4"
-    },
-    {
-      d0:"no seed rn",
-    },
-    {
-      descr0:"no seed rn",
     } //create object w descri
     ]
 
@@ -275,22 +229,18 @@ else {
       let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,200,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
       let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",1000,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
       let axisObj3 = new Axis(map,3,"assets/images/beam.png","✿$",100,800,desc3,name3,linkList[2],sound, "axis3",linkDescription[2]);
-      let axisObj4 = new Axis(map,4,"assets/images/beam.png","✿$",500,800,desc4,name4,linkList[4],sound, "axis3",linkDescription[4]);
 
       axisArrayObj.push(axisObj);
       axisArrayObj.push(axisObj2);
       axisArrayObj.push(axisObj3);
-      axisArrayObj.push(axisObj4);
 //!! should change sxisArray to axisArrayDropdownMenu
       axisObj.reprint();
       axisObj2.reprint();
       axisObj3.reprint();
-      axisObj4.reprint();
 
       axisObj.generateSeeds(3);
       axisObj2.generateSeeds(6);
       axisObj3.generateSeeds(5);
-      axisObj4.generateSeeds(8);
 
 
     //Select menu for axis sidebar menu:
@@ -321,9 +271,6 @@ for (let i=0;i<axisArrayObj.length;i++ ){
 
         } else if (axisMenuSelect.value === "axis3"){
           axisObj3.axisFunction();
-
-        } else if (axisMenuSelect.value === "axis4"){
-          axisObj4.axisFunction();
 
         } else if (axisMenuSelect.value === "axis0"){
           document.getElementById("sidebar-content-text").innerHTML="Bienvenu dans le manifeste GG!! choisis une axe à explorer woohoo"
