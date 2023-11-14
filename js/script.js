@@ -30,7 +30,10 @@ let currentTileLayer=null;
 
 let backgrounds=[
   {"src": "assets/images/neurenoir-tiles/neuronoire-tile", "num":"63","color":"greenyellow","theme":"default"},
-  {"src": "assets/images/black-tiles/black-tile", "num":"35","color":"fuchsia","theme":"theme#"}
+  {"src": "assets/images/black-tiles/black-tile", "num":"35","color":"fuchsia","theme":"theme#"},
+  {"src": "assets/images/ascii-blanc/ascii-tile", "num":"125","color":"red","theme":"white"}
+  // {"src": "assets/images/grass-tiles/grass-tile", "num":"163","color":"white","theme":"grass"}
+
 ];
 let currentBg=0;
 
@@ -230,7 +233,7 @@ else {
       name0:"no seed rn",
     }]; //create object w links
     let linkDescription=[
-      {descr0:"description lien",
+      {descr0:"This document is intended to serve as a resource to white people and parents to deepen our anti-racism work. If you haven’t engaged in anti-racism work in the past, start now. Feel free to circulate this document on social media and with your friends, family, and colleagues.",
       descr1:"description lien",
       descr2:"description lienm"},
       {descr0:"description lien",
@@ -247,17 +250,17 @@ else {
       descr1:"allo voici descri 5.5"
     },
     {
-      d0:"allo voici descri 5.1",
-      d1:"allo voici descri 5.2",
-      d2:"allo voici descri 5.3",
-      d3:"allo voici descri 5.4",
-      d4:"allo voici descri 5.5",
-      d5:"allo voici descri 5.2",
-      d6:"allo voici descri 5.3",
-      d7:"allo voici descri 5.4"
+      descr0:"allo voici descri 5.1",
+      descr1:"allo voici descri 5.2",
+      descr2:"allo voici descri 5.3",
+      descr3:"allo voici descri 5.4",
+      descr4:"allo voici descri 5.5",
+      descr5:"allo voici descri 5.2",
+      descr6:"allo voici descri 5.3",
+      descr7:"allo voici descri 5.4"
     },
     {
-      d0:"no seed rn",
+      descr0:"no seed rn",
     },
     {
       descr0:"no seed rn",
@@ -274,11 +277,11 @@ else {
     let axisIndex=null;
 
       // Create the Axis object:
-      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",350,450,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
-      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",1000,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
+      let axisObj = new Axis(map,1,"assets/images/beam.png","✿$",1650,450,desc1,name1,linkList[0],sound, "axis1",linkDescription[0]);
+      let axisObj2 = new Axis(map,2,"assets/images/beam.png","✿$",10,600,desc2,name2,linkList[1],sound, "axis2",linkDescription[1]);
       let axisObj3 = new Axis(map,3,"assets/images/beam.png","✿$",10,100,desc3,name3,linkList[2],sound, "axis3",linkDescription[2]);
       let axisObj4 = new Axis(map,4,"assets/images/beam.png","✿$",500,1500,desc4,name4,linkList[3],sound, "axis3",linkDescription[3]);
-      let axisObj5 = new Axis(map,5,"assets/images/beam.png","✿$",200,750,desc5,name5,linkList[4],sound, "axis3",linkDescription[4]);
+      let axisObj5 = new Axis(map,5,"assets/images/beam.png","✿$",200,1050,desc5,name5,linkList[4],sound, "axis3",linkDescription[4]);
       let axisObj6 = new Axis(map,6,"assets/images/beam.png","✿$",1100,1400,desc6,name6,linkList[5],sound, "axis3",linkDescription[5]);
 
 

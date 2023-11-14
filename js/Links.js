@@ -78,6 +78,8 @@ this.classList.remove("linkUnderline");
     document.getElementById("seedBoxEl"+id).style.top=coord.ypos_pixel+40+"px";
     document.getElementById("seedBoxEl"+id).style.left=coord.xpos_pixel-200+"px";
   }
+
+  
 //coord.xpos_pixel, coord.ypos_pixel);
     let seedContainer = new DraggableBox(document.getElementById("seedBoxEl"+id));
     let parent = document.getElementById("seedBoxEl"+id);

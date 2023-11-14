@@ -1,6 +1,7 @@
 class DraggableBox {
   constructor(divContainer) {
-    console.log("this");
+    this.divContainer = divContainer;
+    console.log(this.divContainer);
     this.boxIsDragging =false;
     // Activates the parent function:
     this.setAsDraggableElement(divContainer);
@@ -12,17 +13,21 @@ class DraggableBox {
 //     let boxIsDragging = false;
     elmnt.addEventListener("mousedown", dragMouseDown);
   elmnt.addEventListener("mouseup", closeDragElement);
-  document.addEventListener("mousemove", elementDrag);
+  elmnt.addEventListener("mousemove", elementDrag);
 
     function dragMouseDown(event) {
       // Add event as a parameter
-      console.log(event);
+      console.log(event.target);
+      
+     if(!(event.target===document.querySelector("#close-button"))){
       event.preventDefault();
-      if (self.boxIsDragging === false) {
+
+      if (self.boxIsDragging === false ) {
         console.log("here");
         self.boxIsDragging = true;
        
       }
+    }
     }
 
     function elementDrag(event) {

@@ -1,5 +1,6 @@
 html, body{
-  color:chartreuse;
+  color:rgb(0, 149, 255);
+  font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -36,8 +37,8 @@ html, body{
     z-index: 1;
     width: 40vw;
     /* height: 7rem; */
-    top: 1%;
-    left: 3%;
+    top: 4%;
+    left: 4%;
     /* background-color: rgb(101, 101, 101); */
   }
 
@@ -193,13 +194,14 @@ html, body{
 
   .seedBoxEl{
     display: none;
-    width: 200px;
-    height: 50px;
+    width: 250px;
+    height: 60px;
     position: absolute;
     z-index: 20;
-    background-color: #f1f1f1;
+    background-color: #3f3f3f;
     border: 1px solid #d3d3d3;
     padding: 5px;
+    overflow: scroll;
   }
 
   .seedBoxEl:hover  {
