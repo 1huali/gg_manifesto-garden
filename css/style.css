@@ -1,6 +1,70 @@
-/*********************************************
+#body{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+}
 
-Here is a description of any special CSS used.
-By default that's nothing.
+.buttons{
+    background-color: rgb(128, 128, 128);
+    color: black;
+}
 
-**********************************************/
+#bg-img{
+    width: 100vw;
+    height: 100vh;
+    background: url('../assets/images/cascade-img.jpeg');
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
+
+#buttons-container {
+    position: absolute;
+    z-index: 1;
+    width: 50vw;
+    /* height: 7rem; */
+    top: 4%;
+    left: 4%;
+    /* background-color: rgb(101, 101, 101); */
+  }
+
+  #data-container{
+    /* color: white; */
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    left: 3%;
+    /* background:red; */
+  }
+
+  #manifesto-container{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    padding: 2%;
+    background-color: rgb(0, 0, 0,50%);
+    width: 50%;
+    height: 45%;
+    display: none;
+    /* z-index: 10; */
+    overflow: scroll;
+  }
+
+  #intro-container{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    padding: 1%;
+    background-color: rgb(0, 0, 0,50%);
+    width: 50%;
+    height: 45%;
+    display: block;
+    /* z-index: 10; */
+    overflow: scroll;
+  }
+
+  /* ??DOESNT WORK YET */
+  .close-buttons{
+    display: flex;
+    right: 20%;
+  }
