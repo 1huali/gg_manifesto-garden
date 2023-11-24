@@ -3,6 +3,7 @@
     font-family: Arial, Helvetica, sans-serif;
       margin: 0;
       padding: 0;
+      /* overflow: hidden; */
 }
 
 .buttons{
@@ -11,15 +12,16 @@
 }
 
 #bg-img{
-    width: 100vw;
-    height: 100vh;
+  /* test change on width/height variables or bg-size variable */
+    width: 200vw;
+    height: 200vh; 
     background: url('../assets/images/cascade-img.jpeg');
-    background-size:cover;
+    background-size:100%;
     background-repeat: no-repeat;
   }
 
 #buttons-container {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     width: 50vw;
     /* height: 7rem; */
@@ -30,7 +32,7 @@
 
   #data-container{
     /* color: white; */
-    position: absolute;
+    position: fixed;
     z-index: 1;
     bottom: 5%;
     left: 3%;
@@ -38,7 +40,7 @@
   }
 
   #manifesto-container{
-    position: absolute;
+    position: fixed;
     top: 25%;
     left: 25%;
     padding: 2%;
@@ -51,10 +53,10 @@
   }
 
   #intro-container{
-    position: absolute;
+    position: fixed;
     top: 25%;
     left: 25%;
-    padding: 1%;
+    padding: 3%;
     background-color: rgb(0, 0, 0,50%);
     width: 50%;
     height: 45%;
@@ -67,4 +69,23 @@
   .close-buttons{
     display: flex;
     right: 20%;
+  }
+
+  .flowerEl{
+    top:0px;
+    font-size: 25px;
+    left: 0px;
+    color: black;
+    position:absolute;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
+  }
+
+  #zoomControls-container{
+    position: fixed;
+    z-index: 1;
+    width: 1vw;
+    /* height: 7rem; */
+    bottom: 5%;
+    right: 3%;
   }
