@@ -1,7 +1,7 @@
 class Links {
-    constructor(icon,coord,link,indexNum,linkDescription,axisXpos,axisYpos) {
+    constructor(icon,coord,link,axisNum,linkDescription,axisXpos,axisYpos) {
         this.link=link;
-        this.indexNum=indexNum;
+        this.axisNum=axisNum;
         this.linkDescription=this.linkDescription;
         this.icon=icon; //visual character
         this.coord=coord;
@@ -11,17 +11,17 @@ class Links {
         this.axisYpos = axisYpos;
         this.element=null;
 
-        //???CREATE LINK ELELEMNT
-        // if (!this.element) {
-        //     let div = document.createElement("div");
-        //     div.id="linkEl"+this.indexNum;
-        //     div.classList.add('linkEl');
-        //     div.style.top=this.xPos+"px";
-        //     div.style.left=this.yPos+"px";
-        //     document.body.appendChild(div)
-        //     this.element=div;
-        //     console.log(this.element)
-        //   }
+        if (this.element===null) {
+            let div = document.createElement("div");
+            div.id="linkEl"+this.axisNum;
+            div.classList.add('linkEl');
+            div.style.top=this.yPos+"px";
+            div.style.left=this.xPos+"px";
+            document.body.appendChild(div)
+            this.element=div;
+            console.log(this.element)
+            div.innerHTML=this.icon;
+          }
         
         // this.element.style.color="white";
 }

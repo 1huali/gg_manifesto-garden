@@ -76,7 +76,21 @@
     font-size: 25px;
     left: 0px;
     color: black;
+    background-color: cadetblue;
     position:absolute;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
+  }
+
+  .linkEl{
+    top:0px;
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+    left: 0px;
+    color: black;
+    position:absolute;
+    z-index: 100;
     text-align: center;
     text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
   }
