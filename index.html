@@ -18,6 +18,7 @@
         <script src="js/script.js"></script>
         <script src="js/Axis.js"></script>
         <script src="js/Links.js"></script>
+        <script src="js/InfoBox.js"></script>
 
 
     <!-- Library script(s) go here -->
@@ -37,38 +38,60 @@
     <option value="axis5">Valeur</option>
     <option value="axis6">Security</option>
   </select>
-  <input type="button" class="buttons" value="pdf">
+  <input id="pdf-button" type="button" class="buttons" value="pdf">
   <input id="theme-button" class="buttons" type="button" value="Theme">
   <input id="share-button" class="buttons" type="button" value="Share">
   <input id="language-button" class="buttons" type="button" value="Eng/Fr">
-  <div><b> <a href="mailto:info@galeriegalerieweb.ca">Click here 2contribute</b></a></div>
-  <div>theme : <span id="bg-theme">default</span> </div>
+  <b> <a href="mailto:info@galeriegalerieweb.ca">Contribute</b></a>
+  <div>Theme : <span id="bg-theme">default</span> </div>
   <div>Updated : <span>novembre 2023</span> </div>
  </div>
 
+<input id="sidebar-button" type="button" value="←">
+
+<div id="sidebar-menu-container">
+  <input id="sidebar-container-close-button" class="close-buttons buttons" type="button" value="X">
+<div style="padding: 2%;">
+  <div id="axisTitle-sidebar">✿ - ✿ - ✿ - ✿ - ✿ - ✿ - ✿ - ✿ </div>
+  <div id="axisContent-sidebar">Voici le manifeste GG!! choisis une axe à explorer woohoo</div>
+</div>
+</div>
+ 
  <div id="intro-container">
   <div id="intro-container-header">
-    <input id="intro-container-close-button" class="close-buttons buttons" type="button" value="Close">
+    <input id="intro-container-close-button" class="close-buttons buttons" type="button" value="X">
   </div>
   Bienvenue dans le jardin manifesto garden de Galerie Galerie, un espace où nous partageons des ressources afin de défendre et de renforcer nos valeurs fondamentales! Utilisez la carte ou le menu pour naviguer dans le manifeste et lire ses différents axes auxquels des ressources sont liées. Comme un jardin, nous aimons penser que ce projet est destiné à être partagé et à grandir.
 </div>
 
  <div id="manifesto-container">
   <div id="manifesto-container-header">
-    <input id="manifesto-container-close-button" class="close-buttons buttons" type="button" value="Close">
+    <input id="manifesto-container-close-button" class="close-buttons buttons" type="button" value="X">
   </div>
   Dans l’optique d’encadrer ses orientations organisationnelles à venir, Galerie Galerie, a entrepris la rédaction d’une charte de valeurs et d’une politique interne : Manifesto Garden. Adaptée à la réalité des conditions hypermédiatique de GG, cette charte s’inscrit dans un désir éthique et de bonne pratique, et servira à guider les activités à venir de l’organisme tout en faisant office de prise de position critique face aux réalités politiques, territoriales, économiques et même identitaires du Web et des espaces dits de «metaverse». Défense de la valeur et de la légitimité des pratiques artistiques ancrées dans la matérialité web, protection et utilisation des approches dites “open source” ou de code source ouvert, soutien à la diversité des créateur·trice·s web et à leur agentivité en ligne, utilisation de l’art web comme levier de littératie numérique, développement d’une approche éco responsable quant à l’utilisation de l’Internet à des fins artistiques, etc. : le Manifeste Galerie Galerie, publié au www.galeriegalerieweb.com en 2023, se voudra un outil à la fois réflexif et stratégique, permettant de mieux encadrer les décisions (artistiques, administratives, de gouvernance, logistiques, etc.) de l’organisme, mais aussi, de renforcer sa vision organisationnelle en misant sur des valeurs féministes, décoloniales, inclusives et expérimentales. Avec des engagements clairs et transparents, GG espère ainsi contribuer à la consolidation de pratiques saines en termes de recherche, de production et de commissariat en ligne, et servir d’exemple face à l’utilisation responsable du Web comme un outil de création et de diffusion
  </div>
 
  <div id="data-container">
-  <div id="main-title" style="font-size: 20px;"><img src="assets/images/galeriegalerie.gif" alt="logo galerie galerie" style="width: 250px;"></div>
+  <div id="main-title" style="font-size: 20px;"><img id="ggLogo" src="assets/images/galeriegalerie.gif" alt="logo galerie galerie" style="width: 250px; cursor: pointer;"></div>
 </div>
 
 <div id="zoomControls-container">
   <input id="zoomIn-button" type="button" value="+">
   <input id="zoomOut-button" type="button" value="-">
 </div>
+
+<div id="seedBoxDiv" class="seed-container">
+  <input type="button" id="close-seedbox-button" class="close-buttons buttons" value="X">
+<div class="seedBox-content">
+<div id="linkTitle">✿ seed name</div>
+<div id="linkDescription">✿ description</div>
+<div id="linkAxis">✿ axis </div>
+<div id="linkImg">✿ img</div>
+<div  id="linkOpen">CLICK HERE TO ACCESS RESOURCE</div>
+</div>
+</div>
   </div> 
+  <div style="position: fixed;">OK</div>
   </body>
 
 </html>
