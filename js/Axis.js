@@ -48,7 +48,7 @@ print(){
 
         let numElementPerLevel = 8;
         let angle = seedIndex * angleOffset;
-        let radius = 50+(Math.random()*100);
+        let radius = 20+(Math.random()*80);
         // let radiusLvlOffset=9;
         let xpos_pixel = (this.xPos+elementWidth/2)  + radius * Math.cos(angle);
         let ypos_pixel = (this.yPos+elementHeight/2) + radius * Math.sin(angle);

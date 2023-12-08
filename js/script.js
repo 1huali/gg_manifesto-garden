@@ -23,37 +23,44 @@ document.getElementById("manifesto-container-close-button").addEventListener("cl
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
         document.getElementById("intro-container").style.display="none"
     });
-    let scaler= 2;
+    let scaler= 1;
 //zoom buttons:
 document.getElementById("zoomIn-button").addEventListener("click", function(){
-    scaler++;
+    scaler+= 0.08;
     if (scaler < 4) {
-        document.getElementById("bg-img").style.width= `${100*scaler}vw`;
-        document.getElementById("bg-img").style.height= `${100*scaler}vh`;
-        //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
-        document.querySelectorAll(".linkEl").forEach(element => {
-            element.style.fontSize= `${25*scaler}px`;
-        });
-        document.querySelectorAll(".flowerEl").forEach(element => {
-            element.style.fontSize= `${25*scaler}px`;
-        });
-        console.log("moving in",scaler);
+        document.querySelector(
+            "#bg-img"
+          ).style.transform = `scale(${scaler})`;
 
+        // document.getElementById("bg-img").style.width= `${100*scaler}vw`;
+        // document.getElementById("bg-img").style.height= `${100*scaler}vh`;
+        // //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
+        // document.querySelectorAll(".linkEl").forEach(element => {
+        //     element.style.fontSize= `${20*scaler}px`;
+        // });
+        // document.querySelectorAll(".flowerEl").forEach(element => {
+        //     element.style.fontSize= `${20*scaler}px`;
+        // });
+        // console.log("moving in",scaler);
     }
 });
 document.getElementById("zoomOut-button").addEventListener("click", function(){
-    scaler --;
+    scaler -= 0.08;
     if (scaler >= 1) {
-    document.getElementById("bg-img").style.width= `${100*scaler}vw`;
-    document.getElementById("bg-img").style.height= `${100*scaler}vh`;
-    //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
-    document.querySelectorAll(".linkEl").forEach(element => {
-        element.style.fontSize= `${25*scaler}px`;
-    });
-    document.querySelectorAll(".flowerEl").forEach(element => {
-        element.style.fontSize= `${25*scaler}px`;
-    });
-    console.log("moving out",scaler);
+        document.querySelector(
+            "#bg-img"
+          ).style.transform = `scale(${scaler})`;
+
+    // document.getElementById("bg-img").style.width= `${100*scaler}vw`;
+    // document.getElementById("bg-img").style.height= `${100*scaler}vh`;
+    // //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
+    // document.querySelectorAll(".linkEl").forEach(element => {
+    //     element.style.fontSize= `${20*scaler}px`;
+    // });
+    // document.querySelectorAll(".flowerEl").forEach(element => {
+    //     element.style.fontSize= `${20*scaler}px`;
+    // });
+    // console.log("moving out",scaler);
 
 }
     });
@@ -84,8 +91,8 @@ function changeBgPicture(){
         }
         //implements new bg image
         document.getElementById("bg-img").style.background= `url('../${backgrounds[currentBg].src}')`;
-        document.getElementById("bg-img").style.width= `200vw`;
-        document.getElementById("bg-img").style.height= `200vh`;
+        document.getElementById("bg-img").style.width= `${100*scaler}vw`;
+        document.getElementById("bg-img").style.height= `${100*scaler}vh`;
         document.getElementById("bg-img").style.backgroundSize= `100%`;
         document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
 
@@ -127,7 +134,7 @@ let desc2= "La gravité des changements climatiques est une réalité indéniabl
 let chimeSound = document.getElementById("chimeSound");
 
 let axisObj = new Axis(1,"✧༺✿༻✧",1007,450,name1,desc1,chimeSound,"axis1",linkList[0]);
-let axisObj2 = new Axis(2,"⳾*⑅*❀⑅*❀⑅",100,600,name2,desc2,chimeSound,"axis2",linkList[1]);
+let axisObj2 = new Axis(2,"⳾*⑅*❀⑅*❀⑅",100,500,name2,desc2,chimeSound,"axis2",linkList[1]);
 
 console.log(axisArrayObj);
 

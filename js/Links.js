@@ -20,7 +20,7 @@ class Links {
             div.classList.add('linkEl');
             div.style.top=this.yPos+"px";
             div.style.left=this.xPos+"px";
-            document.body.appendChild(div)
+            document.getElementById("bg-img").appendChild(div)
             this.element=div;
             // console.log(this.element)
             div.innerHTML=this.icon;

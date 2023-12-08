@@ -34,11 +34,14 @@
 
 #bg-img{
   /* test change on width/height variables or bg-size variable */
-    width: 200vw;
-    height: 200vh; 
+    transform-origin: top left;
+    width: 100vw;
+    height: 100vh; 
     background: url('../assets/images/frozen-cascade.jpg');
     background-size:100%;
     background-repeat: no-repeat;
+    left:-4000vw;
+    top:-4000vh;
   }
   
 
@@ -95,7 +98,7 @@
 
   .flowerEl{
     top:0px;
-    font-size: 50px;
+    font-size: 20px;
     left: 0px;
     color: black;
     background-color: rgb(202, 224, 224);
@@ -107,7 +110,7 @@
 
   .linkEl{
     top:0px;
-    font-size: 50px;
+    font-size: 20px;
     width: 25px;
     height: 25px;
     left: 0px;
