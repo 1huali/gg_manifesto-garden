@@ -25,7 +25,7 @@ print(){
     div.style.zIndex="1000";
     div.style.top=this.yPos+"px";
     div.style.left=this.xPos+"px";
-    document.body.appendChild(div)
+    document.getElementById("bg-img").appendChild(div)
     this.element=div;
     // console.log(this.element)
 

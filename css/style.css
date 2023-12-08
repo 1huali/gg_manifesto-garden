@@ -95,10 +95,10 @@
 
   .flowerEl{
     top:0px;
-    font-size: 25px;
+    font-size: 50px;
     left: 0px;
     color: black;
-    /* background-color: rgb(202, 224, 224); */
+    background-color: rgb(202, 224, 224);
     position:absolute;
     text-align: center;
     text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
@@ -107,7 +107,7 @@
 
   .linkEl{
     top:0px;
-    font-size: 25px;
+    font-size: 50px;
     width: 25px;
     height: 25px;
     left: 0px;

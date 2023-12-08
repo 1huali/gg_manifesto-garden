@@ -23,16 +23,39 @@ document.getElementById("manifesto-container-close-button").addEventListener("cl
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
         document.getElementById("intro-container").style.display="none"
     });
+    let scaler= 2;
 //zoom buttons:
 document.getElementById("zoomIn-button").addEventListener("click", function(){
-    document.getElementById("bg-img").style.width= `200vw`;
-    document.getElementById("bg-img").style.height= `200vh`;
+    scaler++;
+    if (scaler < 4) {
+        document.getElementById("bg-img").style.width= `${100*scaler}vw`;
+        document.getElementById("bg-img").style.height= `${100*scaler}vh`;
+        //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
+        document.querySelectorAll(".linkEl").forEach(element => {
+            element.style.fontSize= `${25*scaler}px`;
+        });
+        document.querySelectorAll(".flowerEl").forEach(element => {
+            element.style.fontSize= `${25*scaler}px`;
+        });
+        console.log("moving in",scaler);
+
+    }
 });
 document.getElementById("zoomOut-button").addEventListener("click", function(){
-    console.log("zooming Out")
-    document.getElementById("bg-img").style.width= `100vw`;
-    document.getElementById("bg-img").style.height= `100vh`;
-    //?? GET ALL THE POINT ON THE BG IMAGE; HAS TO MOVE WITH THE ZOOM
+    scaler --;
+    if (scaler >= 1) {
+    document.getElementById("bg-img").style.width= `${100*scaler}vw`;
+    document.getElementById("bg-img").style.height= `${100*scaler}vh`;
+    //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
+    document.querySelectorAll(".linkEl").forEach(element => {
+        element.style.fontSize= `${25*scaler}px`;
+    });
+    document.querySelectorAll(".flowerEl").forEach(element => {
+        element.style.fontSize= `${25*scaler}px`;
+    });
+    console.log("moving out",scaler);
+
+}
     });
 document.getElementById("pdf-button").addEventListener("click", function(){
     window.open("https://docs.google.com/document/d/1SpPcLye8aMRYhOnwYdLKXy3-3o8QxTmRbJG_FlBLaM0/edit");
