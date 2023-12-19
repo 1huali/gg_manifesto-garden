@@ -12,6 +12,14 @@
     cursor: pointer;
 }
 
+#top-container{
+    position: fixed;
+    z-index: 1;
+    top: 3%;
+    left: 4%;
+    /* background:red; */
+}
+
 #sidebar-button{
   /* doesn't show */
   display: block;
@@ -50,10 +58,11 @@
 
 #buttons-container {
     position: fixed;
+    display: none;
     z-index: 1;
     width: 50vw;
     /* height: 7rem; */
-    top: 4%;
+    top: 7%;
     left: 4%;
     /* background-color: rgb(101, 101, 101); */
   }
@@ -97,6 +106,36 @@
   .close-buttons{
     display: flex;
     right: 20%;
+  }
+
+  #intro-container-close-button{
+    display: flex;
+    align-items: baseline;
+    position: absolute;
+    right: 46%;
+    bottom: 20%;
+  }
+
+  #intro-container-header{
+    display: flex;
+    position: absolute;
+    right: 30%;
+    top: 5%;
+  }
+
+  #intro-container-text{
+    display: flex;
+    position: absolute;
+    top: 20%;
+    width: 90%;
+  }
+
+  #intro-container-footer{
+    display: flex;
+    align-items: baseline;
+    position: absolute;
+    right: 38%;
+    top: 90%;
   }
 
   .flowerEl{

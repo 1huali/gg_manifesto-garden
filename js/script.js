@@ -62,6 +62,7 @@ document.getElementById("ggLogo").addEventListener("click", function(){
 
 
 // PARAMÈTRE pour BOUTONS HTML ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+
 // manifesto button:
 document.getElementById("manifesto-button").addEventListener("click", function(){
 document.getElementById("manifesto-container").style.display="block"
@@ -69,10 +70,16 @@ document.getElementById("manifesto-container").style.display="block"
 document.getElementById("manifesto-container-close-button").addEventListener("click", function(){
     document.getElementById("manifesto-container").style.display="none"
 });
+
 // intro button:
+//when user click on enter, all buttons appears:
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
-        document.getElementById("intro-container").style.display="none"
+        document.getElementById("intro-container").style.display="none";
+        document.getElementById("buttons-container").style.display="block";
+
+
     });
+
     let scaler= 1;
 //zoom buttons:
 document.getElementById("zoomIn-button").addEventListener("click", function(){
@@ -152,7 +159,7 @@ function changeBgPicture(){
 }
 
 
-//new Axis: ----------
+// NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArrayObj=[];
 let name1="DÉCOLONISATION";
 let desc1= "En tant qu'organismes et espaces de dialogue, de création, de diffusion d'idées et de culture vitales, nous avons la responsabilité, en tant qu'organismes artistiques montréalais, de nous lancer dans la lutte. Cette lutte pour une société plus juste où la vie des Noir-e-s et des Autochtones serait florissante et où leurs voix seraient portées et entendues ici ainsi que sur la scène internationale. Il est impératif d’aller au-delà des simples déclarations de solidarité et d’entreprendre des changements organisationnels activement auto-critiques et durablesde se réinvestir, dans un véritable travail structurel pour devenir des organisations antiracistes.  L’organisme s’engage à soutenir les luttes contre la domination coloniale, le sexisme, le racisme et la discrimination avec des gestes concrets : partages de ressources; diffusion des discours liés à ces luttes; mise sur pied de projets structurants pour stimuler la rencontre entre artistes autochtones et allochtones; attention portée à la mise en valeur des langues et traditions autochtones, reconnaissance du territoire. Soutien à la diversité des créateur·trice·s web et à leur agentivité en ligne."
@@ -184,7 +191,8 @@ let desc2= "La gravité des changements climatiques est une réalité indéniabl
         lien9:"www.lienZ.com"}];
 let chimeSound = document.getElementById("chimeSound");
 
-//Create the links arrays for each axis from the db :
+//Create the links arrays for each axis from the db ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+
 let axis1LinksArray=[];
 let axis2LinksArray=[];
 
@@ -228,6 +236,8 @@ axisObj2.print();
 //!! CHECK FILTER JS FUNCTION (SEE NOTES)
 // axisObj.generateSeeds(axis1LinksArray.lenght); 
 // axisObj2.generateSeeds(axis2LinksArray.lenght);
+
+// SELECT MENU ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 
     //Select menu for axis sidebar menu:
     let axisMenuSelect = document.getElementById("drpMenu-axe");
