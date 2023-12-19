@@ -148,6 +148,7 @@
     text-align: center;
     text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
     cursor: pointer;
+    /* display: none; */
   }
 
   .linkEl{

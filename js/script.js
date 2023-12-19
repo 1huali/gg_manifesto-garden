@@ -74,9 +74,9 @@ document.getElementById("manifesto-container-close-button").addEventListener("cl
 // intro button:
 //when user click on enter, all buttons appears:
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
-        document.getElementById("intro-container").style.display="none";
-        document.getElementById("buttons-container").style.display="block";
-
+    document.getElementById("intro-container").style.display="none";
+    document.getElementById("buttons-container").style.display="block";
+    // document.getElementsByClassName("flowerEl").style.display="block";
 
     });
 
@@ -193,49 +193,36 @@ let chimeSound = document.getElementById("chimeSound");
 
 //Create the links arrays for each axis from the db ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 
-let axis1LinksArray=[];
-let axis2LinksArray=[];
+// let axis1LinksArray=[];
+// let axis2LinksArray=[];
 
+// parsedJSON contains an axis object where the axisId is referenced in the links..
 for (let i = 0; i < parsedJSON.length; i++) {
 
-  // Check if parsedLinksJSON has an element at index i
-  if (parsedLinksJSON[i]) {
-      // Check if linkList is defined for the current object
-      if (parsedLinksJSON[i].linkList !== undefined) {
-          console.log("linkList is undefined for the object at index " + i);
-      }
+  //console.log(parsedJSON[i].axisID);
+  // make your axis objects...
+  //get the array of linkObjects that have the SAME refID as the current axisObject
+  let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(el.localAxisID ===parsedJSON[i].axisID)});
+  console.log(filteredArrayOfCurrentAxisObject);
 
-      if (parsedLinksJSON[i].localAxisID === "1") {
-            //populate link array for deolonialism
-          axis1LinksArray.push(parsedLinksJSON[i].linkLink);
-          console.log(axis1LinksArray);
-      }
-  } else if (parsedLinksJSON[i].localAxisID === "2") {
-    //populate link array for ecoresponsability
-    axis2LinksArray.push(parsedLinksJSON[i].linkLink);
-    console.log(axis2LinksArray);
-} else {
-      console.log("parsedLinksJSON is undefined or does not have an element at index " + i);
-  }
-}
-console.log(axis1LinksArray);
-console.log(axis2LinksArray);
+  let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject); 
+   axisArrayObj.push(axisObj);
+   //
 
-
-//creating Axis objects from the db: 
-let axisObj1 = new Axis(parsedJSON[0].axisID,parsedJSON[0].axisIcon,parsedJSON[0].axisXpos,parsedJSON[0].axisYpos,parsedJSON[0].axisTitle,parsedJSON[0].axisDescription,chimeSound,"axis1",axis1LinksArray); // decolonisation axis object
-let axisObj2 = new Axis(parsedJSON[1].axisID,parsedJSON[1].axisIcon,parsedJSON[1].axisXpos,parsedJSON[1].axisYpos,parsedJSON[1].axisTitle,parsedJSON[1].axisDescription,chimeSound,"axis2",axis2LinksArray); // ecoresponsability axis object
-
-axisArrayObj.push(axisObj1);
-axisArrayObj.push(axisObj2);
-console.log(axisObj1, axisObj2)
-
-axisObj1.print();
-axisObj2.print();
-
-//!! CHECK FILTER JS FUNCTION (SEE NOTES)
+// axisObj1.print();
+// axisObj2.print();
 // axisObj.generateSeeds(axis1LinksArray.lenght); 
 // axisObj2.generateSeeds(axis2LinksArray.lenght);
+
+}
+
+for(let i=0; i<axisArrayObj.length;i++){
+  console.log(axisArrayObj[i])
+  // console.log(filteredArrayOfCurrentAxisObject);
+  axisArrayObj[i].print();
+  axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
+}
+
 
 // SELECT MENU ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 
