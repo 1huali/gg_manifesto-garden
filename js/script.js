@@ -55,6 +55,7 @@ window.onload = (event) => {
 
 function initializeWebsite(parsedJSON,parsedLinksJSON){
 console.log(parsedJSON, parsedLinksJSON);
+
 document.getElementById("ggLogo").addEventListener("click", function(){
     window.open("https://www.galeriegalerieweb.com");
 });
@@ -183,23 +184,54 @@ let desc2= "La gravité des changements climatiques est une réalité indéniabl
         lien9:"www.lienZ.com"}];
 let chimeSound = document.getElementById("chimeSound");
 
-let axisObj = new Axis(parsedJSON[0].axisID,parsedJSON[0].axisIcon,parsedJSON[0].axisXpos,parsedJSON[0].axisYpos,parsedJSON[0].axisTitle,parsedJSON[0].axisDescription,chimeSound,"axis1",linkList[0]);
-let axisObj2 = new Axis(parsedJSON[1].axisID,parsedJSON[1].axisIcon,parsedJSON[1].axisXpos,parsedJSON[1].axisYpos,parsedJSON[1].axisTitle,parsedJSON[1].axisDescription,chimeSound,"axis2",linkList[1]);
+let axis1LinksArray=[];
+let axis2LinksArray=[];
 
-// console.log(axisArrayObj);
 
-axisArrayObj.push(axisObj);
+for (let i = 0; i < parsedJSON.length; i++) {
+  // console.log(parsedLinksJSON[i].localAxisID);
+
+  // Check if parsedLinksJSON has an element at index i
+  if (parsedLinksJSON[i]) {
+      // Check if linkList is defined for the current object
+      if (parsedLinksJSON[i].linkList !== undefined) {
+          console.log(parsedLinksJSON[i].linkList);
+      } else {
+          console.log("linkList is undefined for the object at index " + i);
+      }
+
+      if (parsedLinksJSON[i].localAxisID === "1") {
+            //populate link array for deolonialism
+          axis1LinksArray.push(parsedLinksJSON[i].linkLink);
+      }
+  } else if (parsedLinksJSON[i].localAxisID === "2") {
+    //populate link array for ecoresponsability
+    axis2LinksArray.push(parsedLinksJSON[i].linkLink);
+} else {
+      console.log("parsedLinksJSON is undefined or does not have an element at index " + i);
+  }
+}
+
+
+console.log(decolonialAxisLinksArray);
+
+//creating objects
+let axisObj1 = new Axis(parsedJSON[0].axisID,parsedJSON[0].axisIcon,parsedJSON[0].axisXpos,parsedJSON[0].axisYpos,parsedJSON[0].axisTitle,parsedJSON[0].axisDescription,chimeSound,"axis1",axis1LinksArray); // decolonisation axis object
+let axisObj2 = new Axis(parsedJSON[1].axisID,parsedJSON[1].axisIcon,parsedJSON[1].axisXpos,parsedJSON[1].axisYpos,parsedJSON[1].axisTitle,parsedJSON[1].axisDescription,chimeSound,"axis2",axis2LinksArray); // ecoresponsability axis object
+
+axisArrayObj.push(axisObj1);
 axisArrayObj.push(axisObj2);
+console.log(axisObj1, axisObj2)
 
-axisObj.print();
+axisObj1.print();
 axisObj2.print();
 
 //!! CHECK FILTER JS FUNCTION (SEE NOTES)
-axisObj.generateSeeds(3); //change to number of seeds
-axisObj2.generateSeeds(10);
+// axisObj.generateSeeds(3); //change to number of seeds
+// axisObj2.generateSeeds(10);
 
     //Select menu for axis sidebar menu:
-    let axisMenuSelect = document.getElementById("drpMenu-axe")
+    let axisMenuSelect = document.getElementById("drpMenu-axe");
     let selectedAxis= null;
     let axisIndex=null;
     //Sets and traverses thru JS the list selection in the HTML:

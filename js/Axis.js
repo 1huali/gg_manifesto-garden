@@ -12,6 +12,7 @@ constructor(indexNum,icon,xPos,yPos,name,description,sound,indexNumMenu,linkList
     this.linkList=linkList;
     this.element=null;
     this.subAxisArray = [];
+    // console.log(linkList);
 }
 
 print(){
