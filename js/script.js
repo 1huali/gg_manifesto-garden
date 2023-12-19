@@ -213,7 +213,8 @@ for (let i = 0; i < parsedJSON.length; i++) {
 }
 
 
-console.log(decolonialAxisLinksArray);
+console.log(axis1LinksArray);
+console.log(axis2LinksArray);
 
 //creating objects
 let axisObj1 = new Axis(parsedJSON[0].axisID,parsedJSON[0].axisIcon,parsedJSON[0].axisXpos,parsedJSON[0].axisYpos,parsedJSON[0].axisTitle,parsedJSON[0].axisDescription,chimeSound,"axis1",axis1LinksArray); // decolonisation axis object
