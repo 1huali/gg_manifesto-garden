@@ -12,7 +12,6 @@ constructor(indexNum,icon,xPos,yPos,name,description,sound,indexNumMenu,linkList
     this.linkList=linkList;
     this.element=null;
     this.subAxisArray = [];
-    console.log(linkList);
 }
 
 print(){
@@ -64,11 +63,12 @@ generateSeeds(seedCount){
     for (let i = 0; i < seedCount; i++) {
         // console.log(this.linkArray["lien"+i])
         let position = this.calculatePosition(i, seedCount);
-        //Create the single link object:
-       // console.log("lien"+seedCount);
-          let link = new Links("✿", position, this.linkList["lien"+i],this.indexNum+"_"+i,this.description["descr"+i],this.xPos,this.yPos,this.name);
+        //Create the single link object: //!! CHANGE LINKS VARIABLES AND IMPLEMENT IN INFOBOX
+          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name);
+          // let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name);
+
           this.subAxisArray.push(link);
-          // console.log(link);
+          console.log(link);
     
       }
 }

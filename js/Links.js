@@ -1,8 +1,9 @@
 class Links {
-    constructor(icon,coord,link,axisNum,linkDescription,axisXpos,axisYpos,axis) {
+    constructor(icon,coord,link,axisNum,linkDescription,lienDescription,axisXpos,axisYpos,axis) {
         this.link=link;
         this.axisNum=axisNum;
         this.linkDescription=linkDescription;
+        this.lienDescription=lienDescription;
         this.icon=icon; //visual character
         this.coord=coord;
         this.xPos = coord.xpos_pixel;
@@ -11,7 +12,7 @@ class Links {
         this.axisYpos = axisYpos;
         this.axis= axis;
         this.element=null;
-        this.seedbox= new InfoBox(this.link,this.linkDescription,this.axis,this.axisNum);
+        this.seedbox= new InfoBox(this.axis,this.link,this.linkDescription,this.axisNum);
 // console.log(this.seedbox);
 
         if (this.element===null) {

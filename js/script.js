@@ -203,22 +203,14 @@ for (let i = 0; i < parsedJSON.length; i++) {
   // make your axis objects...
   //get the array of linkObjects that have the SAME refID as the current axisObject
   let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(el.localAxisID ===parsedJSON[i].axisID)});
-  console.log(filteredArrayOfCurrentAxisObject);
-
+console.log(parsedLinksJSON)
   let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject); 
    axisArrayObj.push(axisObj);
-   //
-
-// axisObj1.print();
-// axisObj2.print();
-// axisObj.generateSeeds(axis1LinksArray.lenght); 
-// axisObj2.generateSeeds(axis2LinksArray.lenght);
 
 }
 
 for(let i=0; i<axisArrayObj.length;i++){
-  console.log(axisArrayObj[i])
-  // console.log(filteredArrayOfCurrentAxisObject);
+  // console.log(axisArrayObj[i])
   axisArrayObj[i].print();
   axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
 }

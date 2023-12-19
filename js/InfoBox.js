@@ -29,15 +29,15 @@ class InfoBox{
         //creating seed title div : 
         this.linkTitle =  document.createElement("div");
         this.seedContent.appendChild(this.linkTitle)
-        this.linkTitle.innerHTML="✿ Link: "+this.link;
+        this.linkTitle.innerHTML="✿ AXIS: "+this.link;
         //implementing seed description in the div : 
         this.linkDesc =  document.createElement("div");
         this.seedContent.appendChild(this.linkDesc);
-        this.linkDesc.innerHTML="✿ Description: "+this.description;
+        this.linkDesc.innerHTML="✿ RESOURCES: "+this.description;
         //creating seed link div : 
         this.linkAxis =  document.createElement("div");
         this.seedContent.appendChild(this.linkAxis);
-        this.linkAxis.innerHTML = "✿ Axis: "+ this.axis;
+        this.linkAxis.innerHTML = "✿ BY: "+ this.axis;
         //implementing seed link : 
         this.linkImg=  document.createElement("div");
         this.seedContent.appendChild(this.linkImg);
