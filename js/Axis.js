@@ -3,8 +3,8 @@ constructor(indexNum,icon,xPos,yPos,name,description,sound,indexNumMenu,linkList
 
     this.indexNum= indexNum;
     this.icon= icon;
-    this.xPos= xPos;
-    this.yPos= yPos;
+    this.xPos= parseFloat(xPos);
+    this.yPos= parseFloat(yPos);
     this.name= name;
     this.description= description;
     this.sound= sound;
@@ -64,7 +64,7 @@ generateSeeds(seedCount){
         // console.log(this.linkArray["lien"+i])
         let position = this.calculatePosition(i, seedCount);
         //Create the single link object: //!! CHANGE LINKS VARIABLES AND IMPLEMENT IN INFOBOX
-          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name);
+          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name,this.linkList[i].linkAuthor,this.linkList[i].linkType,this.linkList[i].linkYear,this.linkList[i].linkTitle);
           // let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name);
 
           this.subAxisArray.push(link);
