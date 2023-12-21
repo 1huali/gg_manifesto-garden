@@ -1,5 +1,5 @@
 class InfoBox{
-  constructor(axis,link,engDescription,linkNum,author,type,date,title){
+  constructor(axis,link,engDescription,linkNum,author,type,date,title,linkXpos,linkYpos){
       this.link=link;
       this.engDescription=engDescription,
       this.axis=axis;
@@ -9,13 +9,17 @@ class InfoBox{
       this.type=type;
       this.date=date;
       this.title=title;
+      this.xPos=linkXpos;
+      this.yPos=linkYpos;
       console.log(author,date,type)
 
 // MAKE SEPERATE INFO BOX INSTANCES FOR EACH SEED:
       //create element:
       this.el = document.createElement("div");
       this.el.classList.add("seed-container");
-      document.querySelector("#bg-img").appendChild(this.el);
+      document.querySelector("#bg-img").appendChild(this.el); //parent
+      this.el.style.top=this.yPos+30+"px";
+      this.el.style.left=this.xPos+30+"px";
       this.el.style.display = "none";
       //active draggable functionality:
       this.setAsDraggableElement(this.el);
@@ -61,10 +65,6 @@ class InfoBox{
       this.seedContent.appendChild(this.linkDesc);
       this.linkDesc.innerHTML= this.description;
 
-      //??WHAT IS THIS
-      // this.linkOpen =  document.createElement("div");
-      // this.seedContent.appendChild(this.linkOpen);
-      // this.linkOpen.innerHTML = this.linkDesc;
 
       let self=this;
 
@@ -77,13 +77,12 @@ class InfoBox{
   openSeedbox(){
 
       let self = this;
-      
+  
       this.el.style.display ="block";
-
-     this.linkOpen.addEventListener("click", function(){
-          console.log(`${self.link}`); //?? GIVES UNDEFINED
-          window.open(`${self.link}`);
-      })
+    //  this.linkOpen.addEventListener("click", function(){
+    //       console.log(`${self.link}`); //?? GIVES UNDEFINED
+    //       window.open(`${self.link}`);
+    //   })
   }
 
   setAsDraggableElement(elmnt) {

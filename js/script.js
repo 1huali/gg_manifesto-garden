@@ -89,6 +89,7 @@ document.getElementById("manifesto-container-close-button").addEventListener("cl
     document.querySelectorAll(".linkEl").forEach(element => {
       element.style.display="block"
     });
+    document.getElementById("sidebar-button").style.display="block";
     });
 
     let scaler= 1;
@@ -172,40 +173,7 @@ function changeBgPicture(){
 
 // NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 let axisArrayObj=[];
-let name1="DÉCOLONISATION";
-let desc1= "En tant qu'organismes et espaces de dialogue, de création, de diffusion d'idées et de culture vitales, nous avons la responsabilité, en tant qu'organismes artistiques montréalais, de nous lancer dans la lutte. Cette lutte pour une société plus juste où la vie des Noir-e-s et des Autochtones serait florissante et où leurs voix seraient portées et entendues ici ainsi que sur la scène internationale. Il est impératif d’aller au-delà des simples déclarations de solidarité et d’entreprendre des changements organisationnels activement auto-critiques et durablesde se réinvestir, dans un véritable travail structurel pour devenir des organisations antiracistes.  L’organisme s’engage à soutenir les luttes contre la domination coloniale, le sexisme, le racisme et la discrimination avec des gestes concrets : partages de ressources; diffusion des discours liés à ces luttes; mise sur pied de projets structurants pour stimuler la rencontre entre artistes autochtones et allochtones; attention portée à la mise en valeur des langues et traditions autochtones, reconnaissance du territoire. Soutien à la diversité des créateur·trice·s web et à leur agentivité en ligne."
-let name2="ÉCORESPONSABILITÉ";
-let desc2= "La gravité des changements climatiques est une réalité indéniable. L’internet est à la fois un outil de partage de connaissance cruciale [tutoriel écologique, solidarité, observation] et un problème [entreposage, pollution, chaleur, dépense énergétique]. Face à cette contradiction Galerie Galerie souhaite s’inscrire dans une approche éco responsable visant à réduire son empreinte écologique de manière globale et à encourager ses pairs du milieu culturel à en faire autant. Contrer un manque d'information généraliser concernant les bonnes pratiques et reflexe dans notre utilisation quoditienne des technologie et du web ainsi qu’un manque d’accès à des solution simple et efficace de dépense énergétique. Soutenir les actions gouvernemental et entrepreneurial écoresponsable contre désuetude technologique, low-tech et high-tech ainsi que les innovations en entreposage de données et rechauffement climatique. "
-// let linkDescription=[
-//     {descr0:"This document is intended to serve as a resource to white people and parents to deepen our anti-racism work. If you haven’t engaged in anti-racism work in the past, start now. Feel free to circulate this document on social media and with your friends, family, and colleagues.",
-//     descr1:"description lien",
-//     descr2:"description lienm"},
-//     {descr0:"description lien",
-//     descr1:"description lien",
-//     descr2:"description lien",
-//     descr3:"description lien",
-//     descr4:"description lien",
-//     descr5:"description lien"}];
-    let linkList= [
-        {lien0:"www.lien1.com",
-        lien1:"www.lien2.com",
-        lien2:"www.lien3.com"},
-        {lien0:"www.lienA.com",
-        lien1:"www.lienB.com",
-        lien2:"www.lienC.com",
-        lien3:"www.lienX.com",
-        lien4:"www.lienY.com",
-        lien5:"www.lienZ.com",
-        lien6:"www.lienZ.com",
-        lien7:"www.lienZ.com",
-        lien8:"www.lienZ.com",
-        lien9:"www.lienZ.com"}];
 let chimeSound = document.getElementById("chimeSound");
-
-//Create the links arrays for each axis from the db ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-
-// let axis1LinksArray=[];
-// let axis2LinksArray=[];
 
 // parsedJSON contains an axis object where the axisId is referenced in the links..
 for (let i = 0; i < parsedJSON.length; i++) {
@@ -220,60 +188,42 @@ console.log(parsedLinksJSON)
 
 }
 
-for(let i=0; i<axisArrayObj.length;i++){
-  // console.log(axisArrayObj[i])
-  axisArrayObj[i].print();
-  axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
-}
-
-
-// SELECT MENU ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-
     //Select menu for axis sidebar menu:
     let axisMenuSelect = document.getElementById("drpMenu-axe");
     let selectedAxis= null;
     let axisIndex=null;
+
+for(let i=0; i<axisArrayObj.length;i++){
+  // console.log(axisArrayObj[i])
+  axisArrayObj[i].print();
+  axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
+} //end of for loop
+
     //Sets and traverses thru JS the list selection in the HTML:
     axisMenuSelect.addEventListener("change", function(){
-        //pan user view to the selection:
-    //    axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length))-1;
-      axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length));
-       if (axisIndex >=1){
-      panViewToCurrentFlower(axisIndex);
-    }
-     selectedAxis = axisMenuSelect.value;
-  
-          if (axisMenuSelect.value === "axis1"){
-            selectedAxis = axisMenuSelect.value;
-            axisObj.axisSidebarDisplay();
-          } else if (axisMenuSelect.value === "axis2"){
-            selectedAxis = axisMenuSelect.value;
-            axisObj2.axisSidebarDisplay();
-  
-        //   } else if (axisMenuSelect.value === "axis3"){
-        //     axisObj3.axisSidebarDisplay();
-  
-        //   } else if (axisMenuSelect.value === "axis4"){
-        //     axisObj4.axisSidebarDisplay();
-  
-        //   }
-        //   else if (axisMenuSelect.value === "axis5"){
-        //     axisObj5.axisSidebarDisplay();
-  
-        //   } else if (axisMenuSelect.value === "axis6"){
-        //     axisObj6.axisSidebarDisplay();
-  
-          } else if (axisMenuSelect.value === "axis0"){
-            document.getElementById("axisContent-sidebar").innerHTML="Voici le manifeste GG!! choisis une axe à explorer woohoo"
-          }
-  
-    });
+      //pan user view to the selection:
+    axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length));
 
-    function panViewToCurrentFlower(selection){
-        // console.log(selection)
-        let x = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length)-1);
-        console.log(x)
-      }
+   selectedAxis = axisMenuSelect.value;
+   if (axisIndex !=0){
+   let selectedAxisObj = axisArrayObj[axisIndex-1]
+   console.log(selectedAxisObj)
+    selectedAxisObj.axisSidebarDisplay();
+    panToPosition(selectedAxisObj.xPos, selectedAxisObj.yPos);
+  } else {
+          document.getElementById("axisContent-sidebar").innerHTML="Voici le manifeste GG!! choisis une axe à explorer woohoo";
+  }
+  });
 
+      // Function to pan the user view to a specific position
+function panToPosition(x, y) {
+  // Assuming you want to scroll the entire document
+  window.scrollTo({
+      top: y,
+      left: x,
+      behavior: 'smooth' // Optional: Use smooth scrolling
+  });
 }
+
+} //initialize website end
 }

@@ -16,7 +16,7 @@ class Links {
         this.linkAuthor=linkAuthor;
         this.linkYear=linkYear;
         this.element=null;
-        this.seedbox= new InfoBox(this.axis,this.link,this.linkDescription,this.axisNum,this.linkAuthor,this.linkType,this.linkDate,this.linkTitle);
+        this.seedbox= new InfoBox(this.axis,this.link,this.linkDescription,this.axisNum,this.linkAuthor,this.linkType,this.linkDate,this.linkTitle,this.xPos,this.yPos);
 // console.log(this.seedbox);
 
         if (this.element===null) {

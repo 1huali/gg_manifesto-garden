@@ -18,22 +18,16 @@ print(){
      // Create the flower element if it doesn't exist
   //if (!this.element) {
     let div = document.createElement("div");
-    // let newContent = document.createTextNode(this.icon);
-    div.innerHTML=this.icon; //either or??
+    div.innerHTML=this.icon; 
     div.id="flowerEl"+this.indexNum;
     div.classList.add('flowerEl');
-    div.style.zIndex="1000";
+    // div.style.zIndex="1000";
     div.style.top=this.yPos+"px";
     div.style.left=this.xPos+"px";
     document.getElementById("bg-img").appendChild(div)
     this.element=div;
     // console.log(this.element)
 
-    //deleted:
-//     this.element = document.createElement("div");
-//     this.element.setAttribute("id", "flower" + this.axisNumber);
-//     this.element.innerHTML=this.icon;
-//     console.log(element);
 }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
