@@ -199,4 +199,19 @@
   }
   .seedBox-content{
     padding: 3%;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
   }
+
+  .seed-column{
+    /* flex: 1; */
+    width: 50%;
+  }
+  .seed-column2{
+    width: 30%;
+  }
+  .span-column {
+    width: 100%;
+  }
+  

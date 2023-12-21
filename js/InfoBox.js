@@ -8,6 +8,7 @@ class InfoBox{
       this.author=author;
       this.type=type;
       this.date=date;
+      console.log(date)
       this.title=title;
       this.xPos=linkXpos;
       this.yPos=linkYpos;
@@ -34,36 +35,51 @@ class InfoBox{
 
       // self=this;
       //creating seed content div : 
+      this.column1= document.createElement("div");
+      this.column1.classList.add("seed-column");
+      this.column2= document.createElement("div");
+      this.column2.classList.add("seed-column2");
+      this.spanColumn = document.createElement("div");
+      this.spanColumn.classList.add("span-column");
+
+
       this.seedContent =  document.createElement("div");
+      this.seedContent.classList.add("seedBox-content");
       this.el.appendChild(this.seedContent);
+      this.seedContent.appendChild(this.column1);
+      this.seedContent.appendChild(this.column2);
+      this.seedContent.appendChild(this.spanColumn);
       //creating seed link div : 
       this.linkAxis =  document.createElement("div");
-      this.seedContent.appendChild(this.linkAxis);
+      this.column1.appendChild(this.linkAxis);
       this.linkAxis.innerHTML = "✿ AXIS: "+ this.axis;
       //creating seed title div : 
       this.linkTitle =  document.createElement("div");
-      this.seedContent.appendChild(this.linkTitle)
+      this.column1.appendChild(this.linkTitle);
+      // this.column1 = appendChild(this.linkTitle);
       this.linkTitle.innerHTML="✿ RESOURCES: " + `<a href="${this.link}">` + this.title + `</a>`;
       //implementing author link : 
       this.linkAuthor=  document.createElement("div");
-      this.seedContent.appendChild(this.linkAuthor);
+      this.column1.appendChild(this.linkAuthor);
+      // this.column1 = appendChild(this.linkAuthor);
       this.linkAuthor.innerHTML = "✿ BY:" + this.author;
       //implementing year : 
       this.linkYear=  document.createElement("div");
-      this.seedContent.appendChild(this.linkYear);
+      this.column1.appendChild(this.linkYear);
+      // this.column1 = appendChild(this.linkYear);
       this.linkYear.innerHTML = "✿ YEAR:" + this.date;
-      //implementing seed link thumbnail img : 
-      this.linkImg=  document.createElement("div");
-      this.seedContent.appendChild(this.linkImg);
-      this.linkImg.innerHTML = "✿ Img:";
       //implementing type:
       this.linkType =  document.createElement("div");
-      this.seedContent.appendChild(this.linkType);
+      this.column1.appendChild(this.linkType);
       this.linkType.innerHTML = "✿ TYPE:"+this.type;
+          //implementing seed link thumbnail img : 
+          this.linkImg=  document.createElement("div");
+          this.column2.appendChild(this.linkImg);
+          this.linkImg.innerHTML = "✿ Img:";
       //implementing seed description in the div : 
       this.linkDesc =  document.createElement("div");
-      this.seedContent.appendChild(this.linkDesc);
-      this.linkDesc.innerHTML= this.description;
+      this.spanColumn.appendChild(this.linkDesc);
+      this.linkDesc.innerHTML= this.engDescription;
 
 
       let self=this;
@@ -100,7 +116,7 @@ class InfoBox{
         event.preventDefault();
   
         if (self.boxIsDragging === false ) {
-          console.log("here");
+          // console.log("here");
           self.boxIsDragging = true;
          
         }

@@ -7,12 +7,12 @@ Wawa Li pour Galerie Galerie
 "use strict";
 window.onload = (event) => {
 
-  // Function to log mouse coordinates
-function logMousePosition(event) {
-  console.log("Mouse X: " + event.clientX + ", Mouse Y: " + event.clientY);
-}
-// Add event listener to the document
-document.addEventListener("mousedown", logMousePosition);
+//   // Function to log mouse coordinates
+// function logMousePosition(event) {
+//   console.log("Mouse X: " + event.clientX + ", Mouse Y: " + event.clientY);
+// }
+// // Add event listener to the document
+// document.addEventListener("mousedown", logMousePosition);
 
     //retrieve data from db :
 //on window load, we are retrieving the data from the db. It goes to retreiveData.php, to the script.js.
