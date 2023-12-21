@@ -11,7 +11,6 @@ window.onload = (event) => {
 function logMousePosition(event) {
   console.log("Mouse X: " + event.clientX + ", Mouse Y: " + event.clientY);
 }
-
 // Add event listener to the document
 document.addEventListener("mousedown", logMousePosition);
 
@@ -42,7 +41,7 @@ document.addEventListener("mousedown", logMousePosition);
     $.ajax({
         type: "POST",
         enctype: 'text/plain',
-        url: "../retrieveLinks.php", //file taht activate the retrieval of the data from the db
+        url: "../retrieveLinksNew.php", //file taht activate the retrieval of the data from the db
         data: "",
         processData: false,//prevents from converting into a query string
         contentType: false,
@@ -84,8 +83,12 @@ document.getElementById("manifesto-container-close-button").addEventListener("cl
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
     document.getElementById("intro-container").style.display="none";
     document.getElementById("buttons-container").style.display="block";
-    // document.getElementsByClassName("flowerEl").style.display="block";
-
+    document.querySelectorAll(".flowerEl").forEach(element => {
+      element.style.display="block"
+    });
+    document.querySelectorAll(".linkEl").forEach(element => {
+      element.style.display="block"
+    });
     });
 
     let scaler= 1;

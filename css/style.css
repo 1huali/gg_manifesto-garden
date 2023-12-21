@@ -148,7 +148,7 @@
     text-align: center;
     text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
     cursor: pointer;
-    /* display: none; */
+    display: none;
   }
 
   .linkEl{
@@ -159,6 +159,7 @@
     left: 0px;
     color: black;
     position:absolute;
+    display: none;
     z-index: 100;
     text-align: center;
     text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF;
