@@ -1,17 +1,37 @@
 class Axis{
-constructor(indexNum,icon,xPos,yPos,name,description,sound,indexNumMenu,linkList){
+constructor(indexNum,icon,xPos,yPos,name,axisDescription,axeDescription,sound,indexNumMenu,linkList){
 
     this.indexNum= indexNum;
     this.icon= icon;
     this.xPos= parseFloat(xPos);
     this.yPos= parseFloat(yPos);
     this.name= name;
-    this.description= description;
+    this.axisDescription= axisDescription;
+    this.axeDescription=axeDescription;
+    this.description=axisDescription; //english as default language
     this.sound= sound;
     this.drpdownMenuIndex= indexNumMenu;
     this.linkList=linkList;
     this.element=null;
     this.subAxisArray = [];
+}
+//change of language setting for links:
+switchLangOfLinksToEng(){
+  //pass all english properties :
+  for(let i=0; i<this.subAxisArray.length;i++){
+    this.subAxisArray[i].seedbox.description =this.subAxisArray[i].linkDescription;
+    this.subAxisArray[i].seedbox.title =this.subAxisArray[i].linkTitle;
+    this.subAxisArray[i].seedbox.print();
+  }
+}
+
+switchLangOfLinksToFr(){
+  for(let i=0; i<this.subAxisArray.length;i++){
+    this.subAxisArray[i].seedbox.description =this.subAxisArray[i].lienDescription;
+    this.subAxisArray[i].seedbox.title =this.subAxisArray[i].lienTitre;
+    console.log(this.subAxisArray[i].lienTitre);
+    this.subAxisArray[i].seedbox.print();
+  }
 }
 
 print(){
@@ -58,7 +78,7 @@ generateSeeds(seedCount){
         // console.log(this.linkArray["lien"+i])
         let position = this.calculatePosition(i, seedCount);
         //Create the single link object: //!! CHANGE LINKS VARIABLES AND IMPLEMENT IN INFOBOX
-          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name,this.linkList[i].linkAuthor,this.linkList[i].linkType,this.linkList[i].linkYear,this.linkList[i].linkTitle);
+          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name,this.linkList[i].linkAuthor,this.linkList[i].linkType,this.linkList[i].linkYear,this.linkList[i].linkTitle,this.linkList[i].linkImage,this.linkList[i].lienTitre);
           // let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name);
 
           this.subAxisArray.push(link);
@@ -71,8 +91,12 @@ axisSidebarDisplay(){
 
   //From the dropdown menu of the Axis menu, the description matching the user selection will print :
     document.getElementById("sidebar-menu-container").style.display= "block";
-    document.getElementById("axisTitle-sidebar").innerHTML=this.name;
-    document.getElementById("axisContent-sidebar").innerHTML= this.description;
+    this.reprintAxisContentSidebar();
+}
+//change of language setting for axis sidebar:
+reprintAxisContentSidebar(){
+  document.getElementById("axisTitle-sidebar").innerHTML=this.name;
+  document.getElementById("axisContent-sidebar").innerHTML= this.description;
 }
 
 } //end class Axis

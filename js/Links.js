@@ -1,9 +1,10 @@
 class Links {
-    constructor(icon,coord,link,axisNum,linkDescription,lienDescription,axisXpos,axisYpos,axis,linkAuthor,linkType,linkYear,linkTitle) {
+    constructor(icon,coord,link,axisNum,linkDescription,lienDescription,axisXpos,axisYpos,axis,linkAuthor,linkType,linkYear,linkTitle,linkImage,lienTitre) {
         this.link=link;
         this.axisNum=axisNum;
         this.linkDescription=linkDescription;
         this.lienDescription=lienDescription;
+        this.displayDescription = this.linkDescription; //sets default language
         this.icon=icon; //visual character
         this.coord=coord;
         this.xPos = coord.xpos_pixel;
@@ -12,12 +13,13 @@ class Links {
         this.axisYpos = axisYpos;
         this.axis= axis;
         this.linkTitle=linkTitle;
+        this.lienTitre=lienTitre;
         this.linkType=linkType;
         this.linkAuthor=linkAuthor;
         this.linkYear=linkYear;
-        console.log(linkYear);
+        this.linkImage=linkImage;
         this.element=null;
-        this.seedbox= new InfoBox(this.axis,this.link,this.linkDescription,this.axisNum,this.linkAuthor,this.linkType,this.linkYear,this.linkTitle,this.xPos,this.yPos);
+        this.seedbox= new InfoBox(this.axis,this.link,this.displayDescription,this.axisNum,this.linkAuthor,this.linkType,this.linkYear,this.linkTitle,this.xPos,this.yPos,this.linkImage,this.lienTitre);
 // console.log(this.seedbox);
 
         if (this.element===null) {

@@ -1,21 +1,25 @@
 class InfoBox{
-  constructor(axis,link,engDescription,linkNum,author,type,date,title,linkXpos,linkYpos){
+  constructor(axis,link,description,linkNum,author,type,date,title,linkXpos,linkYpos,linkImage,titre){
       this.link=link;
-      this.engDescription=engDescription,
+      this.description=description,
       this.axis=axis;
       this.linkNum=linkNum;
       this.boxIsDragging =false;
       this.author=author;
       this.type=type;
       this.date=date;
-      console.log(date)
       this.title=title;
+      this.titre=titre;
       this.xPos=linkXpos;
       this.yPos=linkYpos;
-      console.log(author,date,type)
+      this.linkImage=linkImage;
+      console.log(linkImage)
 
-// MAKE SEPERATE INFO BOX INSTANCES FOR EACH SEED:
-      //create element:
+      if (linkImage === "null"){
+        let randomNumber = Math.floor(Math.random() * 10)+1;
+        this.linkImage = `assets/images/flowerPix/flower${randomNumber}.png`;
+      }
+
       this.el = document.createElement("div");
       this.el.classList.add("seed-container");
       document.querySelector("#bg-img").appendChild(this.el); //parent
@@ -24,7 +28,16 @@ class InfoBox{
       this.el.style.display = "none";
       //active draggable functionality:
       this.setAsDraggableElement(this.el);
+     this.print();
+    }
 
+// MAKE SEPERATE INFO BOX INSTANCES FOR EACH SEED:
+      //create element:
+      print()
+      {
+
+      
+      this.el.innerHTML = "";
       //create close button
       this.buttonEl = document.createElement("input");
       this.buttonEl.type = "button";
@@ -52,34 +65,34 @@ class InfoBox{
       //creating seed link div : 
       this.linkAxis =  document.createElement("div");
       this.column1.appendChild(this.linkAxis);
-      this.linkAxis.innerHTML = "✿ AXIS: "+ this.axis;
+      this.linkAxis.innerHTML = "<i>"+ this.axis +"</i>";
       //creating seed title div : 
       this.linkTitle =  document.createElement("div");
       this.column1.appendChild(this.linkTitle);
       // this.column1 = appendChild(this.linkTitle);
-      this.linkTitle.innerHTML="✿ RESOURCES: " + `<a href="${this.link}">` + this.title + `</a>`;
+      this.linkTitle.innerHTML="✿ " + `<a href="${this.link}">` + this.title + `</a>`;
       //implementing author link : 
       this.linkAuthor=  document.createElement("div");
       this.column1.appendChild(this.linkAuthor);
       // this.column1 = appendChild(this.linkAuthor);
-      this.linkAuthor.innerHTML = "✿ BY:" + this.author;
+      this.linkAuthor.innerHTML = this.author;
       //implementing year : 
       this.linkYear=  document.createElement("div");
       this.column1.appendChild(this.linkYear);
       // this.column1 = appendChild(this.linkYear);
-      this.linkYear.innerHTML = "✿ YEAR:" + this.date;
+      this.linkYear.innerHTML = "✿ Date: " + this.date;
       //implementing type:
       this.linkType =  document.createElement("div");
       this.column1.appendChild(this.linkType);
-      this.linkType.innerHTML = "✿ TYPE:"+this.type;
+      this.linkType.innerHTML = "✿ Type: "+this.type;
           //implementing seed link thumbnail img : 
           this.linkImg=  document.createElement("div");
           this.column2.appendChild(this.linkImg);
-          this.linkImg.innerHTML = "✿ Img:";
+          this.linkImg.innerHTML = `<img class="seed-thumbnail" src="${this.linkImage}">`;
       //implementing seed description in the div : 
       this.linkDesc =  document.createElement("div");
       this.spanColumn.appendChild(this.linkDesc);
-      this.linkDesc.innerHTML= this.engDescription;
+      this.linkDesc.innerHTML= this.description;
 
 
       let self=this;
@@ -88,7 +101,8 @@ class InfoBox{
       this.buttonEl.addEventListener("click", function(){
           self.el.style= "display: none;"
        });
-  }
+      }
+  
 
   openSeedbox(){
 

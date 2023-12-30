@@ -29,7 +29,7 @@ window.onload = (event) => {
         // console.log(response);
         //use the JSON .parse function to convert the JSON string into a Javascript object
         let parsedAxisJSON = JSON.parse(response);
-        // console.log(parsedJSON);
+        console.log(parsedJSON);
         retrieveLinks(parsedAxisJSON);
        },
        error:function(){
@@ -83,6 +83,7 @@ document.getElementById("manifesto-container-close-button").addEventListener("cl
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
     document.getElementById("intro-container").style.display="none";
     document.getElementById("buttons-container").style.display="block";
+    document.getElementById("data-container").style.display="block";
     document.querySelectorAll(".flowerEl").forEach(element => {
       element.style.display="block"
     });
@@ -101,16 +102,6 @@ document.getElementById("zoomIn-button").addEventListener("click", function(){
             "#bg-img"
           ).style.transform = `scale(${scaler})`;
 
-        // document.getElementById("bg-img").style.width= `${100*scaler}vw`;
-        // document.getElementById("bg-img").style.height= `${100*scaler}vh`;
-        // //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
-        // document.querySelectorAll(".linkEl").forEach(element => {
-        //     element.style.fontSize= `${20*scaler}px`;
-        // });
-        // document.querySelectorAll(".flowerEl").forEach(element => {
-        //     element.style.fontSize= `${20*scaler}px`;
-        // });
-        // console.log("moving in",scaler);
     }
 });
 document.getElementById("zoomOut-button").addEventListener("click", function(){
@@ -142,32 +133,110 @@ document.getElementById("sidebar-button").addEventListener("click", function(){
 document.getElementById("sidebar-container-close-button").addEventListener("click", function(){
     document.getElementById("sidebar-menu-container").style= "display:none;"
 });
-//theme button:
-let backgrounds=[
-    {"src": "assets/images/cascade-img.jpeg","color":"white","theme":"default"},
-    {"src": "assets/images/cascade2-img.jpeg","color":"fuchsia","theme":"cascade2"},
-    {"src": "assets/images/frozen-cascade.jpg","color":"white","theme":"frozenCascade"}
-  ];
-  let currentBg=0;
-  document.getElementById("theme-button").addEventListener("click", changeBgPicture);
-function changeBgPicture(){
-    //changes theme array:
-    if (currentBg >= backgrounds.length-1) {
-        currentBg=0;
-      }
-      else {
-        currentBg= currentBg+1;
-        }
-        //implements new bg image
-        document.getElementById("bg-img").style.background= `url('../${backgrounds[currentBg].src}')`;
-        document.getElementById("bg-img").style.width= `${100*scaler}vw`;
-        document.getElementById("bg-img").style.height= `${100*scaler}vh`;
-        document.getElementById("bg-img").style.backgroundSize= `100%`;
-        document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
 
-        console.log(`url('../${backgrounds[currentBg].src}')`)
-        document.getElementById("body").style.color= backgrounds[currentBg].color;
-        document.getElementById("bg-theme").innerHTML=backgrounds[currentBg].theme;
+let language= "eng";
+//translation button:
+document.getElementById("language-button").addEventListener("click", function(){
+  if (language === "eng"){
+    language = "fr";
+    document.getElementById("language-button").value="Français";
+    document.getElementById("manifesto-button").value="The Manifesto";
+    document.getElementById("share-button").value="Share";
+    document.getElementById("update").innerHTML="Last Update";
+
+    //CHANGE BUTTONS VALUES to english
+  } else {
+    language= "eng";
+    document.getElementById("language-button").value="English";
+    document.getElementById("manifesto-button").value="Le Manifeste";
+    document.getElementById("share-button").value="Partager";
+    document.getElementById("update").innerHTML="Mise à jour";
+
+
+
+        //CHANGE BUTTONS VALUES to french
+
+  };
+
+  for (let j=0;j < axisArrayObj.length;j++){
+//axis values to english : 
+    if (language === "eng"){
+    axisArrayObj[j].description = axisArrayObj[j].axeDescription;
+    axisArrayObj[j].reprintAxisContentSidebar();
+   axisArrayObj[j].switchLangOfLinksToFr();
+  } else {
+    axisArrayObj[j].description = axisArrayObj[j].axisDescription;
+    axisArrayObj[j].reprintAxisContentSidebar();
+   axisArrayObj[j].switchLangOfLinksToEng();
+  }
+  }
+});
+
+//theme button:
+// let backgrounds=[
+//     {"src": "assets/images/cascade-img.jpeg","color":"white","theme":"default"},
+//     {"src": "assets/images/cascade2-img.jpeg","color":"fuchsia","theme":"cascade2"},
+//     {"src": "assets/images/frozen-cascade.jpg","color":"white","theme":"frozenCascade"}
+//   ];
+//   let currentBg=0;
+//   document.getElementById("theme-button").addEventListener("click", changeBgPicture);
+// function changeBgPicture(){
+//     //changes theme array:
+//     if (currentBg >= backgrounds.length-1) {
+//         currentBg=0;
+//       }
+//       else {
+//         currentBg= currentBg+1;
+//         }
+//         //implements new bg image
+//         document.getElementById("bg-img").style.background= `url('../${backgrounds[currentBg].src}')`;
+//         document.getElementById("bg-img").style.width= `${100*scaler}vw`;
+//         document.getElementById("bg-img").style.height= `${100*scaler}vh`;
+//         document.getElementById("bg-img").style.backgroundSize= `100%`;
+//         document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
+
+//         console.log(`url('../${backgrounds[currentBg].src}')`)
+//         document.getElementById("body").style.color= backgrounds[currentBg].color;
+//         document.getElementById("bg-theme").innerHTML=backgrounds[currentBg].theme;
+// }
+//dropdown menu:
+let backgrounds = [
+  { "src": "bgPix/assets/images/cascade-img.jpeg", "color": "white", "theme": "default" },
+  { "src": "bgPix/assets/images/cascade2-img.jpeg", "color": "fuchsia", "theme": "cascade2" },
+  { "src": "bgPix/assets/images/frozen-cascade.jpg", "color": "white", "theme": "frozenCascade" }
+];
+
+// Set the initial background theme
+let currentBg = 0;
+applyBackgroundTheme(currentBg);
+
+// Event listener for theme dropdown change
+document.getElementById("theme-dropdown").addEventListener("change", function () {
+  // Find the selected option
+  let selectedTheme = this.value;
+
+  // Find the index of the selected theme in the backgrounds array
+  let selectedBgIndex = backgrounds.findIndex(bg => bg.theme === selectedTheme);
+
+  // Apply the new background theme
+  applyBackgroundTheme(selectedBgIndex);
+});
+
+// Function to apply the background theme
+function applyBackgroundTheme(bgIndex) {
+  // Update currentBg
+  currentBg = bgIndex;
+
+  // Implement new bg image
+  document.getElementById("bg-img").style.background = `url('../${backgrounds[currentBg].src}')`;
+  document.getElementById("bg-img").style.width = `${100 * scaler}vw`;
+  document.getElementById("bg-img").style.height = `${100 * scaler}vh`;
+  document.getElementById("bg-img").style.backgroundSize = `100%`;
+  document.getElementById("bg-img").style.backgroundRepeat = `no-repeat`;
+
+  console.log(`url('../${backgrounds[currentBg].src}')`)
+  document.getElementById("body").style.color = backgrounds[currentBg].color;
+  document.getElementById("bg-theme").innerHTML = backgrounds[currentBg].theme;
 }
 
 
@@ -183,7 +252,7 @@ for (let i = 0; i < parsedJSON.length; i++) {
   //get the array of linkObjects that have the SAME refID as the current axisObject
   let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(el.localAxisID ===parsedJSON[i].axisID)});
 console.log(parsedLinksJSON)
-  let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject); 
+  let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,parsedJSON[i].axeDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject); 
    axisArrayObj.push(axisObj);
 
 }
@@ -214,6 +283,7 @@ for(let i=0; i<axisArrayObj.length;i++){
           document.getElementById("axisContent-sidebar").innerHTML="Voici le manifeste GG!! choisis une axe à explorer woohoo";
   }
   });
+  
 
       // Function to pan the user view to a specific position
 function panToPosition(x, y) {
