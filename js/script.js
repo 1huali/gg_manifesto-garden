@@ -29,7 +29,7 @@ window.onload = (event) => {
         // console.log(response);
         //use the JSON .parse function to convert the JSON string into a Javascript object
         let parsedAxisJSON = JSON.parse(response);
-        console.log(parsedJSON);
+        console.log(parsedAxisJSON);
         retrieveLinks(parsedAxisJSON);
        },
        error:function(){
@@ -173,11 +173,11 @@ document.getElementById("language-button").addEventListener("click", function(){
 });
 
 //theme button:
-// let backgrounds=[
-//     {"src": "assets/images/cascade-img.jpeg","color":"white","theme":"default"},
-//     {"src": "assets/images/cascade2-img.jpeg","color":"fuchsia","theme":"cascade2"},
-//     {"src": "assets/images/frozen-cascade.jpg","color":"white","theme":"frozenCascade"}
-//   ];
+// let backgrounds = [
+//   { "src": "assets/images/bgPix/cascade-img.jpeg", "color": "white", "theme": "default" },
+//   { "src": "assets/images/bgPix/cascade2-img.jpeg", "color": "fuchsia", "theme": "cascade2" },
+//   { "src": "assets/images/bgPix/frozen-cascade.jpg", "color": "white", "theme": "frozenCascade" }
+// ];
 //   let currentBg=0;
 //   document.getElementById("theme-button").addEventListener("click", changeBgPicture);
 // function changeBgPicture(){
@@ -199,45 +199,46 @@ document.getElementById("language-button").addEventListener("click", function(){
 //         document.getElementById("body").style.color= backgrounds[currentBg].color;
 //         document.getElementById("bg-theme").innerHTML=backgrounds[currentBg].theme;
 // }
-//dropdown menu:
-let backgrounds = [
-  { "src": "bgPix/assets/images/cascade-img.jpeg", "color": "white", "theme": "default" },
-  { "src": "bgPix/assets/images/cascade2-img.jpeg", "color": "fuchsia", "theme": "cascade2" },
-  { "src": "bgPix/assets/images/frozen-cascade.jpg", "color": "white", "theme": "frozenCascade" }
-];
 
-// Set the initial background theme
-let currentBg = 0;
-applyBackgroundTheme(currentBg);
+//dropdown menu: EN CONSTRUCTION JANVIER 2024
+// let backgrounds = [
+//   { "src": "assets/images/bgPix/cascade-img.jpeg", "color": "white", "theme": "default" },
+//   { "src": "assets/images/bgPix/cascade2-img.jpeg", "color": "fuchsia", "theme": "cascade2" },
+//   { "src": "assets/images/bgPix/frozen-cascade.jpg", "color": "white", "theme": "frozenCascade" }
+// ];
 
-// Event listener for theme dropdown change
-document.getElementById("theme-dropdown").addEventListener("change", function () {
-  // Find the selected option
-  let selectedTheme = this.value;
+// // Set the initial background theme
+// let currentBg = 0;
+// applyBackgroundTheme(currentBg);
 
-  // Find the index of the selected theme in the backgrounds array
-  let selectedBgIndex = backgrounds.findIndex(bg => bg.theme === selectedTheme);
+// // Event listener for theme dropdown change
+// document.getElementById("theme-dropdown").addEventListener("change", function () {
+//   // Find the selected option
+//   let selectedTheme = this.value;
 
-  // Apply the new background theme
-  applyBackgroundTheme(selectedBgIndex);
-});
+//   // Find the index of the selected theme in the backgrounds array
+//   let selectedBgIndex = backgrounds.findIndex(bg => bg.theme === selectedTheme);
 
-// Function to apply the background theme
-function applyBackgroundTheme(bgIndex) {
-  // Update currentBg
-  currentBg = bgIndex;
+//   // Apply the new background theme
+//   applyBackgroundTheme(selectedBgIndex);
+// });
 
-  // Implement new bg image
-  document.getElementById("bg-img").style.background = `url('../${backgrounds[currentBg].src}')`;
-  document.getElementById("bg-img").style.width = `${100 * scaler}vw`;
-  document.getElementById("bg-img").style.height = `${100 * scaler}vh`;
-  document.getElementById("bg-img").style.backgroundSize = `100%`;
-  document.getElementById("bg-img").style.backgroundRepeat = `no-repeat`;
+// // Function to apply the background theme
+// function applyBackgroundTheme(bgIndex) {
+//   // Update currentBg
+//   currentBg = bgIndex;
 
-  console.log(`url('../${backgrounds[currentBg].src}')`)
-  document.getElementById("body").style.color = backgrounds[currentBg].color;
-  document.getElementById("bg-theme").innerHTML = backgrounds[currentBg].theme;
-}
+//   // Implement new bg image
+//   document.getElementById("bg-img").style.background = `url('../${backgrounds[currentBg].src}')`;
+//   document.getElementById("bg-img").style.width = `${100 * scaler}vw`;
+//   document.getElementById("bg-img").style.height = `${100 * scaler}vh`;
+//   document.getElementById("bg-img").style.backgroundSize = `100%`;
+//   document.getElementById("bg-img").style.backgroundRepeat = `no-repeat`;
+
+//   console.log(`url('../${backgrounds[currentBg].src}')`)
+//   document.getElementById("body").style.color = backgrounds[currentBg].color;
+//   document.getElementById("bg-theme").innerHTML = backgrounds[currentBg].theme;
+// }
 
 
 // NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
