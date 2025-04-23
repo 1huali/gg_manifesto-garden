@@ -14,6 +14,8 @@ class InfoBox{
       this.yPos=linkYpos;
       this.linkImage=linkImage;
       console.log(linkImage)
+      this.titleBarContainer=null;
+
 
       if (linkImage === "null"){
         let randomNumber = Math.floor(Math.random() * 10)+1;
@@ -22,12 +24,14 @@ class InfoBox{
 
       this.el = document.createElement("div");
       this.el.classList.add("seed-container");
-      document.querySelector("#bg-img").appendChild(this.el); //parent
-      this.el.style.top=this.yPos+30+"px";
-      this.el.style.left=this.xPos+30+"px";
+      this.el.classList.add("window");
+      document.querySelector("#map").appendChild(this.el); //parent
+      this.el.style.top=this.yPos+53+"px";
+      this.el.style.left=this.xPos+29+"px";
       this.el.style.display = "none";
+      
       //active draggable functionality:
-      this.setAsDraggableElement(this.el);
+      // this.setAsDraggableElement(this.el);
      this.print();
     }
 
@@ -36,15 +40,25 @@ class InfoBox{
       print()
       {
 
-      
       this.el.innerHTML = "";
       //create close button
+      this.titleBarContainer=document.createElement("div");
+      this.titleBarContainer.classList.add("title-bar");
+      this.titleBarContainer.classList.add("title-bar-seed-container");
+      this.titleBarContainer.style.top= this.yPos+30+"px";
+      this.titleBarContainer.style.left= this.xPos+30+"px";
+      this.titleBarText=document.createElement("div");
+      this.titleBarText.classList.add("title-bar-text");
+      this.titleBarText.innerHTML=this.title;
+      this.titleBarContainer.appendChild(this.titleBarText);
       this.buttonEl = document.createElement("input");
       this.buttonEl.type = "button";
       this.buttonEl.classList.add("close-buttons");
-      this.buttonEl.classList.add("buttons");
       this.buttonEl.value = "X";
-      this.el.appendChild(this.buttonEl);
+      this.titleBarContainer.appendChild(this.buttonEl);
+      document.getElementById("map").appendChild(this.titleBarContainer);
+      this.titleBarContainer.style.display = "none";
+
 
       // self=this;
       //creating seed content div : 
@@ -100,19 +114,16 @@ class InfoBox{
       //close seedbox on button click:
       this.buttonEl.addEventListener("click", function(){
           self.el.style= "display: none;"
+          self.titleBarContainer.style= "display: none;"
        });
       }
   
 
   openSeedbox(){
-
       let self = this;
   
       this.el.style.display ="block";
-    //  this.linkOpen.addEventListener("click", function(){
-    //       console.log(`${self.link}`); //?? GIVES UNDEFINED
-    //       window.open(`${self.link}`);
-    //   })
+      this.titleBarContainer.style.display= "flex";
   }
 
   setAsDraggableElement(elmnt) {
@@ -156,4 +167,9 @@ class InfoBox{
         }
       }
     } //end dragElement();
+
+    removeMe(){
+      this.el.remove();
+      this.titleBarContainer.remove();
+    }
 }

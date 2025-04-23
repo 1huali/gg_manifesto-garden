@@ -5,8 +5,8 @@ Wawa Li pour Galerie Galerie
 */
 
 "use strict";
-window.onload = (event) => {
-
+window.onload = async (event) => {
+console.log(window.innerWidth);
 //   // Function to log mouse coordinates
 // function logMousePosition(event) {
 //   console.log("Mouse X: " + event.clientX + ", Mouse Y: " + event.clientY);
@@ -14,28 +14,13 @@ window.onload = (event) => {
 // // Add event listener to the document
 // document.addEventListener("mousedown", logMousePosition);
 
-    //retrieve data from db :
-//on window load, we are retrieving the data from the db. It goes to retreiveData.php, to the script.js.
-    $.ajax({
-        type: "POST",
-        enctype: 'text/plain',
-        url: "../retrieveData.php", //file taht activate the retrieval of the data from the db
-        data: "",
-        processData: false,//prevents from converting into a query string
-        contentType: false,
-        cache: false,
-        timeout: 600000,
-        success: function (response) {
-        // console.log(response);
-        //use the JSON .parse function to convert the JSON string into a Javascript object
-        let parsedAxisJSON = JSON.parse(response);
-        console.log(parsedAxisJSON);
-        retrieveLinks(parsedAxisJSON);
-       },
-       error:function(){
-      console.log("error occurred");
-    }
-  });
+// PARAMÈTRES pour DATABASE ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+
+let response = await fetch("index.php?action=load")
+let parsedAxisJSON   = await response.json();
+console.log(parsedAxisJSON);
+retrieveLinks(parsedAxisJSON);
+
 
   function retrieveLinks (parsedAxisJSON){
     $.ajax({
@@ -48,11 +33,11 @@ window.onload = (event) => {
         cache: false,
         timeout: 600000,
         success: function (response) {
-        // console.log(response);
+        //console.log(response);
         //use the JSON .parse function to convert the JSON string into a Javascript object
         let parsedLinksJSON = JSON.parse(response);
         // console.log(parsedJSON);
-        initializeWebsite(parsedAxisJSON,parsedLinksJSON);
+       initializeWebsite(parsedAxisJSON,parsedLinksJSON);
        },
        error:function(){
       console.log("error occurred");
@@ -63,76 +48,71 @@ window.onload = (event) => {
 function initializeWebsite(parsedJSON,parsedLinksJSON){
 console.log(parsedJSON, parsedLinksJSON);
 
-document.getElementById("ggLogo").addEventListener("click", function(){
+document.getElementById("logo").addEventListener("click", function(){
     window.open("https://www.galeriegalerieweb.com");
 });
 
+let axisArrayObj=[];
+let chimeSound = document.getElementById("chimeSound");
 
-// PARAMÈTRE pour BOUTONS HTML ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-
+// PARAMÈTRES pour BOUTONS HTML ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 // manifesto button:
 document.getElementById("manifesto-button").addEventListener("click", function(){
 document.getElementById("manifesto-container").style.display="block"
+document.getElementById("title-bar-manifesto-container").style.display="flex";
 });
 document.getElementById("manifesto-container-close-button").addEventListener("click", function(){
-    document.getElementById("manifesto-container").style.display="none"
+document.getElementById("manifesto-container").style.display="none"
+document.getElementById("title-bar-manifesto-container").style.display="none";
 });
+
+//click on title:
+document.getElementById("default-title").addEventListener("click", function(){
+  document.getElementById("credits-container").style.display="block";
+  document.getElementById("title-bar-credit-container").style.display="flex";
+
+});
+document.getElementById("credits-container-close-button").addEventListener("click", function(){
+  document.getElementById("credits-container").style.display="none"
+  document.getElementById("title-bar-credit-container").style.display="none";
+  });
 
 // intro button:
 //when user click on enter, all buttons appears:
     document.getElementById("intro-container-close-button").addEventListener("click", function(){
+      console.log(window.innerWidth);
+
     document.getElementById("intro-container").style.display="none";
-    document.getElementById("buttons-container").style.display="block";
-    document.getElementById("data-container").style.display="block";
-    document.querySelectorAll(".flowerEl").forEach(element => {
-      element.style.display="block"
-    });
-    document.querySelectorAll(".linkEl").forEach(element => {
-      element.style.display="block"
-    });
-    document.getElementById("sidebar-button").style.display="block";
-    });
+document.getElementById("map").style.display="block";
+document.getElementsByTagName("header")[0].style.display="block";
+// NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+// parsedJSON contains an axis object where the axisId is referenced in the links..
+for (let i = 0; i < parsedJSON.length; i++) {
 
-    let scaler= 1;
-//zoom buttons:
-document.getElementById("zoomIn-button").addEventListener("click", function(){
-    scaler+= 0.08;
-    if (scaler < 4) {
-        document.querySelector(
-            "#bg-img"
-          ).style.transform = `scale(${scaler})`;
+  //console.log(parsedJSON[i].axisID);
+  // make your axis objects...
+  //get the array of linkObjects that have the SAME refID as the current axisObject
+  // let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(parseInt(el.localAxisID) ===parsedJSON[i].axisID)});
+  let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(parseInt(el.localAxisID) === parseInt(parsedJSON[i].axisID))}); //sabine edits
 
-    }
-});
-document.getElementById("zoomOut-button").addEventListener("click", function(){
-    scaler -= 0.08;
-    if (scaler >= 1) {
-        document.querySelector(
-            "#bg-img"
-          ).style.transform = `scale(${scaler})`;
 
-    // document.getElementById("bg-img").style.width= `${100*scaler}vw`;
-    // document.getElementById("bg-img").style.height= `${100*scaler}vh`;
-    // //ZOOM : CHANGE ACCORDING TO ALL ZOOM LEVELS
-    // document.querySelectorAll(".linkEl").forEach(element => {
-    //     element.style.fontSize= `${20*scaler}px`;
-    // });
-    // document.querySelectorAll(".flowerEl").forEach(element => {
-    //     element.style.fontSize= `${20*scaler}px`;
-    // });
-    // console.log("moving out",scaler);
+  console.log(filteredArrayOfCurrentAxisObject);
+//console.log(parsedLinksJSON)
+  let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,parsedJSON[i].axeDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject, parsedJSON[i].axisImage); 
+   axisArrayObj.push(axisObj);
 
 }
+
+  // GÉNÉRATION DE SEEDS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+  for(let i=0; i<axisArrayObj.length;i++){
+    axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
+  } //end of for loop
+  
+    document.getElementsByTagName("footer")[0].style.display="flex";
     });
-document.getElementById("pdf-button").addEventListener("click", function(){
-    window.open("https://docs.google.com/document/d/1SpPcLye8aMRYhOnwYdLKXy3-3o8QxTmRbJG_FlBLaM0/edit");
-    });
-document.getElementById("sidebar-button").addEventListener("click", function(){
-    document.getElementById("sidebar-menu-container").style= "display:block;"
-});
-document.getElementById("sidebar-container-close-button").addEventListener("click", function(){
-    document.getElementById("sidebar-menu-container").style= "display:none;"
-});
+
+    console.log(window.innerWidth);
+
 
 let language= "eng";
 //translation button:
@@ -140,161 +120,98 @@ document.getElementById("language-button").addEventListener("click", function(){
   if (language === "eng"){
     language = "fr";
     document.getElementById("language-button").value="Français";
-    document.getElementById("manifesto-button").value="The Manifesto";
     document.getElementById("share-button").value="Share";
+    document.getElementById("manifesto-button").value="Manifesto";
+    document.getElementById("contribute-button").value="Contribute <3";
     document.getElementById("update").innerHTML="Last Update";
+    document.getElementById("footnote-title").innerHTML="Footnotes";
 
     //CHANGE BUTTONS VALUES to english
   } else {
     language= "eng";
     document.getElementById("language-button").value="English";
-    document.getElementById("manifesto-button").value="Le Manifeste";
     document.getElementById("share-button").value="Partager";
+    document.getElementById("manifesto-button").value="Manifeste";
+    document.getElementById("contribute-button").value="Contribuer <3";
     document.getElementById("update").innerHTML="Mise à jour";
-
-
-
+    document.getElementById("footnote-title").innerHTML="Notes en bas de page";
         //CHANGE BUTTONS VALUES to french
-
   };
 
   for (let j=0;j < axisArrayObj.length;j++){
 //axis values to english : 
     if (language === "eng"){
     axisArrayObj[j].description = axisArrayObj[j].axeDescription;
-    axisArrayObj[j].reprintAxisContentSidebar();
+    // axisArrayObj[j].reprintAxisContentSidebar();
    axisArrayObj[j].switchLangOfLinksToFr();
   } else {
     axisArrayObj[j].description = axisArrayObj[j].axisDescription;
-    axisArrayObj[j].reprintAxisContentSidebar();
+    // axisArrayObj[j].reprintAxisContentSidebar();
    axisArrayObj[j].switchLangOfLinksToEng();
   }
   }
 });
 
-//theme button:
-// let backgrounds = [
-//   { "src": "assets/images/bgPix/cascade-img.jpeg", "color": "white", "theme": "default" },
-//   { "src": "assets/images/bgPix/cascade2-img.jpeg", "color": "fuchsia", "theme": "cascade2" },
-//   { "src": "assets/images/bgPix/frozen-cascade.jpg", "color": "white", "theme": "frozenCascade" }
-// ];
-//   let currentBg=0;
-//   document.getElementById("theme-button").addEventListener("click", changeBgPicture);
-// function changeBgPicture(){
-//     //changes theme array:
-//     if (currentBg >= backgrounds.length-1) {
-//         currentBg=0;
-//       }
-//       else {
-//         currentBg= currentBg+1;
-//         }
-//         //implements new bg image
-//         document.getElementById("bg-img").style.background= `url('../${backgrounds[currentBg].src}')`;
-//         document.getElementById("bg-img").style.width= `${100*scaler}vw`;
-//         document.getElementById("bg-img").style.height= `${100*scaler}vh`;
-//         document.getElementById("bg-img").style.backgroundSize= `100%`;
-//         document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
+// PARAMÈTRES pour BACKGROUND/THÈME ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
+//     //Select menu for axis sidebar menu:
+    let backgroundMenuSelect = document.getElementById("theme-dropdown");
+    let selectedBackground= null;
+    let backgroundIndex=null;
 
-//         console.log(`url('../${backgrounds[currentBg].src}')`)
-//         document.getElementById("body").style.color= backgrounds[currentBg].color;
-//         document.getElementById("bg-theme").innerHTML=backgrounds[currentBg].theme;
-// }
-
-//dropdown menu: EN CONSTRUCTION JANVIER 2024
-// let backgrounds = [
-//   { "src": "assets/images/bgPix/cascade-img.jpeg", "color": "white", "theme": "default" },
-//   { "src": "assets/images/bgPix/cascade2-img.jpeg", "color": "fuchsia", "theme": "cascade2" },
-//   { "src": "assets/images/bgPix/frozen-cascade.jpg", "color": "white", "theme": "frozenCascade" }
-// ];
-
-// // Set the initial background theme
-// let currentBg = 0;
-// applyBackgroundTheme(currentBg);
-
-// // Event listener for theme dropdown change
-// document.getElementById("theme-dropdown").addEventListener("change", function () {
-//   // Find the selected option
-//   let selectedTheme = this.value;
-
-//   // Find the index of the selected theme in the backgrounds array
-//   let selectedBgIndex = backgrounds.findIndex(bg => bg.theme === selectedTheme);
-
-//   // Apply the new background theme
-//   applyBackgroundTheme(selectedBgIndex);
-// });
-
-// // Function to apply the background theme
-// function applyBackgroundTheme(bgIndex) {
-//   // Update currentBg
-//   currentBg = bgIndex;
-
-//   // Implement new bg image
-//   document.getElementById("bg-img").style.background = `url('../${backgrounds[currentBg].src}')`;
-//   document.getElementById("bg-img").style.width = `${100 * scaler}vw`;
-//   document.getElementById("bg-img").style.height = `${100 * scaler}vh`;
-//   document.getElementById("bg-img").style.backgroundSize = `100%`;
-//   document.getElementById("bg-img").style.backgroundRepeat = `no-repeat`;
-
-//   console.log(`url('../${backgrounds[currentBg].src}')`)
-//   document.getElementById("body").style.color = backgrounds[currentBg].color;
-//   document.getElementById("bg-theme").innerHTML = backgrounds[currentBg].theme;
-// }
-
-
-// NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-let axisArrayObj=[];
-let chimeSound = document.getElementById("chimeSound");
-
-// parsedJSON contains an axis object where the axisId is referenced in the links..
-for (let i = 0; i < parsedJSON.length; i++) {
-
-  //console.log(parsedJSON[i].axisID);
-  // make your axis objects...
-  //get the array of linkObjects that have the SAME refID as the current axisObject
-  let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(el.localAxisID ===parsedJSON[i].axisID)});
-console.log(parsedLinksJSON)
-  let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,parsedJSON[i].axeDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject); 
-   axisArrayObj.push(axisObj);
-
-}
-
-    //Select menu for axis sidebar menu:
-    let axisMenuSelect = document.getElementById("drpMenu-axe");
-    let selectedAxis= null;
-    let axisIndex=null;
-
-for(let i=0; i<axisArrayObj.length;i++){
-  // console.log(axisArrayObj[i])
-  axisArrayObj[i].print();
-  axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
-} //end of for loop
-
+    //theme button: (from the theme button section below)
+    let backgrounds = [
+      { "src": "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg", "color": "white", "theme": "theme0","class":"haloClass", "background":"radial-gradient(black, #9198e5)" },
+      { "src": "gg_manifesto-garden/assets/images/bgPix/halo.png", "color": "white", "theme": "theme1","class":"haloClass", "background":"radial-gradient(white, pink)"},
+      { "src": "gg_manifesto-garden/assets/images/bgPix/grass.jpg", "color": "white", "theme": "theme2","class":"haloClass", "background":"radial-gradient(black, pink)" },
+      { "src": "gg_manifesto-garden/assets/images/bgPix/paper.jpg", "color": "white", "theme": "theme3","class":"haloClass", "background":"radial-gradient(crimson, orange)"},
+    ];
+    document.querySelectorAll(".buttons").forEach(function(el){
+      el.classList.add(backgrounds[0].class);
+    })
     //Sets and traverses thru JS the list selection in the HTML:
-    axisMenuSelect.addEventListener("change", function(){
-      //pan user view to the selection:
-    axisIndex = parseInt(axisMenuSelect.value.substring(4,axisMenuSelect.value.length));
+    backgroundMenuSelect.addEventListener("change", function(){
+      backgroundIndex = parseInt(backgroundMenuSelect.value.substring(5,backgroundMenuSelect.value.length));
 
-   selectedAxis = axisMenuSelect.value;
-   if (axisIndex !=0){
-   let selectedAxisObj = axisArrayObj[axisIndex-1]
-   console.log(selectedAxisObj)
-    selectedAxisObj.axisSidebarDisplay();
-    panToPosition(selectedAxisObj.xPos, selectedAxisObj.yPos);
-  } else {
-          document.getElementById("axisContent-sidebar").innerHTML="Voici le manifeste GG!! choisis une axe à explorer woohoo";
+   let selectedBackground = backgrounds[backgroundIndex]
+  //  console.log(selectedBackground)
+
+  // implements new title [add image here as an "or" statement]
+  if (backgroundIndex===1){
+    document.getElementById("main-title-container").innerHTML= `<a href="#" id="zine-title" class="text-xxxl"> JARDIN MANIFESTO GARDEN </a>`;
+  } else{
+    document.getElementById("main-title-container").innerHTML= `<a href="#" id="default-title" class="text-xxl"> JARDIN MANIFESTO GARDEN </a>`;
   }
-  });
-  
+  //changes the background-color:
+  document.getElementById("bg-img").style.background=selectedBackground["background"];
+  console.log(selectedBackground["background"])
+    //implements new bg image
+        // document.getElementById("bg-img").style.background= `url('../${selectedBackground.src}')`;
+        // document.getElementById("bg-img").style.backgroundSize= `100% 100%`;
+        // document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
+        document.getElementById("body").style.color= selectedBackground.color;
+        document.querySelectorAll(".buttons").forEach(function(el){
+          console.log(el)
+          for (let i=0;i<backgrounds.length;i++){
+            el.classList.remove(backgrounds[i].class);
+          }
+          el.classList.add(selectedBackground.class);
+        })
 
-      // Function to pan the user view to a specific position
-function panToPosition(x, y) {
-  // Assuming you want to scroll the entire document
-  window.scrollTo({
-      top: y,
-      left: x,
-      behavior: 'smooth' // Optional: Use smooth scrolling
   });
+
+window.onresize = async (event) => {
+
+  for(let i=0; i<axisArrayObj.length;i++){
+    axisArrayObj[i].removeLinks();
+    axisArrayObj[i].subAxisArray=[];
+    console.log(axisArrayObj[i].subAxisArray);
+
+    axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
+
+  } //end of for loop
+  
 }
+
 
 } //initialize website end
 }

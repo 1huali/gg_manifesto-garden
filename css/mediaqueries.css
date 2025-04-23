@@ -1,0 +1,135 @@
+@media (max-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (max-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (max-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (max-width:961px)  { 
+
+
+.text-md,
+h3 {
+    font-size: var(--text-lg);
+}
+
+
+.text-sm {
+    font-size: var(--text-md);
+}
+
+
+.text-lg {
+    font-size: var(--text-xl);
+}
+
+    #bg-img{
+        position: fixed;
+        /* test change on width/height variables or bg-size variable */
+          transform-origin: top left;
+          width: 200vw;
+          height: 200vh; 
+          /* background: url('../assets/images/bgPix/haloBlack.jpeg'); */
+          /* background-size:200vw 200vh; */
+          /* background-repeat: no-repeat; */
+          /* background-color: black; */
+          background: radial-gradient(black, #9198e5);
+        }
+
+    
+    #map{
+        z-index: 3;
+        position: absolute;
+        width: 100vw;
+        height: 200vh;
+        top: 0;
+        left: 0;
+        display: none;
+        overflow:scroll;
+      }
+
+      #buttons-container {
+        width: 90vw;
+        /* background-color: rgb(101, 101, 101); */
+        flex-wrap: wrap;
+        justify-content: initial;
+
+      }
+    
+      .buttons{
+        width: max-content;
+        height: auto;
+        margin: 3px;
+      }
+
+      #intro-container-footer{
+        position: absolute;
+        top: 80%;
+        width: 95vw;
+      }
+
+      #main-title-container{
+        width: 100vw;
+        margin: 0 auto;
+        /* text-align: left; */
+      }
+
+      .text-align-center a{
+        text-align: left;
+      }
+    
+      #logo{
+        width: 20%;
+        /* display: none; */
+      }
+
+      .logo_credits{
+        width: 2%;
+      }
+
+  /* If to edit the flower, do it here: */
+  .flowerEl-container{
+    width: 200px;  /* To change the size of the flower element */
+  }
+    
+
+  #manifesto-container{
+    width: 95vw;
+  }
+
+  #title-bar-manifesto-container{
+    width: 95vw;
+  }
+
+
+  #manifesto-container{
+    top: 43vh;
+    left: 1vw;
+    width: 92vw;
+  }
+
+  #title-bar-manifesto-container{
+    top: calc(43vh - 25px);
+    left: 1vw;
+  }
+
+  #title-bar-credit-container{
+    left: 1vw;
+    top: calc(43vh - 25px);
+  }
+
+  /* Credits container */
+  #credits-container{
+    top: 43vh;
+    left: 1vw;
+    height: 45vh;
+    width: 92vw;
+  }
+
+  /* MedInfoBox: */
+  .axis-container{
+    top: 37vh;
+    left: 1vw;
+    width: 92vw;
+  }
+
+    /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (max-width:1281px) { /* hi-res laptops and desktops */ }

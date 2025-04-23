@@ -26,9 +26,10 @@ class Links {
             let div = document.createElement("div");
             div.id="linkEl"+this.axisNum;
             div.classList.add('linkEl');
+            div.classList.add('text-xxl');
             div.style.top=this.yPos+"px";
             div.style.left=this.xPos+"px";
-            document.getElementById("bg-img").appendChild(div)
+            document.getElementById("map").appendChild(div)
             this.element=div;
             // console.log(this.element)
             div.innerHTML=this.icon;
@@ -40,11 +41,7 @@ class Links {
           //Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
     this.classList.add("linkUnderline");
-    //at hover, little description NO NEED
-    // self.hoverDiv.style.display= "block"
-    // setTimeout(() => {
-    //   self.hoverDiv.style.display= "none";
-    // }, "5000");
+
   });
   //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){
@@ -64,7 +61,14 @@ this.classList.remove("linkUnderline");
     //open seed box
     // document.getElementById("seedBoxEl"+self.linkId).style.display="block";
     self.seedbox.openSeedbox();
-    console.log("opened seed box");
     });
 }
+
+removeMe(){
+
+this.seedbox.removeMe();
+ this.element.remove();
+
+}
+
 }
