@@ -90,15 +90,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
 
     <header>
 <div id="main-title-container" class="text-xxl text-align-center">
-<a href="#" id="default-title" class="text-xxl text-align-center"> JARDIN MANIFESTO GARDEN </a>
+<div id="default-title" class="text-xxl text-align-center"> JARDIN MANIFESTO GARDEN </div>
     <!-- <img id="title-image" src="../gg_manifesto-garden/assets/images/title-test.jpeg" alt="title"> -->
   </div>
 
   <nav id="buttons-container" class="text-sm">
   <input id="manifesto-button" class="buttons text-sm" type="button" value="Manifesto">
-  <input id="share-button" type="button" class="buttons text-sm" value="Share">
-
-  <input id="contribute-button" class="buttons text-sm" type="button" value="Contribute <3">
+  <input id="index-button" type="button" class="buttons text-sm" value="Index">
+  <input id="contribute-button" class="buttons text-sm" type="button" value="Contribute">
 
   <div>Theme: 
     <select id="theme-dropdown"  class="buttons text-sm">
@@ -106,7 +105,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
       <option value="theme1">bibliography</option>
       <option value="theme2">irl garden</option>
       <option value="theme3">webzine</option>
-
     </select>
    </div>
 
@@ -114,25 +112,31 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
  </nav>
  </header>
 
- <div id="title-bar-manifesto-container" class="title-bar">
+ <!-- https://docs.google.com/document/d/1DH8e74ChIlntGXoX_TLG2UUrhECgsD-x/edit#heading=h.9007833k6617 PAGE 1 (Manifesto) section -->
+ <div id="title-bar-index-container" class="title-bar">
     <div class="title-bar-text">Table of Content | Table des Matières</div>
     <div class="title-bar-controls">
-      <input id="manifesto-container-close-button" class="close-buttons" type="button" value="X">
+      <input id="index-container-close-button" class="close-buttons" type="button" value="X">
     </div>
   </div>
- <div id="manifesto-container" class="window text-lg">
-  <!-- content -->
+ <div id="index-container" class="window text-lg">
+  <!-- Bilingual content -->
   <div>
     <ul class="tree-view">
       <!-- AXIS 1 -->
       <li>
-        <h3>BIBLIOGRAPHY | BIBLIOGRAPHIE </h3>
+        <h3>BIBLIOGRAPHIE | BIBLIOGRAPHY</h3>
         <details open>
-          <summary>nom 1 | name 1</summary>
+          <summary>CRÉATION ET EXPÉRIMENTATION | CREATION AND EXPERIMENTATION</summary>
           <ul>
-            <li>lien 1</li>
-            <li>lien 2</li>
-            <li>lien 3</li>
+          <li><a href="https://leetusman.com/archiving-artist-spaces/">Archiving Artist-Run Spaces</a> (2021-2023) </li>
+            <li><a href="https://www.galeriegalerieweb.com/webtheque/">Galerie Galerie's Webtheque</a> (2018)</li>
+            <li><a href="https://www.are.na/"></a>(2014)</li>
+            <li><a href="http://www.spiderlanguage.net/domains.html">isi-pîkiskwêwin-ayapihkêsîsak</a> (1996)</li>
+            <li><a href="https://www.cameronsworld.net/">Cameron's World</a> (2015) </li>
+            <li><a href="https://www.youtube.com/@coryarcangel">Cory Arcangel</a> (2009-)</li>
+            <li><a href="https://www.naiveweekly.com/">Naïve Weekly</a> (2018-)</li>
+            <li><a href="https://www.galeriegalerieweb.com/webtheque/the-wig/">A White Institution's Guide For Welcoming Artists of Color* And Their Audiences »</a> (2016-2020)</li>
           </ul>
         </details>
       </li>
@@ -140,11 +144,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
       <!-- AXIS 2 -->
       <li>
         <details open>
-          <summary>nom 2 | name 2</summary>
+          <summary>ÉDUCATION DÉCENTRALISÉE | DECENTRALIZED EDUCATION</summary>
           <ul>
-            <li>lien 1</li>
-            <li>lien 2</li>
-            <li>lien 3</li>
+            <li><a href="https://www.instagram.com/do.not.research/">Do Not Research</a> (2020-)</li>
+            <li><a href="https://publicdomainreview.org/">The Public Domain Review</a> (2011-)</li>
+            <li><a href="https://www.penguinrandomhouse.ca/books/761644/against-platforms-by-mike-pepi/9781685891374">Against Platforms</a> (2025)</li>
+            <li><a href="https://www.patreon.com/cafesnake">café snake</a> (2024-)</li>
+            <li><a href="https://artbase.rhizome.org/wiki/Main_Page">Rhizom ArtBase</a> (1999-)</li>
+            <li><a href="https://www.leslibraires.ca/livres/load-une-histoire-d-internet-t-carl-bessette-9782925197614.html">Load - Une histoire d'Internet T.1: Les géants</a> (2025)</li>
+            <li><a href="https://www.youtube.com/@contrapoints">ContraPoints</a> (2017-)</li>
+            <li><a href="https://www.instagram.com/bradtroemel">Brad Troemel</a> (2016-)</li>
           </ul>
         </details>
       </li>
@@ -152,11 +161,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
       <!-- AXIS 3 -->
       <li>
         <details open>
-          <summary>nom 3 | name 3</summary>
+          <summary>TRANSPARENCE ET OUVERTURE | TRANSPARENCY AND OPENNESS</summary>
           <ul>
-            <li>lien 1</li>
-            <li>lien 2</li>
-            <li>lien 3</li>
+          <li><a href="https://earthstar-project.org/">earthstar</a> (2019-)</li>
+            <li><a href="https://schoolofcommons.org/">school of commons (SoC)</a> (2019-)</li>
+            <li><a href="https://www.betterworldbooks.com/product/detail/floss-art-9781906496180">FLOSS+Art</a> (2008)</li>
+            <li><a href="https://mackenzie.art/digital-art/detail/">Digital Exhibitions Toolkit and Art Installation Launcher (DETAIL)</a> (2021-2024)</li>
+            <li><a href="https://webrecorder.net/">Werecorder</a> (2014-)</li>
+            <li><a href="https://leafletjs.com/">Leaflet.js</a> (2011-)</li>
+            <li><a href="https://p5js.org/">p5.js</a> (2013-)</li>
           </ul>
         </details>
       </li>
@@ -164,23 +177,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
       <!-- AXIS 4 -->
       <li>
         <details open>
-          <summary>nom 4 | name 4</summary>
+          <summary>MÉLIMÉLO À TOUT PRIX | MISHMASH AT ALL COSTS</summary>
           <ul>
-            <li>lien 1</li>
-            <li>lien 2</li>
-            <li>lien 3</li>
-          </ul>
-        </details>
-      </li>
-
-      <!-- AXIS 5 -->
-      <li>
-        <details open>
-          <summary>nom 5 | name 5</summary>
-          <ul>
-            <li>lien 1</li>
-            <li>lien 2</li>
-            <li>lien 3</li>
+            <li><a href="http://nunasoft.com/">Nunasoft</a> (2004-)</li>
+            <li><a href="https://docs.google.com/document/u/1/d/1BRlF2_zhNe86SGgHa6-VlBO-QgirITwCTugSfKie5Fs/mobilebasic?fbclid=IwAR3Ag8EUNfxEN4ui3Vkx5Cb2IU0VG6ppslRE_T8GVJej1wx4KjF0BAStXqQ"></a> (2020)</li>
+            <li><a href="https://open.spotify.com/episode/3iVxO7q0uPZ5NAjUHdqXJq?si=aJpdEA80QymoKJ-I9qRBuw&nd=1&dlsi=f0976fb85dab40a0">Épisode 3 - Congo : Le laboratoire de la barbarie algorithmique (Le Poids du Cloud) (in French)</a> (2025)</li>
+            <li><a href="https://virtualcarelab.com/">Virtual Care Lab</a> (2020)</li>
+            <li><a href="https://site.sarahgarcin.com/web-frugal/">Une site web frugal</a> (2021)</li>
+            <li><a href="https://solar.lowtechmagazine.com/">Low-Tech Magazine</a> (2007)</li>
+            <li><a href="https://www.galeriegalerieweb.com/wepinasowina/">wēpināsowina.net</a> (203-2023)</li>
           </ul>
         </details>
       </li>
@@ -188,39 +193,82 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
   </div>
 </div>
 
-<div id="title-bar-credit-container" class="title-bar">
-  <div class="title-bar-text">About | À propos</div>
+<div id="title-bar-manifesto-container" class="title-bar">
+  <div class="title-bar-text">Le Manifeste | The Manifesto</div>
   <div class="title-bar-controls">
-  <input id="credits-container-close-button" class="close-buttons" type="button" value="X">
+  <input id="manifesto-container-close-button" class="close-buttons" type="button" value="X">
   </div>
 </div>
- <div id="credits-container" class="window">
+
+ <div id="manifesto-container" class="window">
 <!-- content -->
-  <div class="text-lg">
-  Dans l’optique d’encadrer ses orientations organisationnelles à venir, Galerie Galerie, a entrepris la rédaction d’une charte de valeurs et d’une politique interne : Manifesto Garden. Adaptée à la réalité des conditions hypermédiatique de GG, cette charte s’inscrit dans un désir éthique et de bonne pratique, et servira à guider les activités à venir de l’organisme tout en faisant office de prise de position critique face aux réalités politiques, territoriales, économiques et même identitaires du Web et des espaces dits de «metaverse». Défense de la valeur et de la légitimité des pratiques artistiques ancrées dans la matérialité web, protection et utilisation des approches dites “open source” ou de code source ouvert, soutien à la diversité des créateur·trice·s web et à leur agentivité en ligne, utilisation de l’art web comme levier de littératie numérique, développement d’une approche éco responsable quant à l’utilisation de l’Internet à des fins artistiques, etc. : le Manifeste Galerie Galerie, publié au www.galeriegalerieweb.com en 2023, se voudra un outil à la fois réflexif et stratégique, permettant de mieux encadrer les décisions (artistiques, administratives, de gouvernance, logistiques, etc.) de l’organisme, mais aussi, de renforcer sa vision organisationnelle en misant sur des valeurs féministes, décoloniales, inclusives et expérimentales. Avec des engagements clairs et transparents, GG espère ainsi contribuer à la consolidation de pratiques saines en termes de recherche, de production et de commissariat en ligne, et servir d’exemple face à l’utilisation responsable du Web comme un outil de création et de diffusion.
-  <h3><li>Special thanks | Remerciements</li></h3>
-  <li>contributeur 1</li>
-  <li>contributeur 2</li>
-  <li>contributeur 3</li>
-  <li>contributeur 4</li>
+  <div  id="manifesto-content-fr" class="text-lg">
+  <i>Il peut exister d'autres façons d'imaginer le cyberspace, non pas comme un lieu né de la cupidité, de la peur et de la faim, mais plutôt comme un lieu de nourrissement. Un lieu où les gens peuvent trouver leurs propres rêves. Pas seulement des fantasmes de fuite, mais des rêves d'humanité et de façons de préserver le territoire.¹ 
+<br>(traduction libre)</i>
+<br>― Loretta Todd 
+<br>
+<!-- TO INDENT & SIZE FONTS -->
+<br>En 1998, Mark Bernstein lançait Hypertext Gardens², posant les bases du concept de « jardin numérique » ou « digital garden » : un espace en ligne où l’on peut s’aventurer librement, comme dans un parc ou un jardin, un lieu qui invite à la métamorphose, à l’errance, à l’exploration et à la réflexion.³<br>
+<br>Aujourd'hui, en 2025, le Web, tout en jouant un rôle central dans l’organisation du monde, est de plus en plus façonné et déformé par des forces capitalistes, coloniales et extractivistes. Les structures technologiques sous-jacentes en sont les témoins et les instruments, influençant tant la manière dont nous communiquons que la manière dont nous consommons.<br>
+<br>Pourtant, le Web demeure un médium indiscipliné, un terrain malléable où réside un potentiel subversif. Pour la chercheuse Linda Leung, ce potentiel émerge de la convergence entre production et consommation : le·la producteur·trice est aussi consommateur·trice, et vice-versa — bien que ces pratiques mobilisent des compétences numériques inégales⁴. Chaque acte de navigation devient alors profondément situé : influencé par l’intention, l’humeur, la littératie, la classe sociale ou l’héritage culturel, etc. Selon Leung, utiliser le Web, c’est déjà le façonner. C’est un lieu d’interaction et de co-création, où réel et virtuel s’entrelacent.<br>
+<br>Ici, Galerie Galerie, plateforme d’art en ligne à but non lucratif basée à Tio’tia:ke/Mooniyang/Montréal, vous invite à découvrir et à errer dans son propre jardin : le Jardin Manifesto Garden. Ce projet hypermédiatique, conçu comme un manifeste-outil, se déploie à la fois comme une ligne éditoriale, un espace critique, un terrain de jeu et une incitation à l'exploration. Il est micro refuge où est cultivé un Web plus calme, plus organique et plus expérimental, loin des impératifs de rapidité, de captation, de performance et de rentabilité qui dominent les mégaplateformes. Ici, Galerie Galerie revendique une posture résolument positive envers la technologie, tout en reconnaissant ses racines violentes. Car l’Internet, issu de logiques militaires et coloniales, porte encore les traces de ces origines : pollution numérique, chaînes d’approvisionnement opaques, exploitation des corps et des ressources (#Congo). Face à ces systèmes de domination encore à l’œuvre, cultiver des alternatives devient une forme de résistance.
+<br>Créé en collaboration avec l’artiste Wawa Li, le Jardin Manifesto Garden de Galerie Galerie se matérialise sous la forme d'un site web artistique bilingue. Il est composé de quatre axes distincts, qui tissent des liens entre des sources existantes et des créations nouvelles réalisées par des collaborateur·trices sur demande. Il favorise le mélange des idées, des pratiques, et des sensibilités, tout en proposant un espace organique et ludique, propice à la déambulation et à l’apprentissage. C’est un lieu qui se veut vivant et évolutif, destiné à semer des alternatives et à encourager la pensée divergente.<br>
+<br>La « mort » du Web a été proclamée à plusieurs reprises. En 2013, l’artiste Hito Steyerl se posait la question : Is the internet dead?⁵. Une interrogation qu’elle disait littérale, non métaphorique. Que reste-t-il du Web une fois que sa promesse d’émancipation s’estompe? <br>
+<br>Nous croyons qu'il demeure un lieu d’invention critique, d’expression poétique et de création. Et c’est là, précisément, que nous faisons germer notre jardin.<br>
+<br>Flânez dans le jardin et SIOUPLAIT, tombez dans le trou du lapin! 🐇
+<br>
+<br>-- 
+<br> ¹ Todd, Loretta. « Aboriginal Narratives in Cyberspace ». Dans Transference, Technology, Tradition: Native New Media, sous la direction de Claxton, Dana, Candice Hopkins, Steven Loft et Melanie Townsend, Banff, Alberta, Canada : Walter Phillips Gallery Editions, 2005, p.152–163.
+<br> ² Bernstein, Mark. https://www.eastgate.com/garden/, 1998.
+<br> ³ Pour en savoir plus sur les jardins numériques : Appleton, Maggie. A Brief History & Ethos of the Digital Garden. https://maggieappleton.com/garden-history, 2020.
+<br> ⁴ Leung, Linda. Virtual Ethnicity: Race, Resistance and the World Wide Web. Londres : Angleterre : Routhledge, 2017.
+<br> ⁵ Steyerl, Hito. « Too Much World: Is the Internet Dead? ». e-flux, no 49, 2013.
+<br> ⁶ Appleton, Maggie. A Brief History & Ethos of the Digital Garden. https://maggieappleton.com/garden-history, 2020.
+<br>
+<br>--
+<h3>SÉLECTION DES SOURCES</h3>
+Pour sélectionner les sources ici partagées, Galerie Galerie a choisi de s'appuyer sur sa communauté et de prendre en compte les enjeux spécifiques liés à sa situation géopolitique. Nous sommes conscientes que ce processus de sélection peut comporter des biais, façonnés par le contexte dans lequel nous évoluons.
+Comme le souligne Maggie Appleton, « [...] le savoir et les néologismes vivent toujours au sein des communautés »⁶. Ce jardin est un espace de contribution collective, où chacun·e peut nourrir la conversation, à sa manière.
+Si vous souhaitez contribuer à l'enrichissement du Jardin Manifesto Garden, n’hésitez pas à partager vos sources préférées ou vos idées à l’adresse info@galeriegalerieweb.com.
+
+  <h3>CRÉDITS | CREDITS</h3>
+<li>Idée originale : Wawa Li, Sophie Latouche, Marie-Charlotte Castonguay-Harvey</li>
+<li>Conception web et identitée visuelle : Wawa Li</li>
+<li>Texte : Sophie Latouche, Marie-Charlotte Castonguay-Harvey</li>
+<li>Oeils extérieurs : Daphné B., Roby Provost-Blanchard</li>
+<li>Collaborateurices : Gabrielle Bernatchez, Antoine Thériault, Paris Marx, Ruba Al-Sweel, Ruby Thelot</li>
   <br>
-  <img class="logo_credits" src="../gg_manifesto-garden/assets/images/GalerieGalerie_Blanc.png" alt="">
+  <br>--
   <br>
-<img class="logo_credits" src="../gg_manifesto-garden/assets/images/Logo_CAM_blanc.png" alt="">
+  <br>Ce projet est rendu possible grâce au soutien du Conseil des arts de Montréal.
+  <br> 
+  <!-- ?? mettre dans un div logo pour espacer en bas / plus esthétique -->
+   <div id="manifesto-logo-container">
+   <a href="https://conseildesarts.ca/"><img class="logo_credits" src="../gg_manifesto-garden/assets/images/Logo_CAM_blanc.png" alt=""></a>
+   <img class="logo_credits" src="../gg_manifesto-garden/assets/images/GalerieGalerie_Blanc.png" alt="">
+   </div>
+
   </div>
+
+<!-- ENG CONTENT -->
+  <div id="manifesto-content-eng" class="text-lg">
+CONTENT MANIFESTO ENG
+  </div>
+
  </div>
+
 
 
  <footer>
  <div id="left-footer-container">
-<span id="footnote-title" class="text-body">Footnotes:  </span> <marquee id="scrolling-message" class="text-body">instructions here</marquee>
+<span id="footnote-title" class="text-body">Footnotes:  </span> <marquee id="scrolling-message" class="text-body">Stroll through the garden and fall down the rabbit hole! Hophop! 🐇</marquee>
 </div>
 
  <div id="right-footer-container">
 <img id="logo" src="../gg_manifesto-garden/assets/images/gg_gurl.gif" alt="logo galerie galerie">
 <div> 
 
-    <span id="update" class="text-sm">Last Update</span> : <span class="text-sm">12/2024</span> 
+    <span id="update" class="text-sm">Last Update</span> : <span class="text-sm">04/23/2025</span> 
   </div>
 </div>
 </footer>

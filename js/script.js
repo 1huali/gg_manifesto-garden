@@ -56,26 +56,31 @@ let axisArrayObj=[];
 let chimeSound = document.getElementById("chimeSound");
 
 // PARAMÈTRES pour BOUTONS HTML ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
-// manifesto button:
+// click on "index" button:
+document.getElementById("index-button").addEventListener("click", function(){
+document.getElementById("index-container").style.display="block"
+document.getElementById("title-bar-index-container").style.display="flex";
+});
+document.getElementById("index-container-close-button").addEventListener("click", function(){
+document.getElementById("index-container").style.display="none"
+document.getElementById("title-bar-index-container").style.display="none";
+});
+
+//click on "manifesto" button:
 document.getElementById("manifesto-button").addEventListener("click", function(){
-document.getElementById("manifesto-container").style.display="block"
-document.getElementById("title-bar-manifesto-container").style.display="flex";
+  document.getElementById("manifesto-container").style.display="block";
+  document.getElementById("title-bar-manifesto-container").style.display="flex";
 });
 document.getElementById("manifesto-container-close-button").addEventListener("click", function(){
-document.getElementById("manifesto-container").style.display="none"
-document.getElementById("title-bar-manifesto-container").style.display="none";
-});
-
-//click on title:
-document.getElementById("default-title").addEventListener("click", function(){
-  document.getElementById("credits-container").style.display="block";
-  document.getElementById("title-bar-credit-container").style.display="flex";
-
-});
-document.getElementById("credits-container-close-button").addEventListener("click", function(){
-  document.getElementById("credits-container").style.display="none"
-  document.getElementById("title-bar-credit-container").style.display="none";
+  document.getElementById("manifesto-container").style.display="none"
+  document.getElementById("title-bar-manifesto-container").style.display="none";
   });
+
+//click on "contribute" button:
+document.getElementById("contribute-button").addEventListener("click", function(){
+ console.log("clicked on contribute button")
+});
+
 
 // intro button:
 //when user click on enter, all buttons appears:
@@ -120,22 +125,28 @@ document.getElementById("language-button").addEventListener("click", function(){
   if (language === "eng"){
     language = "fr";
     document.getElementById("language-button").value="Français";
-    document.getElementById("share-button").value="Share";
-    document.getElementById("manifesto-button").value="Manifesto";
-    document.getElementById("contribute-button").value="Contribute <3";
+    document.getElementById("contribute-button").value="Contribute";
     document.getElementById("update").innerHTML="Last Update";
     document.getElementById("footnote-title").innerHTML="Footnotes";
+    document.getElementById("scrolling-message").innerHTML= "Stroll through the garden and fall down the rabbit hole! Hophop! 🐇";
+    //change content to French & disabling English content to french
+    document.getElementById("manifesto-content-eng").style.display="none";
+    document.getElementById("manifesto-content-fr").style.display="block";
 
-    //CHANGE BUTTONS VALUES to english
   } else {
     language= "eng";
+        //CHANGE BUTTONS VALUES to english
     document.getElementById("language-button").value="English";
-    document.getElementById("share-button").value="Partager";
-    document.getElementById("manifesto-button").value="Manifeste";
-    document.getElementById("contribute-button").value="Contribuer <3";
+    // document.getElementById("share-button").value="Partager";
+    // document.getElementById("manifesto-button").value="Manifeste";
+    document.getElementById("contribute-button").value="Contribuer";
     document.getElementById("update").innerHTML="Mise à jour";
     document.getElementById("footnote-title").innerHTML="Notes en bas de page";
-        //CHANGE BUTTONS VALUES to french
+    document.getElementById("scrolling-message").innerHTML= "Flânez dans le jardin et SIOUPLAIT, tombez dans le trou du lapin! 🐇";
+    //change content to english & disabling french content to french
+    document.getElementById("manifesto-content-fr").style.display="none";
+    document.getElementById("manifesto-content-eng").style.display="block";
+
   };
 
   for (let j=0;j < axisArrayObj.length;j++){
@@ -150,6 +161,10 @@ document.getElementById("language-button").addEventListener("click", function(){
    axisArrayObj[j].switchLangOfLinksToEng();
   }
   }
+
+  //index in English **TO-DO
+
+  //manifesto in English **TO-DO
 });
 
 // PARAMÈTRES pour BACKGROUND/THÈME ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 

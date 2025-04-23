@@ -189,14 +189,14 @@ height: 100vh;
 
   #default-title{
     padding: 0.5%;
-    cursor: pointer;
     margin: 0 auto;
+    width: max-content;
   }
 
-  #default-title:hover{
+  /* #default-title:hover{
     background-color: black;
     color: white;
-  }
+  } */
 
   /* ??TO DEBUG */
   #logo{
@@ -237,6 +237,7 @@ height: 100vh;
     width: max-content;
     margin-right: 2vw;
     margin-left: 2vw;
+    margin-bottom: 5vh;
     flex-direction: column; /* Align logo and text vertically */
     align-items: flex-end; /* Aligns content to the right */
     display: flex;
@@ -253,26 +254,40 @@ height: 100vh;
     padding-right: 100px;
   }
 
-  #manifesto-container{
+  #index-container{
     color: black;
     position: fixed;
     top: 25vh;
     left: 5vw;
     margin: auto;
-    width: 90vw;
-    /* height: 55vh; */
-    height: max-content;
+    width: 50vw;
+    height: 30vh;
+    /* height: max-content; */
     display: none;
     overflow:scroll;
     overflow-x: hidden;
     z-index: 8;
   }
 
-  #title-bar-manifesto-container{
+  #manifesto-content-eng{
+    display: block;
+  }
+
+  #manifesto-content-fr{
+    display: none;
+  }
+
+  #manifesto-logo-container{
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+  }
+
+  #title-bar-index-container{
     position: fixed;
     left: 5vw;
     top: calc(25vh - 25px);
-    width: 90vw;
+    width: 50vw;
     z-index: 8;
     display: none;
   }
@@ -340,23 +355,23 @@ height: 100vh;
     background-color: white;
   }
 
-  #title-bar-credit-container{
+  #title-bar-manifesto-container{
     position: fixed;
-    left: 5vw;
-    top: calc(25vh - 25px);
-    width: 90vw;
+    left: 40vw;
+    top: calc(30vh - 25px);
+    width: 55vw;
     z-index: 8;
     display: none;
   }
 
-  /* Credits container */
-  #credits-container{
+  /* manifesto container */
+  #manifesto-container{
     position: fixed;
-    top: 25vh;
-    left: 5vw;
+    top: 30vh;
+    left: 40vw;
     margin: auto;
-    width: 90vw;
-    height: 55vh;
+    width: 55vw;
+    height: 45vh;
     display: none;
     overflow:scroll;
     overflow-x: hidden;
@@ -415,14 +430,18 @@ height: 100vh;
   .axis-container{
     position: fixed;
     z-index: 7;
-    top: 30vh;
+    top: 60vh;
     left: 5vw;
     display: none;
-    width: 50vw;
-    height: 50vh;
+    width: 30vw;
+    height: 25vh;
     /* border: 1px solid #d3d3d3; */
     overflow: scroll;
     overflow-x: hidden;
+  }
+
+  .axisBox-content{
+    padding: 0.3em;
   }
 
   .linkUnderline{
