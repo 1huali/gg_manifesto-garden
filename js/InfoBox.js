@@ -102,7 +102,8 @@ class InfoBox{
           //implementing seed link thumbnail img : 
           this.linkImg=  document.createElement("div");
           this.column2.appendChild(this.linkImg);
-          this.linkImg.innerHTML = `<img class="seed-thumbnail" src="${this.linkImage}">`;
+          this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/${this.linkImage}">`;
+          // this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/img1_axe1.png">`;
       //implementing seed description in the div : 
       this.linkDesc =  document.createElement("div");
       this.spanColumn.appendChild(this.linkDesc);
