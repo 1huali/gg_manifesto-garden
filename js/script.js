@@ -18,7 +18,7 @@ console.log(window.innerWidth);
 
 let response = await fetch("index.php?action=load")
 let parsedAxisJSON   = await response.json();
-console.log(parsedAxisJSON);
+// console.log(parsedAxisJSON);
 retrieveLinks(parsedAxisJSON);
 
 
@@ -33,7 +33,7 @@ retrieveLinks(parsedAxisJSON);
         cache: false,
         timeout: 600000,
         success: function (response) {
-        //console.log(response);
+     //  console.log(response);
         //use the JSON .parse function to convert the JSON string into a Javascript object
         let parsedLinksJSON = JSON.parse(response);
         // console.log(parsedJSON);
@@ -46,7 +46,7 @@ retrieveLinks(parsedAxisJSON);
   }
 
 function initializeWebsite(parsedJSON,parsedLinksJSON){
-console.log(parsedJSON, parsedLinksJSON);
+// console.log(parsedJSON, parsedLinksJSON);
 
 document.getElementById("logo").addEventListener("click", function(){
     window.open("https://www.galeriegalerieweb.com");
@@ -90,19 +90,25 @@ document.getElementById("contribute-button").addEventListener("click", function(
     document.getElementById("intro-container").style.display="none";
 document.getElementById("map").style.display="block";
 document.getElementsByTagName("header")[0].style.display="block";
+console.log(parsedLinksJSON[1]);
 // NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 // parsedJSON contains an axis object where the axisId is referenced in the links..
 for (let i = 0; i < parsedJSON.length; i++) {
 
-  //console.log(parsedJSON[i].axisID);
+
+  // console.log(parsedJSON[i].axisID);
+ 
   // make your axis objects...
   //get the array of linkObjects that have the SAME refID as the current axisObject
   // let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(parseInt(el.localAxisID) ===parsedJSON[i].axisID)});
-  let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){return(parseInt(el.localAxisID) === parseInt(parsedJSON[i].axisID))}); //sabine edits
+  let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){
+    return(parseInt(el.localAxisID) === parseInt(parsedJSON[i].axisID))
+
+  }); //sabine edits
 
 
   console.log(filteredArrayOfCurrentAxisObject);
-//console.log(parsedLinksJSON)
+console.log(parsedLinksJSON)
   let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,parsedJSON[i].axeDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject, parsedJSON[i].axisImage); 
    axisArrayObj.push(axisObj);
 
@@ -153,11 +159,9 @@ document.getElementById("language-button").addEventListener("click", function(){
 //axis values to english : 
     if (language === "eng"){
     axisArrayObj[j].description = axisArrayObj[j].axeDescription;
-    // axisArrayObj[j].reprintAxisContentSidebar();
    axisArrayObj[j].switchLangOfLinksToFr();
   } else {
     axisArrayObj[j].description = axisArrayObj[j].axisDescription;
-    // axisArrayObj[j].reprintAxisContentSidebar();
    axisArrayObj[j].switchLangOfLinksToEng();
   }
   }
@@ -219,7 +223,7 @@ window.onresize = async (event) => {
   for(let i=0; i<axisArrayObj.length;i++){
     axisArrayObj[i].removeLinks();
     axisArrayObj[i].subAxisArray=[];
-    console.log(axisArrayObj[i].subAxisArray);
+    // console.log(axisArrayObj[i].subAxisArray);
 
     axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
 

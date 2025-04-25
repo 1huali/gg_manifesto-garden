@@ -397,7 +397,7 @@ height: 100vh;
   }
 
   .flowerEl{
-    width: max-content;
+    text-decoration: underline;
   }
 
   .flowerElImg{
