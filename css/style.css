@@ -490,6 +490,7 @@ height: 100vh;
   }
   .span-column {
     width: 85%;
+    padding: 1.5%;
   }
   
   .seed-thumbnail{

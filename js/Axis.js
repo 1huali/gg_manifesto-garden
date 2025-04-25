@@ -15,6 +15,8 @@ constructor(indexNum,icon,xPos,yPos,name,axisDescription,axeDescription,sound,in
     this.element=null;
     this.subAxisArray = [];
     this.axisImagePath= axisImage;
+    // new to change axis symbol:
+    this.axisAscii="✿✿";
     this.print();
     // this.axisImagePath="../gg_manifesto-garden/assets/images/flowerPix/flower1.png"
 }
@@ -71,8 +73,8 @@ print(){
         console.log(this.element.getBoundingClientRect());
 
         // let offsetRange=getRandomInt(3);
-        let angleOffset = (2 * Math.PI) / seedCount;
-        // let angleOffset=1+(Math.random()*3);
+        // let angleOffset = (2 * Math.PI) / seedCount;
+        let angleOffset=1+(Math.random()*3);
         // let angleOffset=10;
 
         let numElementPerLevel = 8;
