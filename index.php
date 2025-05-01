@@ -116,7 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
  <div id="title-bar-index-container" class="title-bar">
     <div class="title-bar-text">Table of Content | Table des Matières</div>
     <div class="title-bar-controls">
-      <input id="index-container-close-button" class="close-buttons" type="button" value="X">
+    <input id="index-container-close-button" class="close-buttons" type="button" value="X">
     </div>
   </div>
  <div id="index-container" class="window text-lg">
@@ -275,11 +275,21 @@ CONTENT MANIFESTO ENG
 
     <!-- HIGH LEVEL ELEMENTS -->
 <div id="main">
+
 <!-- TITLE-CONTAINER -->
  <div id="intro-container">
-  <div id="intro-container-footer">
+  <!-- <div id="intro-container-footer"> -->
+    <div id="title-bar-intro-container" class="title-bar">
+    <div class="title-bar-text">Welcome | Bienvenu.es</div>
+    <div class="title-bar-controls">
+      <input id="index-container-close-button" class="close-buttons" type="button" value="X">
+    </div>
+    </div>
+    <div id="intro-container" class="window text-lg">
+      text here intro heheheh
     <input id="intro-container-close-button" class="text-md" type="button" value="꧁ Enter the Garden꧂">
-  </div>
+    </div>
+  <!-- </div> -->
 </div>
 
 </div> 
