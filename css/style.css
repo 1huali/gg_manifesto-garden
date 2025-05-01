@@ -126,7 +126,7 @@ height: 100vh;
 }
 
 #theme-dropdown{
-  width: max-content;
+  /* width: max-content; */
   padding: 6px;
 }
 

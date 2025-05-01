@@ -88,45 +88,48 @@ h3 {
     width: 200px;  /* To change the size of the flower element */
   }
     
-
-  #manifesto-container{
-    width: 95vw;
-  }
-
   #title-bar-manifesto-container{
     width: 95vw;
   }
 
 
   #manifesto-container{
-    top: 43vh;
-    left: 1vw;
+    top: 30vh;
+    left: 2vw;
     width: 92vw;
+    height: 55vh;
   }
 
   #title-bar-manifesto-container{
-    top: calc(43vh - 25px);
-    left: 1vw;
+    top: calc(30vh - 25px);
+    left: 2vw;
+    width: 92vw;
+
   }
 
-  #title-bar-credit-container{
-    left: 1vw;
-    top: calc(43vh - 25px);
+  #title-bar-index-container{
+    left: 2vw;
+    top: calc(30vh - 25px);
+    width: 92vw;
+
   }
 
-  /* Credits container */
-  #credits-container{
-    top: 43vh;
-    left: 1vw;
+  /* Index container */
+  #index-container{
+    top: 30vh;
+    left: 2vw;
     height: 45vh;
     width: 92vw;
   }
 
   /* MedInfoBox: */
   .axis-container{
-    top: 37vh;
-    left: 1vw;
+    top: 30vh;
+    left: 2vw;
     width: 92vw;
+    /* height: 55vh; */
+    height: max-content;
+
   }
 
     /* tablet, landscape iPad, lo-res laptops ands desktops */ 
