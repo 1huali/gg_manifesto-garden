@@ -168,6 +168,7 @@ height: 100vh;
     height: max-content;
     width: max-content;
     margin: 0 auto;
+    display: block;
   }
 
   .text-align-center a{
@@ -305,28 +306,30 @@ height: 100vh;
       position: fixed;
       top: 30vh;
       left: 20vw;
-      /* background-color: rgb(0, 0, 0); */
       width: 60vw;
       height: 60vh;
-      display: block;
-      /* overflow: scroll; */
+      display: flex;
+      flex-direction: column;
     }
 
     #title-bar-intro-container{
+      display: flex;
       position: fixed;
       top: calc(30vh - 25px);
       z-index: 8;
-      display: block;
       width: 60vw;
     }
 
-  /* #intro-container-header{
-    width: 75%;
-    margin: 0 auto;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    text-align: center;
-  } */
+    .intro-footer {
+      margin-top: auto; /* pushes it to the bottom */
+      text-align: center;
+      padding: 1em;
+    }
+
+    .intro-content {
+      flex: 1; /* takes up all available vertical space */
+      overflow-y: auto; /* adds scroll if content is too long */
+    }
 
   #intro-container-text{
     display: flex;
@@ -337,12 +340,6 @@ height: 100vh;
     padding: 5%;
     /* background-color: crimson; */
   }
-
-  /* #intro-container-footer{
-    position: absolute;
-    bottom: 20%;
-    width: 95vw;
-  } */
 
   #intro-container-close-button{
     color: white;

@@ -285,11 +285,22 @@ CONTENT MANIFESTO ENG
       <input id="index-container-close-button" class="close-buttons" type="button" value="X">
     </div>
     </div>
-    <div id="intro-container" class="window text-lg">
+
+    <!-- <div id="intro-container" class="window text-lg">
       text here intro heheheh
     <input id="intro-container-close-button" class="text-md" type="button" value="꧁ Enter the Garden꧂">
-    </div>
+    </div> -->
   <!-- </div> -->
+  <div id="intro-container" class="window text-lg">
+  <div class="intro-content">
+    <p>text here intro heheheh</p>
+  </div>
+  
+  <div class="intro-footer">
+    <input id="intro-container-close-button" class="text-md" type="button" value="꧁ Enter the Garden ꧂">
+  </div>
+</div>
+  
 </div>
 
 </div> 

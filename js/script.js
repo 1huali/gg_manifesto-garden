@@ -95,7 +95,6 @@ console.log(parsedLinksJSON[1]);
 // parsedJSON contains an axis object where the axisId is referenced in the links..
 for (let i = 0; i < parsedJSON.length; i++) {
 
-
   // console.log(parsedJSON[i].axisID);
  
   // make your axis objects...
@@ -104,14 +103,11 @@ for (let i = 0; i < parsedJSON.length; i++) {
   let filteredArrayOfCurrentAxisObject = parsedLinksJSON.filter(function(el){
     return(parseInt(el.localAxisID) === parseInt(parsedJSON[i].axisID))
 
-  }); //sabine edits
-
-
+  }); 
   console.log(filteredArrayOfCurrentAxisObject);
 console.log(parsedLinksJSON)
   let axisObj = new Axis(parsedJSON[i].axisID,parsedJSON[i].axisIcon,parsedJSON[i].axisXpos,parsedJSON[i].axisYpos,parsedJSON[i].axisTitle,parsedJSON[i].axisDescription,parsedJSON[i].axeDescription,chimeSound,`axis${i+1}`,filteredArrayOfCurrentAxisObject, parsedJSON[i].axisImage); 
    axisArrayObj.push(axisObj);
-
 }
 
   // GÉNÉRATION DE SEEDS ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
