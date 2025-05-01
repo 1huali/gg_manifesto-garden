@@ -403,6 +403,12 @@ height: 100vh;
   .axisElIcon{
     width: 100%;
     cursor: pointer;
+    /* background-color: #9198e5; */
+    /* font-size: 150px; */
+    font-size: 15vw;
+  }
+  .axisElIcon:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   }
 
   .flowerEl-container img{
@@ -451,6 +457,7 @@ height: 100vh;
 
   .linkUnderline{
     text-decoration-line: underline;
+    background-color: #9198e5;
   }
 
   .title-bar-seed-container{

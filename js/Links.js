@@ -41,7 +41,6 @@ class Links {
           //Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
     this.classList.add("linkUnderline");
-
   });
   //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){

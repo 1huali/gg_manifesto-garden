@@ -5,6 +5,8 @@ constructor(indexNum,icon,xPos,yPos,name,axisDescription,axeDescription,sound,in
     this.icon= icon;
     this.xPos= parseFloat(xPos);
     this.yPos= parseFloat(yPos);
+    this.xPosOffset = 1000;
+    this.yPosOffset = 1000;
     this.name= name;
     this.axisDescription= axisDescription;
     this.axeDescription=axeDescription;
@@ -16,7 +18,7 @@ constructor(indexNum,icon,xPos,yPos,name,axisDescription,axeDescription,sound,in
     this.subAxisArray = [];
     this.axisImagePath= axisImage;
     // new to change axis symbol:
-    this.axisAscii="✿✿";
+    this.axisAscii="✿";
     this.print();
     // this.axisImagePath="../gg_manifesto-garden/assets/images/flowerPix/flower1.png"
 }
@@ -119,35 +121,37 @@ removeLinks(){
 createAxisImage(divContainer){
 //if (!this.element) {
   let div = document.createElement("div");
-  // div.innerHTML=this.axisImagePath; 
   div.id="axisElIcon"+this.indexNum;
   div.classList.add('axisElIcon');
   // div.style.zIndex="1000";
   // div.style.top=this.yPos-150+"px";
   // div.style.left=this.xPos+10+"px";
-  div.style.top=this.yPos+"%";
-  div.style.left=this.xPos+"%";
-  //IF WE WANT AN IMAGE: creates image tag for the axis element icon:
-  let img= document.createElement("img");
-  div.appendChild(img);
-  img.src=this.axisImagePath;
-  //div appends to the background:
-  divContainer.appendChild(div);
+  div.style.top=this.yPos+this.yPosOffset+"%";
+  div.style.left=this.xPos+this.xPosOffset+"%";
 
-  //IF WE WANT AN ASCII SYMBOL
-  // let iconSymbol= this.axisAscii;
-  // let iconDiv = document.getElementById("iconDiv");
-  // iconDiv.classList.add("iconDiv");
-  // iconDiv.innerHTML=iconSymbol;
+  //Insert Img:
+  // let img= document.createElement("img");
+  // div.appendChild(img);
+  // img.src=this.axisImagePath;
+
+  //Insert ASCII symbol or text:
+  let iconSymbol= this.axisAscii;
+  div.innerHTML = iconSymbol;
+
+    //div appends to the background:
+  divContainer.appendChild(div);
 
   // console.log(this.element)
   let self=this;
 
   this.medInfoBox=new MedInfoBox(self.name, self.axisDescription,self.axeDescription);
 //axis description box display at click on the Axis symbol
-  img.addEventListener("click", function(){
-    self.medInfoBox.openBox();
-  });
+  // img.addEventListener("click", function(){
+  //   self.medInfoBox.openBox();
+  // });
+  div.addEventListener("click", function(){
+        self.medInfoBox.openBox();
+  })
 
 }
 
