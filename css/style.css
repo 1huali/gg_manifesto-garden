@@ -408,7 +408,9 @@ height: 100vh;
     font-size: 15vw;
   }
   .axisElIcon:hover {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    /* text-decoration: underline; */
+    background-color: #9198e5;
   }
 
   .flowerEl-container img{
@@ -455,9 +457,11 @@ height: 100vh;
     padding: 0.3em;
   }
 
-  .linkUnderline{
+  .linkElHoverDecoration{
     text-decoration-line: underline;
-    background-color: #9198e5;
+    /* background-color: #9198e5; */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+
   }
 
   .title-bar-seed-container{

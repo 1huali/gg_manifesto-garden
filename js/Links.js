@@ -40,12 +40,12 @@ class Links {
 
           //Hover function on the element that triggers:
   this.element.addEventListener("mouseover", function(){
-    this.classList.add("linkUnderline");
+    this.classList.add("linkElHoverDecoration");
   });
   //post-hover, the element is not underlined anymore : 
   this.element.addEventListener("mouseleave", function(){
     if (self.clicked===false){
-this.classList.remove("linkUnderline");
+this.classList.remove("linkElHoverDecoration");
 }
   });
 
@@ -55,7 +55,7 @@ this.classList.remove("linkUnderline");
     //?? doesnt stay clicked
     self.clicked = true;
     if (self.clicked===true){
-      this.classList.add("linkUnderline");
+      this.classList.add("linkElHoverDecoration");
     }
     //open seed box
     // document.getElementById("seedBoxEl"+self.linkId).style.display="block";

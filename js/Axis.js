@@ -61,7 +61,6 @@ print(){
     // console.log(this.element)
     divContainer.appendChild(div);
 
-    
 }
 
       //calculate the position of the seeds in offset between themselves around a flower's center point
