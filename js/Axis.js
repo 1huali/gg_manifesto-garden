@@ -16,8 +16,7 @@ constructor(indexNum,icon,xPos,yPos,name,axisDescription,axeDescription,sound,in
     this.linkList=linkList;
     this.element=null;
     this.subAxisArray = [];
-    this.axisImagePath= axisImage;
-    // new to change axis symbol:
+    // this.axisImagePath= axisImage;
     this.axisAscii="✿";
     this.print();
     // this.axisImagePath="../gg_manifesto-garden/assets/images/flowerPix/flower1.png"
@@ -81,10 +80,17 @@ print(){
         let numElementPerLevel = 8;
         let angle = seedIndex * angleOffset;
         let windowWidthScale = window.innerWidth/100*7;
-        let radius = windowWidthScale;
-        // let radiusLvlOffset=9;
-        let xpos_pixel = (elementXpos+elementWidth/2)  + radius * Math.cos(angle);
-        let ypos_pixel = (elementYpos+elementHeight/2) + radius * Math.sin(angle);
+        let radius = windowWidthScale * 1.5 + Math.random() * windowWidthScale * 0.7;
+        // let xpos_pixel = (elementXpos+elementWidth/2)  + radius * Math.cos(angle);
+        // let ypos_pixel = (elementYpos+elementHeight/2) + radius * Math.sin(angle);
+
+        let jitterX = (Math.random() - 0.5) * windowWidthScale * 0.7;
+        let jitterY = (Math.random() - 0.5) * windowWidthScale * 0.7;
+    
+        let xpos_pixel = (elementXpos + elementWidth / 2) + radius * Math.cos(angle) + jitterX;
+        let ypos_pixel = (elementYpos + elementHeight / 2) + radius * Math.sin(angle) + jitterY;
+    
+        
         return { xpos_pixel, ypos_pixel };
       }
 

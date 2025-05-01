@@ -22,6 +22,7 @@ class Links {
         this.seedbox= new InfoBox(this.axis,this.link,this.displayDescription,this.axisNum,this.linkAuthor,this.linkType,this.linkYear,this.linkTitle,this.xPos,this.yPos,this.linkImage,this.lienTitre);
 // console.log(this.seedbox);
 
+//Creates the link element:
         if (this.element===null) {
             let div = document.createElement("div");
             div.id="linkEl"+this.axisNum;
