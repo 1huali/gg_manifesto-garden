@@ -400,7 +400,7 @@ height: 100vh;
     text-decoration: underline;
   }
 
-  .flowerElImg{
+  .axisElIcon{
     width: 100%;
     cursor: pointer;
   }
@@ -409,6 +409,11 @@ height: 100vh;
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  .iconDiv{
+    background-color: blue;
+    color: azure;
   }
 
   .linkEl{

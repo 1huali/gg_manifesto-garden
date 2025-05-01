@@ -120,24 +120,31 @@ createAxisImage(divContainer){
 //if (!this.element) {
   let div = document.createElement("div");
   // div.innerHTML=this.axisImagePath; 
-  div.id="flowerElImg"+this.indexNum;
-  div.classList.add('flowerElImg');
+  div.id="axisElIcon"+this.indexNum;
+  div.classList.add('axisElIcon');
   // div.style.zIndex="1000";
   // div.style.top=this.yPos-150+"px";
   // div.style.left=this.xPos+10+"px";
   div.style.top=this.yPos+"%";
   div.style.left=this.xPos+"%";
+  //IF WE WANT AN IMAGE: creates image tag for the axis element icon:
   let img= document.createElement("img");
   div.appendChild(img);
   img.src=this.axisImagePath;
   //div appends to the background:
-  divContainer.appendChild(div)
+  divContainer.appendChild(div);
+
+  //IF WE WANT AN ASCII SYMBOL
+  // let iconSymbol= this.axisAscii;
+  // let iconDiv = document.getElementById("iconDiv");
+  // iconDiv.classList.add("iconDiv");
+  // iconDiv.innerHTML=iconSymbol;
 
   // console.log(this.element)
   let self=this;
 
   this.medInfoBox=new MedInfoBox(self.name, self.axisDescription,self.axeDescription);
-
+//axis description box display at click on the Axis symbol
   img.addEventListener("click", function(){
     self.medInfoBox.openBox();
   });
