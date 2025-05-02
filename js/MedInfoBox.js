@@ -71,7 +71,7 @@ class MedInfoBox{
 
   setAsDraggableElement(elmnt) {
       let self = this;
-  //     let boxIsDragging = false;
+      let boxIsDragging = false;
       elmnt.addEventListener("mousedown", dragMouseDown);
     elmnt.addEventListener("mouseup", closeDragElement);
     elmnt.addEventListener("mousemove", elementDrag);

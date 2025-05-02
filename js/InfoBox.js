@@ -44,6 +44,7 @@ class InfoBox{
       this.outerContainer.style.top=this.yPos+53+"px";
       this.outerContainer.style.left=this.xPos+29+"px";
       this.outerContainer.style.display = "block";
+      this.setAsDraggableElement(this.outerContainer);
      this.print();
     }
 
@@ -72,13 +73,7 @@ class InfoBox{
       //create element:
       print()
       {
-
-     
-    
-
       this.el.innerHTML = "";
-      
-
 
       // self=this;
       //creating seed content div : 
@@ -175,9 +170,10 @@ class InfoBox{
 
   setAsDraggableElement(elmnt) {
       let self = this;
-  //     let boxIsDragging = false;
+      let boxIsDragging = false;
       elmnt.addEventListener("mousedown", dragMouseDown);
     elmnt.addEventListener("mouseup", closeDragElement);
+    // elmnt.addEventListener("mouseout", closeDragElement);
     elmnt.addEventListener("mousemove", elementDrag);
   
       function dragMouseDown(event) {
@@ -208,10 +204,10 @@ class InfoBox{
   
   
       function closeDragElement() {
-        if (self.boxIsDragging === true) {
+       //if (self.boxIsDragging === true) {
           console.log("up");
           self.boxIsDragging = false;
-        }
+        //}
       }
     } //end dragElement();
 
