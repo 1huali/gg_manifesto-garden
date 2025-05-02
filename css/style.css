@@ -235,7 +235,8 @@ height: 100vh;
   }
 
   #right-footer-container{
-    width: max-content;
+    width: 10vw;
+    /* width: max-content; */
     margin-right: 2vw;
     margin-left: 2vw;
     margin-bottom: 5vh;
@@ -245,7 +246,7 @@ height: 100vh;
   }
 
   #logo{
-    width: 20%;
+    width: 100%;
   }
 
   #scrolling-message{

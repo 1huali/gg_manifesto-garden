@@ -144,7 +144,8 @@ class InfoBox{
         let self = this;
     
         let offsetX;
-    
+        // let offsetY;
+
         if (this.xPos < this.axisXpos) {
             console.log("yes, left side");
             // Seed is left of axis → shift left
@@ -154,9 +155,19 @@ class InfoBox{
             // Seed is right of axis → no offset (or set to 0)
             offsetX = 0;
         }
+
+      //   if (this.yPos < this.axisYpos) {
+      //     console.log("yes, down side");
+      //     // Seed is left of axis → shift left
+      //     offsetY = - (this.el.getBoundingClientRect().width + 350);
+      // } else {
+      //     console.log("up down");
+      //     // Seed is right of axis → no offset (or set to 0)
+      //     offsetY = 0;
+      // }
     
         this.outerContainer.style.left = this.xPos + offsetX + "px";
-        this.outerContainer.style.top = this.yPos + "px";
+        // this.outerContainer.style.top = this.yPos + offsetY + "px";
     
         this.el.style.display = "block";
         this.titleBarContainer.style.display = "flex";
