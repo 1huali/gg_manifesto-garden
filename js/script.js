@@ -196,6 +196,30 @@ document.getElementById("language-button").addEventListener("click", function(){
   } else{
     document.getElementById("main-title-container").innerHTML= `<a href="#" id="default-title" class="text-xxl"> JARDIN MANIFESTO GARDEN </a>`;
   }
+
+  //ADDED - CHANGE THE ASCII SYMBOL:
+    for (let i=0; i< axisArrayObj.length; i++){
+      console.log(axisArrayObj[i])
+      axisArrayObj[i].axisAscii = selectedBackground.symbol;
+  
+    // update axis display:
+    let axisEl = document.getElementById("axisElIcon" + axisArrayObj[i].indexNum);
+    if (axisEl) {
+      axisEl.innerHTML = axisArrayObj[i].axisAscii;
+    }
+  
+    // update seeds/links:
+      for (let j=0;j <axisArrayObj[i].subAxisArray.length; j++){
+      axisArrayObj[i].subAxisArray[j].icon = selectedBackground.symbol;
+  
+      let linkEl = document.getElementById("linkEl" + axisArrayObj[i].subAxisArray[j].axisNum);
+      console.log(linkEl);
+      if (linkEl) {
+        linkEl.innerHTML = axisArrayObj[i].subAxisArray[j].icon;
+      }
+    }
+  }
+
   //changes the background-color:
   document.getElementById("bg-img").style.background=selectedBackground["background"];
   console.log(selectedBackground["background"])
@@ -210,7 +234,7 @@ document.getElementById("language-button").addEventListener("click", function(){
             el.classList.remove(backgrounds[i].class);
           }
           el.classList.add(selectedBackground.class);
-        })
+        });
 
   });
 

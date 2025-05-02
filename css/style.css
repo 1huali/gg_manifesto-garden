@@ -477,6 +477,7 @@ height: 100vh;
     right: 150px; 
     z-index:6;
  }
+ 
 /* close button/header */
 .seed-container{
     /* position: absolute; */
@@ -488,7 +489,6 @@ height: 100vh;
     /* height: 230px; JE L"AI CHANGÉ À MAX-WIDTH AVRIL 2025*/ 
     height: max-content;
     /* position: absolute; */
-    /* z-index: 6; */
     /* background-color: rgba(255, 0, 204, 0.8); */
     border: 1px solid #d3d3d3;
     overflow: scroll;
