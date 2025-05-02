@@ -175,10 +175,10 @@ document.getElementById("language-button").addEventListener("click", function(){
 
     //theme button: (from the theme button section below)
     let backgrounds = [
-      { "src": "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg", "color": "white", "theme": "theme0","class":"haloClass", "background":"radial-gradient(black, #9198e5)" },
-      { "src": "gg_manifesto-garden/assets/images/bgPix/halo.png", "color": "white", "theme": "theme1","class":"haloClass", "background":"radial-gradient(white, pink)"},
-      { "src": "gg_manifesto-garden/assets/images/bgPix/grass.jpg", "color": "white", "theme": "theme2","class":"haloClass", "background":"radial-gradient(black, pink)" },
-      { "src": "gg_manifesto-garden/assets/images/bgPix/paper.jpg", "color": "white", "theme": "theme3","class":"haloClass", "background":"radial-gradient(crimson, orange)"},
+      { "src": "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg", "color": "white", "theme": "theme0","class":"haloClass", "background":"radial-gradient(black, #9198e5)", symbol: "✿" },
+      { "src": "gg_manifesto-garden/assets/images/bgPix/halo.png", "color": "white", "theme": "theme1","class":"haloClass", "background":"radial-gradient(white, pink)", symbol: "❀"},
+      { "src": "gg_manifesto-garden/assets/images/bgPix/grass.jpg", "color": "white", "theme": "theme2","class":"haloClass", "background":"radial-gradient(black, pink)", symbol: "✿" },
+      { "src": "gg_manifesto-garden/assets/images/bgPix/paper.jpg", "color": "white", "theme": "theme3","class":"haloClass", "background":"radial-gradient(crimson, orange)", symbol: "★"},
     ];
     document.querySelectorAll(".buttons").forEach(function(el){
       el.classList.add(backgrounds[0].class);

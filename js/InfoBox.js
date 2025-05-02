@@ -22,25 +22,39 @@ class InfoBox{
         this.linkImage = `assets/images/flowerPix/flower${randomNumber}.png`;
       }
 
+      //PARENT
+      this.outerContainer =  document.createElement("div");
+      this.outerContainer.classList.add("parent-seed");
+      document.getElementById("map").appendChild(this.outerContainer );
+
+      //add the title bar
+      this.createTitleBar();
+
+
       this.el = document.createElement("div");
       this.el.classList.add("seed-container");
       this.el.classList.add("window");
-      document.querySelector("#map").appendChild(this.el); //parent
-      this.el.style.top=this.yPos+53+"px";
-      this.el.style.left=this.xPos+29+"px";
+     //document.querySelector("#map").appendChild(this.el); //parent
+     this.outerContainer.appendChild(this.el);
+
+
+      // this.el.style.top=this.yPos+53+"px";
+      // this.el.style.left=this.xPos+29+"px";
       this.el.style.display = "none";
+
+      this.outerContainer.style.top=this.yPos+53+"px";
+      this.outerContainer.style.left=this.xPos+29+"px";
+      this.outerContainer.style.display = "block";
+
+
+  
       
       //active draggable functionality:
       // this.setAsDraggableElement(this.el);
      this.print();
     }
 
-// MAKE SEPERATE INFO BOX INSTANCES FOR EACH SEED:
-      //create element:
-      print()
-      {
-
-      this.el.innerHTML = "";
+    createTitleBar(){
       //create close button
       this.titleBarContainer=document.createElement("div");
       this.titleBarContainer.classList.add("title-bar");
@@ -56,8 +70,21 @@ class InfoBox{
       this.buttonEl.classList.add("close-buttons");
       this.buttonEl.value = "X";
       this.titleBarContainer.appendChild(this.buttonEl);
-      document.getElementById("map").appendChild(this.titleBarContainer);
+      //document.getElementById("map").appendChild(this.titleBarContainer);
+      this.outerContainer.appendChild(this.titleBarContainer);
       this.titleBarContainer.style.display = "none";
+    }
+
+// MAKE SEPERATE INFO BOX INSTANCES FOR EACH SEED:
+      //create element:
+      print()
+      {
+
+     
+    
+
+      this.el.innerHTML = "";
+      
 
 
       // self=this;
@@ -102,8 +129,8 @@ class InfoBox{
           //implementing seed link thumbnail img : 
           this.linkImg=  document.createElement("div");
           this.column2.appendChild(this.linkImg);
-          this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/${this.linkImage}">`;
-          // this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/img1_axe1.png">`;
+          //this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/${this.linkImage}">`;
+          this.linkImg.innerHTML = `<img class="seed-thumbnail" src="assets/images/flower1.jpg">`;
       //implementing seed description in the div : 
       this.linkDesc =  document.createElement("div");
       this.spanColumn.appendChild(this.linkDesc);
