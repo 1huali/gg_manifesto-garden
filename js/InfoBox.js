@@ -1,5 +1,5 @@
 class InfoBox{
-  constructor(axis,link,description,linkNum,author,type,date,title,linkXpos,linkYpos,linkImage,titre){
+  constructor(axis,link,description,linkNum,author,type,date,title,linkXpos,linkYpos,linkImage,titre,axisXpos,axisYpos){
       this.link=link;
       this.description=description,
       this.axis=axis;
@@ -15,6 +15,8 @@ class InfoBox{
       this.linkImage=linkImage;
       console.log(linkImage)
       this.titleBarContainer=null;
+      this.axisXpos= axisXpos;
+      this.axisYpos= axisYpos;
 
 
       if (linkImage === "null"){
@@ -37,20 +39,11 @@ class InfoBox{
      //document.querySelector("#map").appendChild(this.el); //parent
      this.outerContainer.appendChild(this.el);
 
-
-      // this.el.style.top=this.yPos+53+"px";
-      // this.el.style.left=this.xPos+29+"px";
       this.el.style.display = "none";
 
       this.outerContainer.style.top=this.yPos+53+"px";
       this.outerContainer.style.left=this.xPos+29+"px";
       this.outerContainer.style.display = "block";
-
-
-  
-      
-      //active draggable functionality:
-      // this.setAsDraggableElement(this.el);
      this.print();
     }
 
@@ -147,12 +140,27 @@ class InfoBox{
       }
   
 
-  openSeedbox(){
-      let self = this;
-  
-      this.el.style.display ="block";
-      this.titleBarContainer.style.display= "flex";
-  }
+      openSeedbox() {
+        let self = this;
+    
+        let offsetX;
+    
+        if (this.xPos < this.axisXpos) {
+            console.log("yes, left side");
+            // Seed is left of axis → shift left
+            offsetX = - (this.el.getBoundingClientRect().width + 350);
+        } else {
+            console.log("right side");
+            // Seed is right of axis → no offset (or set to 0)
+            offsetX = 0;
+        }
+    
+        this.outerContainer.style.left = this.xPos + offsetX + "px";
+        this.outerContainer.style.top = this.yPos + "px";
+    
+        this.el.style.display = "block";
+        this.titleBarContainer.style.display = "flex";
+    }
 
   setAsDraggableElement(elmnt) {
       let self = this;

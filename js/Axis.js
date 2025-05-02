@@ -104,10 +104,9 @@ generateSeeds(seedCount){
         let position = this.calculatePosition(i, seedCount);
         console.log(position);
         //Create the single link object: //!! CHANGE LINKS VARIABLES AND IMPLEMENT IN INFOBOX
-          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name,this.linkList[i].linkAuthor,this.linkList[i].linkType,this.linkList[i].linkYear,this.linkList[i].linkTitle,this.linkList[i].linkImage,this.linkList[i].lienTitre);
+          let link = new Links("✿", position, this.linkList[i].linkLink,this.indexNum+"_"+i,this.linkList[i].linkDescription,this.linkList[i].lienDescription,this.xPos,this.yPos,this.name,this.linkList[i].linkAuthor,this.linkList[i].linkType,this.linkList[i].linkYear,this.linkList[i].linkTitle,this.linkList[i].linkImage,this.linkList[i].lienTitre,this.element.getBoundingClientRect().x,this.element.getBoundingClientRect().y);
 
           this.subAxisArray.push(link);
-          console.log(link);
     
       }
 }

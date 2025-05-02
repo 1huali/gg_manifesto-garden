@@ -476,8 +476,10 @@ height: 100vh;
     top: 150px;
     right: 150px; 
     z-index:6;
+    width: 350px;
+
  }
- 
+
 /* close button/header */
 .seed-container{
     /* position: absolute; */

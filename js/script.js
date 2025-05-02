@@ -227,6 +227,7 @@ document.getElementById("language-button").addEventListener("click", function(){
         // document.getElementById("bg-img").style.background= `url('../${selectedBackground.src}')`;
         // document.getElementById("bg-img").style.backgroundSize= `100% 100%`;
         // document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
+    //changes background color:
         document.getElementById("body").style.color= selectedBackground.color;
         document.querySelectorAll(".buttons").forEach(function(el){
           console.log(el)
