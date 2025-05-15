@@ -18,24 +18,23 @@ console.log(window.innerWidth);
   function updateTitleForMobile() {
     let element = document.getElementById("main-title-container");
     let buttonElements = document.getElementById("buttons-container");
-    let buttons = buttonElements.querySelectorAll(".buttons"); // ✅ Select by class
+    let buttons = buttonElements.querySelectorAll(".buttons"); // Select by class
   
     console.log(buttons); // This should now log your button elements
   
     if (window.innerWidth <= 768) {
       element.classList.remove("text-xxl");
-      buttonElements.classList.remove("text-sm");
+      buttonElements.classList.remove("text-md");
   
-      // Loop through each button and remove "text-sm" class
+      // Loop through each button and remove "text-md" class
       buttons.forEach(function(button) {
-        button.classList.remove("text-sm");
+        button.classList.remove("text-md");
       });
   
     } else {
       buttons.forEach(function(button) {
-        button.classList.add("text-sm");
+        button.classList.add("text-md");
       });
-  
       element.classList.add("text-xxl"); // Reset for desktop view
     }
   }

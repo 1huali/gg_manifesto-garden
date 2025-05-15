@@ -94,13 +94,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
     <!-- <img id="title-image" src="../gg_manifesto-garden/assets/images/title-test.jpeg" alt="title"> -->
   </div>
 
-  <nav id="buttons-container" class="text-sm">
-  <input id="manifesto-button" class="buttons text-sm" type="button" value="Manifesto">
-  <input id="index-button" type="button" class="buttons text-sm" value="Index">
-  <input id="contribute-button" class="buttons text-sm" type="button" value="Contribute">
+  <nav id="buttons-container" class="text-md">
+  <input id="manifesto-button" class="buttons text-md" type="button" value="Manifesto">
+  <input id="index-button" type="button" class="buttons text-md" value="Index">
+  <input id="contribute-button" class="buttons text-md" type="button" value="Contribute">
 
   <div>Theme: 
-    <select id="theme-dropdown"  class="buttons text-sm">
+    <select id="theme-dropdown"  class="buttons text-md">
       <option value="theme0">e-garden</option>
       <option value="theme1">bibliography</option>
       <option value="theme2">irl garden</option>
@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
     </select>
    </div>
 
-  <input id="language-button" class="buttons text-sm" type="button" value="Français">
+  <input id="language-button" class="buttons text-md" type="button" value="Français">
  </nav>
  </header>
 
@@ -268,7 +268,7 @@ CONTENT MANIFESTO ENG
 <img id="logo" src="../gg_manifesto-garden/assets/images/gg_gurl.gif" alt="logo galerie galerie">
 <div> 
 
-    <span id="update" class="text-sm">Last Update</span> : <span class="text-sm">04/23/2025</span> 
+    <span id="update" class="text-sm">Last Update</span> : <span class="text-sm">05/15/2025</span> 
   </div>
 </div>
 </footer>
