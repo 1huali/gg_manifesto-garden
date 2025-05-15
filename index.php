@@ -278,29 +278,42 @@ CONTENT MANIFESTO ENG
 
 <!-- TITLE-CONTAINER -->
  <div id="intro-container">
-  <!-- <div id="intro-container-footer"> -->
+
     <div id="title-bar-intro-container" class="title-bar">
     <div class="title-bar-text">Welcome | Bienvenu.es</div>
     <div class="title-bar-controls">
       <input id="index-container-close-button" class="close-buttons" type="button" value="X">
     </div>
-    </div>
-
-    <!-- <div id="intro-container" class="window text-lg">
-      text here intro heheheh
-    <input id="intro-container-close-button" class="text-md" type="button" value="꧁ Enter the Garden꧂">
-    </div> -->
-  <!-- </div> -->
-  <div id="intro-container" class="window text-lg">
-  <div class="intro-content">
-    <p>text here intro heheheh</p>
-  </div>
-  
-  <div class="intro-footer">
-    <input id="intro-container-close-button" class="text-md" type="button" value="꧁ Enter the Garden ꧂">
-  </div>
 </div>
-  
+
+  <div id="intro-container" class="window text-lg">
+      <div class="intro-content">
+        <p>You just found the Manifesto-Garden. <br> Pick the flower to enter. </p>
+        <p>Tu as trouvé le portail du Jardin Manifesto. <br> Récolte la fleur pour entrer. </p>
+      </div>
+    <!-- PT ENLEVER -->
+      <div class="intro-footer">
+        <!-- <h4>GG 2025</h4> -->
+        <!-- <input id="intro-container-close-button" class="text-md" type="button" value="꧁ Enter the Garden ꧂"> -->
+      </div>
+  </div>
+
+</div>
+
+<div>
+<span id="intro-container-close-button">꧁ ✿ ꧂</span>
+
+<div id="intro-garden-left" class="intro-garden">
+&nbsp;&nbsp;&nbsp;✿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿✿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿✿&nbsp;✿&nbsp;&nbsp;&nbsp;&nbsp;✿&nbsp;<br>✿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿<br>
+✿✿<br>
+<!-- ✿&nbsp;✿✿✿<br> -->
+</div>
+<div id="intro-garden-right" class="intro-garden">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿✿&nbsp;&nbsp;✿✿&nbsp;✿&nbsp;&nbsp;&nbsp;✿&nbsp;✿&nbsp;✿<br>
+✿&nbsp;&nbsp;&nbsp;✿✿&nbsp;&nbsp;&nbsp; ✿✿&nbsp;✿&nbsp;&nbsp;&nbsp;&nbsp;✿&nbsp;✿&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿
+</div>
+
 </div>
 
 </div> 

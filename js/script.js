@@ -14,6 +14,38 @@ console.log(window.innerWidth);
 // // Add event listener to the document
 // document.addEventListener("mousedown", logMousePosition);
 
+  // Update title class for mobile view
+  function updateTitleForMobile() {
+    let element = document.getElementById("main-title-container");
+    let buttonElements = document.getElementById("buttons-container");
+    let buttons = buttonElements.querySelectorAll(".buttons"); // ✅ Select by class
+  
+    console.log(buttons); // This should now log your button elements
+  
+    if (window.innerWidth <= 768) {
+      element.classList.remove("text-xxl");
+      buttonElements.classList.remove("text-sm");
+  
+      // Loop through each button and remove "text-sm" class
+      buttons.forEach(function(button) {
+        button.classList.remove("text-sm");
+      });
+  
+    } else {
+      buttons.forEach(function(button) {
+        button.classList.add("text-sm");
+      });
+  
+      element.classList.add("text-xxl"); // Reset for desktop view
+    }
+  }
+
+  // Run once on load
+  updateTitleForMobile();
+
+  // Run on window resize
+  window.addEventListener('resize', updateTitleForMobile);
+
 // PARAMÈTRES pour DATABASE ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 
 let response = await fetch("index.php?action=load")
@@ -93,11 +125,13 @@ document
     document
       .getElementById("intro-container-close-button")
       .addEventListener("click", function () {
-        console.log(window.innerWidth);
 
         document.getElementById("intro-container").style.display = "none";
+        document.getElementById("intro-garden-right").style.display = "none";
+        document.getElementById("intro-garden-left").style.display = "none";
         document.getElementById("map").style.display = "block";
         document.getElementsByTagName("header")[0].style.display = "block";
+        document.getElementById("intro-container-close-button").style.display= "none";
         console.log(parsedLinksJSON[1]);
 // NEW AXIS  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 // parsedJSON contains an axis object where the axisId is referenced in the links..
@@ -137,7 +171,8 @@ for (let i = 0; i < parsedJSON.length; i++) {
     axisArrayObj[i].generateSeeds(axisArrayObj[i].linkList.length);
   } //end of for loop
   
-    document.getElementsByTagName("footer")[0].style.display="flex";
+  //** ENLEVER */
+    // document.getElementsByTagName("footer")[0].style.display="flex";
     });
 
     console.log(window.innerWidth);

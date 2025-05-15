@@ -68,8 +68,8 @@ h3 {
 
 #body{
     color:whitesmoke;
-    /* font-family: 'Times New Roman', Times, serif; */
-    font-family: "Pixelated MS Sans Serif", Arial;
+    font-family: 'Times New Roman', Times, serif;
+    /* font-family: "Pixelated MS Sans Serif", Arial; */
       margin: 0;
       padding: 0;
       /* overflow: hidden; */
@@ -218,7 +218,8 @@ height: 100vh;
     width: 96vw;
     height: 10vh;
     bottom: 0;
-    display: none;
+    /* display: none; */
+    display: flex;
     padding: 1%;
     margin: 1%;
     align-items: center;
@@ -228,6 +229,7 @@ height: 100vh;
 
   #footnote-title{
     width: max-content;
+    margin: 1%;
   }
 
   #left-footer-container {
@@ -251,6 +253,7 @@ height: 100vh;
 
   #scrolling-message{
     display: block;
+    font-family: "Pixelated MS Sans Serif", Arial;
     width: 20vw;
     height: max-content;
     padding-right: 100px;
@@ -303,33 +306,68 @@ height: 100vh;
   }
 
     /* INTRO CONTAINER / LANDING PAGE: */
+
+    @keyframes glowAnimation {
+      0% {
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                     0 0 40px rgba(255, 255, 255, 0.8),
+                     0 0 60px rgba(255, 255, 255, 0.6);
+                    }
+                    75% {
+                      text-shadow: 0 0 0px rgba(255, 255, 255, 0.8);
+                    }
+                  }
+
     #intro-container{
       position: fixed;
-      top: 30vh;
-      left: 20vw;
-      width: 60vw;
-      height: 60vh;
+      top: 10vh;
+      left: 5vw;
+      width: 40vw;
+      height: 35vh;
       display: flex;
       flex-direction: column;
+      z-index: 100;
+    }
+
+    .intro-garden{
+      display: block;
+      position: absolute;
+      /* background-color: #9198e5; */
+      font-size: x-large;
+      width: max-content;
+    }
+
+    #intro-garden-left{
+      top: 55vh;
+      left: 30vw;
+    }
+
+    #intro-garden-right{
+      top: 75vh;
+      left: 45vw;
     }
 
     #title-bar-intro-container{
       display: flex;
       position: fixed;
-      top: calc(30vh - 25px);
+      top: calc(10vh - 25px);
       z-index: 8;
-      width: 60vw;
+      width: 40vw;
     }
 
     .intro-footer {
       margin-top: auto; /* pushes it to the bottom */
       text-align: center;
-      padding: 1em;
+      /* padding: 1em; */
     }
 
     .intro-content {
       flex: 1; /* takes up all available vertical space */
       overflow-y: auto; /* adds scroll if content is too long */
+      margin: 1%;
     }
 
   #intro-container-text{
@@ -344,16 +382,22 @@ height: 100vh;
 
   #intro-container-close-button{
     color: white;
-    background-color: black;
+    position: relative;
+    top: 65vh;
+    left: 45vw;
+    /* background-color: black; */
     width: max-content;
     cursor: pointer;
-    display: block;
+    display: flex;
     margin: 0 auto;
+    font-size: 220%;
+    animation: glowAnimation 2s infinite;
   }
 
   #intro-container-close-button:hover{
-    color: black;
-    background-color: white;
+    /* color: black; */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    /* background-color: white; */
   }
 
   /* MANIFESTO CONTAINER HERE */
@@ -393,7 +437,7 @@ height: 100vh;
     /* cursor: pointer; */
     display: block;
     z-index: 4;
-    width: 175px;  /* To change the size of the flower element */
+    width: min-content;
     height: auto;
     overflow-x: hidden;
   }
@@ -408,11 +452,12 @@ height: 100vh;
     /* background-color: #9198e5; */
     /* font-size: 150px; */
     font-size: 15vw;
+    animation: glowAnimation 7s infinite;
   }
   .axisElIcon:hover {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     /* text-decoration: underline; */
-    background-color: #9198e5;
+    /* background-color: white; */
   }
 
   .flowerEl-container img{

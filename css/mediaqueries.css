@@ -45,10 +45,14 @@ h3 {
       }
 
       #buttons-container {
-        width: 90vw;
+        display: flex;
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center;     /* Center buttons vertically */
+        gap: 1rem;               /* Space between buttons */
+        width: 80vw;
+        margin: 0 auto;
+        padding: 0;
         /* background-color: rgb(101, 101, 101); */
-        flex-wrap: wrap;
-        justify-content: initial;
 
       }
     
@@ -62,6 +66,30 @@ h3 {
         position: absolute;
         top: 80%;
         width: 95vw;
+      }
+
+      #intro-container{
+        position: fixed;
+        top: 15vh;
+        left: 3vw;
+        width: 92vw;
+        height: 41vh;
+      }
+
+      #title-bar-intro-container{
+        width: 92vw;
+        top: calc(15vh - 25px);
+        left: 3vw;
+      }
+
+      #right-footer-container{
+        width: max-content;
+        margin-bottom: 5vh;
+      }
+
+      #intro-container-close-button{
+        left: 40vw;
+        z-index: 1001;
       }
 
       #main-title-container{
