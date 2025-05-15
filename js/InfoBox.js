@@ -67,6 +67,10 @@ class InfoBox{
       //document.getElementById("map").appendChild(this.titleBarContainer);
       this.outerContainer.appendChild(this.titleBarContainer);
       this.titleBarContainer.style.display = "none";
+
+          // NEW:: SET TITLE BAR AS DRAGGABLE
+    this.setAsDraggableElement(this.titleBarContainer);
+
     }
 
 // MAKE SEPERATE INFO BOX INSTANCES FOR EACH SEED:
@@ -117,13 +121,13 @@ class InfoBox{
           //implementing seed link thumbnail img : 
           this.linkImg=  document.createElement("div");
           this.column2.appendChild(this.linkImg);
-          this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/${this.linkImage}">`;
-          // this.linkImg.innerHTML = `<img class="seed-thumbnail" src="assets/images/flower1.jpg">`;
-      //implementing seed description in the div : 
-      this.linkDesc =  document.createElement("div");
-      this.spanColumn.appendChild(this.linkDesc);
-      this.linkDesc.innerHTML= this.description;
-
+   // UPDATE HERE !
+    this.linkImg.innerHTML = `<img class="seed-thumbnail" src="../gg_manifesto-garden/assets/images/seeds_img/${this.linkImage}">`;
+    // this.linkImg.innerHTML = `<img class="seed-thumbnail" src="assets/images/flower1.jpg">`;
+    //implementing seed description in the div :
+    this.linkDesc = document.createElement("div");
+    this.spanColumn.appendChild(this.linkDesc);
+    this.linkDesc.innerHTML = this.description;
 
       let self=this;
 
