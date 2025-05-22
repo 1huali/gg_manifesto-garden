@@ -275,7 +275,7 @@ let language= "eng";
 
       //CHANGE THE ASCII SYMBOL:
       for (let i = 0; i < axisArrayObj.length; i++) {
-        console.log(axisArrayObj[i]);
+        // console.log(axisArrayObj[i]);
         axisArrayObj[i].axisAscii = selectedSeedSymbol.symbol;
 
         // update axis display:
@@ -305,17 +305,25 @@ let language= "eng";
     //theme dropdown: (from the theme button section below)
     let backgrounds = [
       {
-        src: "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg",
+        src: "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg",//unused
+        //font color variables:
         color: "white", //font color
+        //linkColor: ?? // active link font color
+        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color
+        //hoverColor:?? // on hover change color, used on: footnote, bibliography link and axis title
         theme: "theme0", //related to index.php dropdown option value
-        class: "themeHoverClass", //
-        background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;",
-        titleBar: "linear-gradient (???, color, color)",
-        closeBtnClass: "blabalbaba"
+        class: "themeHoverClass", //changer de nom pour qqch comme bttn-hover-class
+        background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;", //main background radial gradient
+        //box variables:
+        titleBar: "linear-gradient (???, color, color)", //box title bar color 
+        closeBtnClass: "blabalbaba" //box title close button color
+        //boxBgColor:?? //box background color
+        //boxOutlineColor:?? // box outline color
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/halo.png",
         color: "white",
+        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color
         theme: "theme1",
         class: "themeHoverClass", //hover colors
         background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;",
@@ -325,6 +333,7 @@ let language= "eng";
       {
         src: "gg_manifesto-garden/assets/images/bgPix/grass.jpg",
         color: "white",
+        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color
         theme: "theme2",
         class: "themeHoverClass",
         background: "radial-gradient(black, pink)",
@@ -334,6 +343,7 @@ let language= "eng";
       {
         src: "gg_manifesto-garden/assets/images/bgPix/paper.jpg",
         color: "white",
+        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color
         theme: "theme3",
         class: "themeHoverClass",
         background: "radial-gradient(circle at center, rgba(128, 0, 128, 1) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 40%, #87cefa 100%);",
@@ -354,7 +364,6 @@ let language= "eng";
       );
 
    let selectedBackground = backgrounds[backgroundIndex]
-
       //changes the background-color:
       document.getElementById("bg-img").style.background =
         selectedBackground["background"];
@@ -372,7 +381,11 @@ let language= "eng";
         }
         el.classList.add(selectedBackground.class);
       });
+
+        //   //changes the main title "Jardin Manifesto Garden" font color:
+        document.getElementById("default-title").style.color = selectedBackground.mainTitleColor;
     });
+
 
     window.onresize = async (event) => {
       for (let i = 0; i < axisArrayObj.length; i++) {
