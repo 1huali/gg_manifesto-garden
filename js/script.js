@@ -307,13 +307,13 @@ let language= "eng";
       {
         src: "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg",//unused
         //font color variables:
-        color: "#6aade9", //font color
+        color: "#778077", //font color
         linkColor: "#fafcfd", // active link font color
-        mainTitleColor: "#6aade9", // "Jardin Manifesto Garden" font color, active link font color
+        mainTitleColor: "#886cf6", // "Jardin Manifesto Garden" font color, active link font color
         //hoverColor:?? // on hover change color, used on: footnote, bibliography link and axis title
         theme: "theme0", //related to index.php dropdown option value
         class: "themeHoverClass", //changer de nom pour qqch comme bttn-hover-class
-        background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;", //main background radial gradient
+        background: "radial-gradient(circle at 50% 50%,rgba(54, 90, 240, 0.75) %,rgba(178, 160, 230, 0.75) 30%,#ffffff,#ffffff,#ffffff,#ffffff);", //main background radial gradient
         //box variables:
         titleBar: "linear-gradient (???, color, color)", //box title bar color 
         closeBtnClass: "blabalbaba" //box title close button color
@@ -322,34 +322,34 @@ let language= "eng";
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/halo.png",
-        color: "#f5b9f8",
-        linkColor: "#778077", // active link font color in seedbox
-        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color, active link font color
+        color: "#778077",
+        linkColor: "#6aade9", // active link font color in seedbox
+        mainTitleColor: "#778077", // "Jardin Manifesto Garden" font color, active link font color
         theme: "theme1",
         class: "themeHoverClass", //hover colors
-        background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;",
+        background: "#f5b9f8", //!!CHANGER PR LE BON GRADIENT
         titleBar: "linear-gradient (???, color, color)",
         closeBtnClass: "blabalbaba"
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/grass.jpg",
-        color: "#f5b9f8",
-        linkColor: "#778077", // active link font color in seedbox
-        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color, active link font color
+        color: "#778077",
+        linkColor: "#f5b9f8", // active link font color in seedbox
+        mainTitleColor: "#778077", // "Jardin Manifesto Garden" font color, active link font color
         theme: "theme2",
         class: "themeHoverClass",
-        background: "radial-gradient(black, pink)",
+        background: "#000000", //!!CHANGER PR LE BON GRADIENT
         titleBar: "linear-gradient (???, color, color)",
         closeBtnClass: "blabalbaba"
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/paper.jpg",
-        color: "#f5b9f8",
-        linkColor: "#778077", // active link font color in seedbox
-        mainTitleColor: "#f5b9f8", // "Jardin Manifesto Garden" font color, , active link font color
+        color: "#778077",
+        linkColor: "#4dfafb", // active link font color in seedbox
+        mainTitleColor: "#778077", // "Jardin Manifesto Garden" font color, , active link font color
         theme: "theme3",
         class: "themeHoverClass",
-        background: "radial-gradient(circle at center, rgba(128, 0, 128, 1) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 40%, #87cefa 100%);",
+        background: "#ffffff;",
         titleBar: "linear-gradient (???, color, color)",
         closeBtnClass: "blabalbaba"
       },
@@ -377,6 +377,7 @@ let language= "eng";
       // document.getElementById("bg-img").style.backgroundRepeat= `no-repeat`;
       //changes background color:
       document.getElementById("body").style.color = selectedBackground.color;
+      console.log(selectedBackground.color)
       document.querySelectorAll(".buttons").forEach(function (el) {
         console.log(el);
         for (let i = 0; i < backgrounds.length; i++) {
@@ -393,6 +394,12 @@ let language= "eng";
           el.style.backgroundColor = selectedBackground.linkColor;
           el.style.color = selectedBackground.mainTitleColor;
         });
+        //changes the axis title color:
+        document.querySelectorAll(".flowerEl").forEach(function (el) {
+          el.style.backgroundColor = selectedBackground.linkColor;
+          el.style.color = selectedBackground.mainTitleColor;
+        });
+
     });
 
 

@@ -111,10 +111,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
 
    <div>Theme: 
     <select id="theme-dropdown"  class="buttons text-md">
-      <option value="theme0">e-garden</option>
-      <option value="theme1">bibliography</option>
-      <option value="theme2">irl garden</option>
-      <option value="theme3">webzine</option>
+      <option value="theme0">lilac</option>
+      <option value="theme1">pink</option>
+      <option value="theme2">black</option>
+      <option value="theme3">blue</option>
     </select>
    </div>
 
