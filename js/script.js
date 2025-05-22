@@ -232,42 +232,113 @@ let language= "eng";
 // PARAMÈTRES pour BACKGROUND/THÈME ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀  ❀ 
 //     //Select menu for axis sidebar menu:
     let backgroundMenuSelect = document.getElementById("theme-dropdown");
+    let seedSymbolMenuSelect = document.getElementById("seed-dropdown");
     let selectedBackground= null;
+    let selectedSeedSymbol=null;
     let backgroundIndex=null;
+    let seedSymbolIndex=null;
 
-    //theme button: (from the theme button section below)
+    //seed symbol dropdown
+    let seedSymbols=[
+      {
+        symbol:"✿",
+        menuOpt: "seed0",
+      },
+      {
+        symbol:"★",
+        menuOpt: "seed1",
+      },
+      {
+        symbol:"❀",
+        menuOpt: "seed2",
+      },
+      {
+        symbol:"♪",
+        menuOpt: "seed3",
+      },
+      {
+        symbol:"♥",
+        menuOpt: "seed4",
+      },
+    ];
+        //Sets and traverses thru JS the seed symbol list selection in the HTML:
+        seedSymbolMenuSelect.addEventListener("change", function () {
+          seedSymbolIndex = parseInt(
+            seedSymbolMenuSelect.value.substring(
+              4,
+              seedSymbolMenuSelect.value.length
+            )
+          );
+    
+       let selectedSeedSymbol = seedSymbols[seedSymbolIndex]
+       console.log(selectedSeedSymbol)
+
+      //CHANGE THE ASCII SYMBOL:
+      for (let i = 0; i < axisArrayObj.length; i++) {
+        console.log(axisArrayObj[i]);
+        axisArrayObj[i].axisAscii = selectedSeedSymbol.symbol;
+
+        // update axis display:
+        let axisEl = document.getElementById(
+          "axisElIcon" + axisArrayObj[i].indexNum
+        );
+        if (axisEl) {
+          axisEl.innerHTML = axisArrayObj[i].axisAscii;
+        }
+
+        // update seeds/links:
+        for (let j = 0; j < axisArrayObj[i].subAxisArray.length; j++) {
+          axisArrayObj[i].subAxisArray[j].icon = selectedSeedSymbol.symbol;
+
+          let linkEl = document.getElementById(
+            "linkEl" + axisArrayObj[i].subAxisArray[j].axisNum
+          );
+          // console.log(linkEl);
+          if (linkEl) {
+            linkEl.innerHTML = axisArrayObj[i].subAxisArray[j].icon;
+          }
+        }
+      }
+
+});
+    
+    //theme dropdown: (from the theme button section below)
     let backgrounds = [
       {
         src: "gg_manifesto-garden/assets/images/bgPix/haloBlack.jpeg",
-        color: "white",
-        theme: "theme0",
-        class: "haloClass",
-        background: "radial-gradient(black, #9198e5)",
-        symbol: "✿",
+        color: "white", //font color
+        theme: "theme0", //related to index.php dropdown option value
+        class: "themeHoverClass", //
+        background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;",
+        titleBar: "linear-gradient (???, color, color)",
+        closeBtnClass: "blabalbaba"
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/halo.png",
         color: "white",
         theme: "theme1",
-        class: "haloClass",
-        background: "radial-gradient(white, pink)",
-        symbol: "❀",
+        class: "themeHoverClass", //hover colors
+        background: "radial-gradient(circle at 70% 60%,rgba(243, 109, 181, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;",
+        titleBar: "linear-gradient (???, color, color)",
+        closeBtnClass: "blabalbaba"
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/grass.jpg",
         color: "white",
         theme: "theme2",
-        class: "haloClass",
+        class: "themeHoverClass",
         background: "radial-gradient(black, pink)",
-        symbol: "♪",
+        titleBar: "linear-gradient (???, color, color)",
+        closeBtnClass: "blabalbaba"
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/paper.jpg",
         color: "white",
         theme: "theme3",
-        class: "haloClass",
-        background: "radial-gradient(crimson, orange)",
-        symbol: "★",
+        class: "themeHoverClass",
+        background: "radial-gradient(circle at center, rgba(128, 0, 128, 1) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 40%, #87cefa 100%);",
+        titleBar: "linear-gradient (???, color, color)",
+        closeBtnClass: "blabalbaba"
       },
     ];
     document.querySelectorAll(".buttons").forEach(function(el){
@@ -283,45 +354,6 @@ let language= "eng";
       );
 
    let selectedBackground = backgrounds[backgroundIndex]
-  //  console.log(selectedBackground)
-
-      // implements new title [add image here as an "or" statement]
-      if (backgroundIndex === 1) {
-        document.getElementById(
-          "main-title-container"
-        ).innerHTML = `<a href="#" id="zine-title" class="text-xxxl"> JARDIN MANIFESTO GARDEN </a>`;
-      } else {
-        document.getElementById(
-          "main-title-container"
-        ).innerHTML = `<a href="#" id="default-title" class="text-xxl"> JARDIN MANIFESTO GARDEN </a>`;
-      }
-
-      //ADDED - CHANGE THE ASCII SYMBOL:
-      for (let i = 0; i < axisArrayObj.length; i++) {
-        console.log(axisArrayObj[i]);
-        axisArrayObj[i].axisAscii = selectedBackground.symbol;
-
-        // update axis display:
-        let axisEl = document.getElementById(
-          "axisElIcon" + axisArrayObj[i].indexNum
-        );
-        if (axisEl) {
-          axisEl.innerHTML = axisArrayObj[i].axisAscii;
-        }
-
-        // update seeds/links:
-        for (let j = 0; j < axisArrayObj[i].subAxisArray.length; j++) {
-          axisArrayObj[i].subAxisArray[j].icon = selectedBackground.symbol;
-
-          let linkEl = document.getElementById(
-            "linkEl" + axisArrayObj[i].subAxisArray[j].axisNum
-          );
-          console.log(linkEl);
-          if (linkEl) {
-            linkEl.innerHTML = axisArrayObj[i].subAxisArray[j].icon;
-          }
-        }
-      }
 
       //changes the background-color:
       document.getElementById("bg-img").style.background =

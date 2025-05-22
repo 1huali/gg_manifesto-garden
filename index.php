@@ -99,7 +99,17 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
   <input id="index-button" type="button" class="buttons text-md" value="Index">
   <input id="contribute-button" class="buttons text-md" type="button" value="Contribute">
 
-  <div>Theme: 
+  <div>Seed: 
+    <select id="seed-dropdown"  class="buttons text-md">
+      <option value="seed0">✿</option>
+      <option value="seed1">★</option>
+      <option value="seed2">❀</option>
+      <option value="seed3">♪</option>
+      <option value="seed4">♥</option>
+    </select>
+   </div>
+
+   <div>Theme: 
     <select id="theme-dropdown"  class="buttons text-md">
       <option value="theme0">e-garden</option>
       <option value="theme1">bibliography</option>
