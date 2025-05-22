@@ -192,6 +192,7 @@ height: 100vh;
     padding: 0.5%;
     margin: 0 auto;
     width: max-content;
+    text-decoration:underline;
   }
 
   /* #default-title:hover{
