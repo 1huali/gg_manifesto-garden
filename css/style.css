@@ -67,7 +67,7 @@ h3 {
 }
 
 #body{
-    color:whitesmoke;
+    color:#778077;
     font-family: 'Times New Roman', Times, serif;
     /* font-family: "Pixelated MS Sans Serif", Arial; */
       margin: 0;
@@ -95,15 +95,15 @@ height: 100vh;
 }
 
 .window{
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 .window a{
-  color: rgb(223, 120, 221);
+  color: #886cf6;
 }
 .window a:hover{
-  background-color: rgb(223, 120, 221);
-  color: black;
+  background-color: #886cf6;
+  color: white;
 }
 
 .buttons{
@@ -111,6 +111,11 @@ height: 100vh;
     width: 120px;
     height: max-content;
     padding: 6px;
+}
+
+.buttons:hover{
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
 }
 
 .themeHoverClass:hover{
@@ -147,8 +152,9 @@ height: 100vh;
     /* background: url('../assets/images/bgPix/haloBlack.jpeg');
     background-size:cover;
     background-repeat: no-repeat; */
-    /* background-color: black; */
-    background: radial-gradient(circle at 50% 40%,rgba(245, 127, 190, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f;
+    /* background-color: black; */ 
+    background: radial-gradient(circle,rgba(255,255,255,0.1)0%,rgba(54, 90, 240, 0.4) 5%, rgba(178, 160, 230, 0.7) 15%,rgba(255,255,255,1)80%);
+    /* background: radial-gradient(circle at 50% 40%,rgba(245, 127, 190, 0.8) 5%,rgba(245, 139, 195, 0.3) 15%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0) 100%),#1a001f; */
   }
 
 #buttons-container {
@@ -190,6 +196,7 @@ height: 100vh;
     margin: 0 auto;
     width: max-content;
     text-decoration:underline;
+    animation: glowAnimation 10s infinite;
   }
 
   /* #default-title:hover{
@@ -226,7 +233,7 @@ height: 100vh;
   }
 
   #footnote-title{
-    width: max-content;
+    width: 10vw;
     margin: 1%;
   }
 
@@ -297,8 +304,8 @@ height: 100vh;
 
   .close-buttons{
     display: flex;
-    background-color: black;
-    color: white;
+    /* background-color: black;
+    color: white; */
     right: 10%;
     cursor: pointer;
   }
@@ -356,7 +363,7 @@ height: 100vh;
     #title-bar-intro-container{
       display: flex;
       position: fixed;
-      top: calc(10vh - 25px);
+      top: calc(10vh - 20px);
       z-index: 8;
       width: 40vw;
     }
@@ -389,16 +396,21 @@ height: 100vh;
     top: 65vh;
     left: 45vw;
     /* background-color: black; */
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
     width: max-content;
     cursor: pointer;
     display: flex;
     margin: 0 auto;
-    font-size: 220%;
-    animation: glowAnimation 2s infinite;
+    font-size: 100%;
+    animation: glowAnimation 2s;
+    animation-iteration-count:20;
+    padding-left: 1vw;
+    padding-right: 1vw;
   }
 
   #intro-container-close-button:hover{
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
 
   /* MANIFESTO CONTAINER HERE */
@@ -431,7 +443,6 @@ height: 100vh;
     font-size: 20px;
     left: 0px;
     /* color: rgb(255, 255, 255); */
-    /* background-color: rgb(202, 224, 224); */
     position: absolute;
     text-align: center;
     /* text-shadow: 1px 1px 5px rgb(222, 164, 226), 0 0 5px #0000FF; */
@@ -447,6 +458,11 @@ height: 100vh;
     text-decoration: underline;
   }
 
+  .flowerEl:hover{
+    background-color: #886cf6;
+    color: white;
+  }
+
   .axisElIcon{
     width: 100%;
     cursor: pointer;
@@ -456,7 +472,7 @@ height: 100vh;
     animation: glowAnimation 7s infinite;
   }
   .axisElIcon:hover {
-    text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
     /* text-decoration: underline; */
     /* background-color: white; */
   }
@@ -514,7 +530,7 @@ height: 100vh;
 
   .title-bar-seed-container{
     /* position: absolute; */
-    width: 355px;
+    width: 353px;
     /* z-index: 6; */
     
   }

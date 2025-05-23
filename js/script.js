@@ -7,6 +7,8 @@ Wawa Li pour Galerie Galerie
 "use strict";
 window.onload = async (event) => {
 console.log(window.innerWidth);
+document.getElementById("theme-dropdown").value = "theme0";
+document.getElementById("seed-dropdown").value = "seed0";
 //   // Function to log mouse coordinates
 // function logMousePosition(event) {
 //   console.log("Mouse X: " + event.clientX + ", Mouse Y: " + event.clientY);
@@ -313,23 +315,25 @@ let language= "eng";
         //hoverColor:?? // on hover change color, used on: footnote, bibliography link and axis title
         theme: "theme0", //related to index.php dropdown option value
         class: "themeHoverClass", //changer de nom pour qqch comme bttn-hover-class
-        background: "radial-gradient(circle at 50% 50%,rgba(54, 90, 240, 0.75) %,rgba(178, 160, 230, 0.75) 30%,#ffffff,#ffffff,#ffffff,#ffffff);", //main background radial gradient
+        background: "radial-gradient(circle,rgba(255,255,255,0.1)0%,rgba(54, 90, 240, 0.4) 5%, rgba(178, 160, 230, 0.7) 15%,rgba(255,255,255,1)80%);", //main background radial gradient
         //box variables:
-        titleBar: "linear-gradient (???, color, color)", //box title bar color 
-        closeBtnClass: "blabalbaba" //box title close button color
+        titleBar: "linear-gradient(90deg,#778077,#feffff);", //box title bar color 
+        closeBtnClass: "blabalbaba", //box title close button color,
+        windowColor: "#FFFFFF",
         //boxBgColor:?? //box background color
         //boxOutlineColor:?? // box outline color
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/halo.png",
         color: "#778077",
-        linkColor: "#6aade9", // active link font color in seedbox
+        linkColor: "#FFFFFF", // active link font color in seedbox
         mainTitleColor: "#778077", // "Jardin Manifesto Garden" font color, active link font color
         theme: "theme1",
         class: "themeHoverClass", //hover colors
-        background: "#f5b9f8", //!!CHANGER PR LE BON GRADIENT
-        titleBar: "linear-gradient (???, color, color)",
-        closeBtnClass: "blabalbaba"
+        background: "radial-gradient(circle,rgba(255, 255, 255, 1) 11%, rgba(245, 185, 248, 1) 40%);", //pink to white
+        titleBar: "linear-gradient(90deg,#778077,#feffff);",
+        closeBtnClass: "blabalbaba",
+        windowColor: "#f5b9f8",
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/grass.jpg",
@@ -338,9 +342,10 @@ let language= "eng";
         mainTitleColor: "#778077", // "Jardin Manifesto Garden" font color, active link font color
         theme: "theme2",
         class: "themeHoverClass",
-        background: "#000000", //!!CHANGER PR LE BON GRADIENT
-        titleBar: "linear-gradient (???, color, color)",
-        closeBtnClass: "blabalbaba"
+        background: "radial-gradient(circle,rgba(255, 255, 255, 0.74) 0%, rgba(119, 128, 119, 1) 11%, rgba(0, 0, 0, 1) 40%);", //black to khaki
+        titleBar: "linear-gradient(90deg,#778077,#000);",
+        closeBtnClass: "blabalbaba",
+        windowColor: "#000000",
       },
       {
         src: "gg_manifesto-garden/assets/images/bgPix/paper.jpg",
@@ -349,9 +354,10 @@ let language= "eng";
         mainTitleColor: "#778077", // "Jardin Manifesto Garden" font color, , active link font color
         theme: "theme3",
         class: "themeHoverClass",
-        background: "#ffffff;",
-        titleBar: "linear-gradient (???, color, color)",
-        closeBtnClass: "blabalbaba"
+        background: "radial-gradient(circle,rgba(119, 128, 119, 0.9) 11%, rgba(255, 255, 255, 1) 40%);",
+        titleBar: "linear-gradient(90deg,#4dfafb,silver);",
+        closeBtnClass: "blabalbaba",
+        windowColor: "#ffffff",
       },
     ];
     document.querySelectorAll(".buttons").forEach(function(el){
@@ -394,10 +400,21 @@ let language= "eng";
           el.style.backgroundColor = selectedBackground.linkColor;
           el.style.color = selectedBackground.mainTitleColor;
         });
+
+        //changes the boxes background color:
+        document.querySelectorAll(".window").forEach(function (el) {
+          el.style.backgroundColor = selectedBackground.windowColor;
+        });
+
         //changes the axis title color:
-        document.querySelectorAll(".flowerEl").forEach(function (el) {
+        document.querySelectorAll(".flowerEl:hover").forEach(function (el) {
           el.style.backgroundColor = selectedBackground.linkColor;
           el.style.color = selectedBackground.mainTitleColor;
+        });
+
+        //changes the title-bar background color:
+        document.querySelectorAll(".title-bar").forEach(function (el) {
+          el.style.background = selectedBackground.titleBar;
         });
 
     });

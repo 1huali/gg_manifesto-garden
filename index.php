@@ -292,7 +292,7 @@ CONTENT MANIFESTO ENG
     <div id="title-bar-intro-container" class="title-bar">
     <div class="title-bar-text">Welcome | Bienvenu.es</div>
     <div class="title-bar-controls">
-      <input id="index-container-close-button" class="close-buttons" type="button" value="X">
+       <button disabled id="index-container-close-button" class="close-buttons">X</button>
     </div>
 </div>
 
@@ -311,7 +311,8 @@ CONTENT MANIFESTO ENG
 </div>
 
 <div>
-<span id="intro-container-close-button">꧁ ✿ ꧂</span>
+<!-- <span id="intro-container-close-button">꧁ ✿ ꧂</span> -->
+ <button id="intro-container-close-button">꧁ ✿ ꧂</button>
 
 <div id="intro-garden-left" class="intro-garden">
 &nbsp;&nbsp;&nbsp;✿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿✿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿✿&nbsp;✿&nbsp;&nbsp;&nbsp;&nbsp;✿&nbsp;<br>✿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿<br>
