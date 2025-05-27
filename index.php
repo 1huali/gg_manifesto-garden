@@ -177,7 +177,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']))
             <li><a href="https://schoolofcommons.org/">school of commons (SoC)</a> (2019-)</li>
             <li><a href="https://www.betterworldbooks.com/product/detail/floss-art-9781906496180">FLOSS+Art</a> (2008)</li>
             <li><a href="https://mackenzie.art/digital-art/detail/">Digital Exhibitions Toolkit and Art Installation Launcher (DETAIL)</a> (2021-2024)</li>
-            <li><a href="https://webrecorder.net/">Werecorder</a> (2014-)</li>
+            <li><a href="https://webrecorder.net/">Webrecorder</a> (2014-)</li>
             <li><a href="https://leafletjs.com/">Leaflet.js</a> (2011-)</li>
             <li><a href="https://p5js.org/">p5.js</a> (2013-)</li>
           </ul>
